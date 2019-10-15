@@ -41,12 +41,25 @@ public abstract class Pessoa implements Serializable {
 
     @Column(nullable = false, length = 80)
     private String nome;
+    
+     @Column(length = 20)
+     private String contato;
 
     @Column(length = 20)
     private Date dtaNascimento;
 
     @Column(length = 20)
     private String naturalidade;
+    
+    @Column(length = 20)
+    private String tipo; 
+    
+    @Column(length = 20)
+    private String user;
+    
+    @Column(length = 20)
+    private String senha;
+    
 
     /*
     @Column(nullable = false, unique = true, length = 20)

@@ -5,6 +5,7 @@
  */
 package model.beans;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,11 +23,13 @@ import javax.persistence.OneToOne;
  * @author Vinícius
  */
 @Entity
-public class Endereco {
+public class Endereco implements Serializable{
 
+    public static final String SEQUENCE_NAME = "SEQUENCE_ENDERCO";
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
     private Long id;
+    
     @Column(length = 80, nullable = false)
     private String cidade;
     @Column(length = 3, nullable = false)

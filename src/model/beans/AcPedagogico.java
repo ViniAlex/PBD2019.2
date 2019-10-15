@@ -5,6 +5,8 @@
  */
 package model.beans;
 
+import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,28 +18,19 @@ import javax.persistence.Id;
  * @author Vinícius
  */
 @Entity
-public class Aluno extends Pessoa {
-    
+public class AcPedagogico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column(length = 100)
-    private String pai;
+    private Date data;
     
-     @Column(length = 20)
-    private String cttPai;
-    
-     @Column(length = 100)
-    private String Mae;
-    
-    @Column(length = 20)
-    private String cttMae;
+    @Column(length = 1000)
+    private String descricao;
     
     @Column(length = 100)
-    private String respFinan;
+    private String status;
     
-    @Column(length = 20)
-    private String cpfRespFinan;
     
 }
