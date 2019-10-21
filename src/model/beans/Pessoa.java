@@ -7,8 +7,7 @@ package model.beans;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.CascadeType;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +16,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -28,76 +25,126 @@ import javax.persistence.SequenceGenerator;
  * @author Vinícius
  */
 @Entity
-@SequenceGenerator(name = Pessoa.SEQUENCE_NAME,
-        sequenceName = Pessoa.SEQUENCE_NAME,
-        initialValue = 1, allocationSize = 1)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Pessoa implements Serializable {
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Endereco.sequence, initialValue = 1, allocationSize = 1)
+public class Pessoa extends Entidade {
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "ENDERECO_ID")
+    private Endereco end;
 
     public static final String SEQUENCE_NAME = "SEQUENCE_PESSOA";
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-    private Long id;
+    
+    private static final long serialVersionUID = 1L;
 
     @Column(nullable = false, length = 80)
     private String nome;
-    
-     @Column(length = 20)
-     private String contato;
 
     @Column(length = 20)
     private Date dtaNascimento;
 
     @Column(length = 20)
     private String naturalidade;
-    
+
     @Column(length = 20)
-    private String tipo; 
-    
+    private String tipo;
+
     @Column(length = 20)
-    private String user;
-    
+    private String login;
+
     @Column(length = 20)
     private String senha;
+
     
+
+   
+
+    public Pessoa() {
+
+    }
+
+    public Endereco getEnd() {
+        return end;
+    }
+
+    public void setEnd(Endereco end) {
+        this.end = end;
+    }
 
     /*
-    @Column(nullable = false, unique = true, length = 20)
-    private String cpf;
-    
-    @Column(length = 60)
-    private String email;
-    
-    @Column(length = 20)
-    private String telefone1;
-    
-    @Column(length = 20)
-    private String telefone2;
-    
-    @OneToOne
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;     
-    
-    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Endereco.class)
-    @JoinTable(name = "pessoa_endereco",
-            joinColumns = @JoinColumn(name = "pessoa_id"),
-            inverseJoinColumns = @JoinColumn(name = "endereco_id"))
-    private List<Endereco> enderecos;
-    
-    public Endereco getEndereco() {
-        return endereco;
+    @OneToMany(mappedBy = "pessoa", targetEntity = Disciplina.class, cascade = CascadeType.ALL)
+    private Collection disciplinas;
+
+    public Collection getDisciplinas() {
+        return disciplinas;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setDisciplinas(Collection disciplinas) {
+        this.disciplinas = disciplinas;
     }
-    
-    public List<Endereco> getEnderecos() {
-        return enderecos;
+   
+    @OneToMany(mappedBy = "pessoa", targetEntity = AcPedagogico.class, cascade = CascadeType.ALL)
+    private Collection acPedagogicos;
+
+    public Collection getAcPedagogicos() {
+        return acPedagogicos;
     }
 
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
+    public void setAcPedagogicos(Collection acPedagogicos) {
+        this.acPedagogicos = acPedagogicos;
+    }  
      */
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDtaNascimento() {
+        return dtaNascimento;
+    }
+
+    public void setDtaNascimento(Date dtaNascimento) {
+        this.dtaNascimento = dtaNascimento;
+    }
+
+    public String getNaturalidade() {
+        return naturalidade;
+    }
+
+    public void setNaturalidade(String naturalidade) {
+        this.naturalidade = naturalidade;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String detalhesEntidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

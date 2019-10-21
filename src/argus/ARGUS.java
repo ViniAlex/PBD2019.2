@@ -5,17 +5,20 @@
  */
 package argus;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author Vinícius
  */
 public class ARGUS {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        EntityManagerFactory emf
+                = Persistence.createEntityManagerFactory("ARGUS-UP");
+        EntityManager em = emf.createEntityManager();
     }
-    
 }

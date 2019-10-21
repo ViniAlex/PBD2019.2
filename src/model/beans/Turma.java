@@ -5,42 +5,49 @@
  */
 package model.beans;
 
-import java.io.Serializable;
+import java.util.HashSet;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import org.hibernate.mapping.Set;
 
 /**
  *
  * @author Vinícius
  */
 @Entity
-@SequenceGenerator(name = Entidade.sequence, sequenceName = Disciplina.sequence, initialValue = 1, allocationSize = 1)
-public class Disciplina extends Entidade {
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Turma.sequence, initialValue = 1, allocationSize = 1)
 
-    public static final String SEQUENCE_NAME = "SEQUENCE_DISCIPLINA";
+public class Turma extends Entidade {
+    
+    public static final String SEQUENCE_NAME = "SEQUENCE_TURMA";
+    
     private static final long serialVersionUID = 1L;
+   
+    @Column(length = 20)
+    private String nome;
     
     @Column(length = 100)
-    private String nome;
-
-    @Column(length = 20)
-    private int ch;
+    private Double notas;
     
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @OneToOne(optional = false)
+    @JoinColumn(name = "CURRICULO_ID")
     private Curriculo curriculo;
-    
-    @OneToOne
-    @JoinColumn(name = "PESSOA_ID")
-    private Pessoa pessoa;
 
+    public Curriculo getCurriculo() {
+        return curriculo;
+    }
+
+    public void setCurriculo(Curriculo curriculo) {
+        this.curriculo = curriculo;
+    }
+    
+    
+    
     
     public String getNome() {
         return nome;
@@ -50,19 +57,17 @@ public class Disciplina extends Entidade {
         this.nome = nome;
     }
 
-    public int getCh() {
-        return ch;
+    public Double getNotas() {
+        return notas;
     }
 
-    public void setCh(int ch) {
-        this.ch = ch;
-    }
-
+    public void setNotas(Double notas) {
+        this.notas = notas;
+    }    
+    
     @Override
     public String detalhesEntidade() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
     
 }

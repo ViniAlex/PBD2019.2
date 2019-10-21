@@ -12,25 +12,67 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author Vinícius
  */
 @Entity
-public class AcPedagogico implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+@SequenceGenerator(name = Entidade.sequence, sequenceName = AcPedagogico.sequence, initialValue = 1, allocationSize = 1)
+
+public class AcPedagogico extends Entidade {
+
+    public static final String SEQUENCE_NAME = "SEQUENCE_ENTIDADE";
+    private static final long serialVersionUID = 1L;
+
     @Column(length = 100)
     private Date data;
-    
+
     @Column(length = 1000)
     private String descricao;
-    
+
     @Column(length = 100)
     private String status;
-    
-    
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "ALUNO_ID")
+    private Aluno aluno;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "PESSOA_ID")
+    private Pessoa pessoa;
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String detalhesEntidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

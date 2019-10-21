@@ -11,56 +11,74 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author Vinícius
  */
 @Entity
-public class Matricula implements Serializable {
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Matricula.sequence, initialValue = 1, allocationSize = 1)
+public class Matricula extends Entidade {
 
+    public static final String SEQUENCE_NAME = "SEQUENCE_MATRICULA";
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     
-    @Column (length = 50)
+    @Column(length = 50)
     private double valorTotal;
+
+    @Column(length = 50)
+    private double valorMensalidade;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "ALUNO_ID")
+    private Aluno aluno;
     
-    @Column (length = 50)
-    private double valorMensalidade;    
+    @OneToOne(optional = false)
+    @JoinColumn(name = "TURMA_ID")
+    private Turma turma;
 
-    public Long getId() {
-        return id;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public Turma getTurma() {
+        return turma;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Matricula)) {
-            return false;
-        }
-        Matricula other = (Matricula) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "model.beans.Matricula[ id=" + id + " ]";
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
     
+    
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public double getValorMensalidade() {
+        return valorMensalidade;
+    }
+
+    public void setValorMensalidade(double valorMensalidade) {
+        this.valorMensalidade = valorMensalidade;
+    }
+
+  
+    @Override
+    public String detalhesEntidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

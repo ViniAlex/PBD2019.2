@@ -14,22 +14,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author Vinícius
  */
 @Entity
-public class Endereco implements Serializable{
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Endereco.sequence, initialValue = 1, allocationSize = 1)
+public class Endereco extends Entidade{  
 
-    public static final String SEQUENCE_NAME = "SEQUENCE_ENDERCO";
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-    private Long id;
-    
     @Column(length = 80, nullable = false)
     private String cidade;
     @Column(length = 3, nullable = false)
@@ -43,24 +38,13 @@ public class Endereco implements Serializable{
     @Column(length = 30, nullable = false)
     private String numero;
 
-    //@OneToOne(cascade = CascadeType.ALL)//
-    //private Pessoa pessoa;
-    //@OneToMany(cascade = CascadeType.ALL, targetEntity = Pessoa.class)
-    //@JoinColumn(name = "endereco_id")
-    //private List<Pessoa> pessoas;
-    
-    @ManyToMany(mappedBy = "enderecos", cascade = CascadeType.ALL, targetEntity = Pessoa.class)
-    private List<Pessoa> pessoas;
+    private static final long serialVersionUID = 1L;
+
+    protected static final String sequence = "endereco_sequence";
+
     public Endereco() {
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    }   
 
     public String getCidade() {
         return cidade;
@@ -108,5 +92,10 @@ public class Endereco implements Serializable{
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String detalhesEntidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
