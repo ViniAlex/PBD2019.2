@@ -8,6 +8,7 @@ package model.beans;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +29,9 @@ import javax.persistence.SequenceGenerator;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @SequenceGenerator(name = Entidade.sequence, sequenceName = Endereco.sequence, initialValue = 1, allocationSize = 1)
 public class Pessoa extends Entidade {
-
-    @OneToOne(optional = false)
+    
+    //se persistir a pessoa o endereçoserá persistindo
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ENDERECO_ID")
     private Endereco end;
 

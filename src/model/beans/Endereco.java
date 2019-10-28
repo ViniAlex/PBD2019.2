@@ -27,7 +27,7 @@ public class Endereco extends Entidade{
 
     @Column(length = 80, nullable = false)
     private String cidade;
-    @Column(length = 3, nullable = false)
+    @Column(length = 20, nullable = false)
     private String estado;
     @Column(length = 15, nullable = false)
     private String cep;

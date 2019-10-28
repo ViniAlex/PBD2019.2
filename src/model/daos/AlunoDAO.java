@@ -5,10 +5,13 @@
  */
 package model.daos;
 
-/**
- *
- * @author Vinícius
- */
-public class AlunoDAO {
+import model.beans.Aluno;
+
+//
+public class AlunoDAO extends DAO <Aluno> {
+    
+    public AlunoDAO() {
+        super(Aluno.class);
+    }    
     
 }

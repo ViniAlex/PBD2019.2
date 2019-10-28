@@ -51,9 +51,7 @@ public class Aluno extends Pessoa {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
-    }
-    
-    
+    }   
 
     public String getPai() {
         return pai;
@@ -67,7 +65,7 @@ public class Aluno extends Pessoa {
         return mae;
     }
 
-    public void setMae(String Mae) {
+    public void setMae(String mae) {
         this.mae = mae;
     }
 
@@ -85,6 +83,11 @@ public class Aluno extends Pessoa {
 
     public void setCpfRespFinan(String cpfRespFinan) {
         this.cpfRespFinan = cpfRespFinan;
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno{" + "pai=" + pai + ", mae=" + mae + ", respFinan=" + respFinan + ", cpfRespFinan=" + cpfRespFinan + ", turma=" + turma + '}';
     }
 
 }

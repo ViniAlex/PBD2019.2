@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import org.hibernate.mapping.Collection;
 
 /**
@@ -20,31 +21,17 @@ import org.hibernate.mapping.Collection;
  * @author Vinícius
  */
 @Entity
-public class Curriculo implements Serializable {
-
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Curriculo.sequence, initialValue = 1, allocationSize = 1)
+public class Curriculo extends Entidade {    
+    
+    public static final String SEQUENCE_NAME = "SEQUENCE_CURRICULO";
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     
     @Column(length = 20)
-    private String nome;
-    
-    public Curriculo(){
-        
-    }
-    
-    /*
-    @OneToMany(mappedBy = "curriculo", targetEntity = Turma.class, cascade = CascadeType.ALL)
-    private Collection turmas;
-    
-    */
+    private String nome;      
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String detalhesEntidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
