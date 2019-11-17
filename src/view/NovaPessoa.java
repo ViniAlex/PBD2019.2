@@ -17,22 +17,20 @@ import javax.swing.LookAndFeel;
  *
  * @author Vinícius
  */
-public class NovaPessoa extends javax.swing.JFrame {
+public class NovaPessoa extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NovaPessoa2
      */
     public NovaPessoa() {
         initComponents();
-        
+
         PessoaControl c = new PessoaControl(this);
-        
+
         btCadastrar.addActionListener(c);
         btVoltar.addActionListener(c);
-        
-        setLocationRelativeTo(null);
-        
-       
+
+        //setLocationRelativeTo(null);
     }
 
     public JTextField getTxtPai() {
@@ -42,8 +40,6 @@ public class NovaPessoa extends javax.swing.JFrame {
     public void setTxtPai(JTextField txtPai) {
         this.txtPai = txtPai;
     }
-    
-    
 
     public JButton getBtCadastrar() {
         return btCadastrar;
@@ -180,8 +176,6 @@ public class NovaPessoa extends javax.swing.JFrame {
     public void setTxtSenha(JTextField txtSenha) {
         this.txtSenha = txtSenha;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -597,8 +591,8 @@ public class NovaPessoa extends javax.swing.JFrame {
     private void cbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoActionPerformed
 
         System.out.println(txtMae.getText());
-        
-        if(cbTipo.getSelectedItem().equals("Aluno")){
+
+        if (cbTipo.getSelectedItem().equals("Aluno")) {
 
             lbMae.setVisible(true);
             lbPai.setVisible(true);
@@ -610,7 +604,7 @@ public class NovaPessoa extends javax.swing.JFrame {
             cbRespFinanc.setVisible(true);
             txtCpf.setVisible(true);
 
-        }else{
+        } else {
             lbMae.setVisible(false);
             lbPai.setVisible(false);
             txtMae.setVisible(false);
@@ -638,41 +632,6 @@ public class NovaPessoa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbUfActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NovaPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NovaPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NovaPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NovaPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NovaPessoa().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;

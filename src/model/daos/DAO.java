@@ -1,9 +1,13 @@
 package model.daos;
 
+import static java.util.Collections.list;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import model.beans.Entidade;
 import util.DaoException;
 
@@ -59,8 +63,21 @@ public class DAO<T extends Entidade> {
             throw new DaoException("Erro Ao Procurar Por " + classe.getSimpleName());
         }
     }
-
-   
+    
+    @SuppressWarnings("unchecked")
+	public List<T> searchAll() throws DaoException {
+		try {
+			return entityManager.createQuery("FROM " + classe.getName()).getResultList();
+		} catch (NoResultException n) {
+			n.printStackTrace();
+			throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+		}
+	}
+    
+    
     public void remove(int id) throws DaoException {
 
         try {

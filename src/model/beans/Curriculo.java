@@ -27,8 +27,18 @@ public class Curriculo extends Entidade {
     public static final String SEQUENCE_NAME = "SEQUENCE_CURRICULO";
     private static final long serialVersionUID = 1L;
     
-    @Column(length = 20)
-    private String nome;      
+    @Column(length = 100)
+    private String nome; 
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    
 
     @Override
     public String detalhesEntidade() {

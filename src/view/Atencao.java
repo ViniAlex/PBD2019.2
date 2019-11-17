@@ -16,6 +16,7 @@ public class Atencao extends javax.swing.JFrame {
      */
     public Atencao() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

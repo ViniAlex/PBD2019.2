@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="imAlterarSenha">
           <Properties>
             <Property name="text" type="java.lang.String" value="Perfil"/>
           </Properties>
@@ -17,109 +17,127 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alterarSenhaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="sair">
+            <MenuItem class="javax.swing.JMenuItem" name="imSair">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="imCadastrarPessoa">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cliente"/>
+            <Property name="text" type="java.lang.String" value="Pessoa"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="novoCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Cliente"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Pessoa"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoClienteActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="listarClientes">
+            <MenuItem class="javax.swing.JMenuItem" name="imListarPessoas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar Clientes"/>
+                <Property name="text" type="java.lang.String" value="Listar Pessoas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarClientesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imListarPessoasActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="imListarAlunos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar Alunos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imListarAlunosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pedido"/>
+            <Property name="text" type="java.lang.String" value="Matricula"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="novoPedido">
+            <MenuItem class="javax.swing.JMenuItem" name="imRealizarMatricula">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Pedido"/>
+                <Property name="text" type="java.lang.String" value="Realizar Matricula"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoPedidoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imRealizarMatriculaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="listarPedidos">
+            <MenuItem class="javax.swing.JMenuItem" name="imListarMatriculas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar Pedidos"/>
+                <Property name="text" type="java.lang.String" value="Listar Matriculas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarPedidosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imListarMatriculasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Estoque"/>
+            <Property name="text" type="java.lang.String" value="Disciplina"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="novoProduto">
+            <MenuItem class="javax.swing.JMenuItem" name="imCadastrarDisciplina">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Produtos e Servi&#xe7;os"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Disciplina"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoProdutoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imCadastrarDisciplinaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="listarProduto">
+            <MenuItem class="javax.swing.JMenuItem" name="imLIstarDisciplinas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Listar Produtos e Servi&#xe7;os"/>
+                <Property name="text" type="java.lang.String" value="Listar Disciplinas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarProdutoActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuFuncionario">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastrar Funcion&#xe1;rio"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imLIstarDisciplinasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuCaixa">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Caixa"/>
+            <Property name="text" type="java.lang.String" value="Turma"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="caixa">
+            <MenuItem class="javax.swing.JMenuItem" name="imCdTurma">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Controle do Caixa"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Turma"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caixaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imCdTurmaActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="imListarTurmas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar Turmas"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuFuncionario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ac. Pedagogico"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="imNovoAcPed">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Novo Acompanhamento Pedagogico"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imNovoAcPedActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="imListarAcPed">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar Acompanhamentos"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>

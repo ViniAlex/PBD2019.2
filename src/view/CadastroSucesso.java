@@ -16,7 +16,9 @@ public class CadastroSucesso extends javax.swing.JFrame {
      */
     public CadastroSucesso() {
         initComponents();
-        setLocation(null);
+        //this.setUndecorated(true);
+        //setLocation(null);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -34,6 +36,7 @@ public class CadastroSucesso extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 153));
 

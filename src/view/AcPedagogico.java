@@ -5,7 +5,6 @@
  */
 package view;
 
-import control.CadastroProdutoControl;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -21,7 +20,7 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
      */
     public AcPedagogico() {
         initComponents();
-
+        /*
         CadastroProdutoControl c = new CadastroProdutoControl(this);
 
         btAtualizar.addActionListener(c);
@@ -31,105 +30,11 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
         btNovo.addActionListener(c);
         btVoltar.addActionListener(c);
         btExcluir.addActionListener(c);
+         */
 
     }
 
-    public JButton getBtExcluir() {
-        return btExcluir;
-    }
-
-    public void setBtExcluir(JButton btExcluir) {
-        this.btExcluir = btExcluir;
-    }
-
-    public JButton getBtAlterar() {
-        return btAlterar;
-    }
-
-    public void setBtAlterar(JButton btAlterar) {
-        this.btAlterar = btAlterar;
-    }
-
-    public JButton getBtBusca() {
-        return btBusca;
-    }
-
-    public void setBtBusca(JButton btBusca) {
-        this.btBusca = btBusca;
-    }
-
-    public JButton getBtCadastrar() {
-        return btCadastrar;
-    }
-
-    public void setBtCadastrar(JButton btCadastrar) {
-        this.btCadastrar = btCadastrar;
-    }
-
-    public JButton getBtNovo() {
-        return btNovo;
-    }
-
-    public void setBtNovo(JButton btNovo) {
-        this.btNovo = btNovo;
-    }
-
-    public JButton getBtAtualizar() {
-        return btAtualizar;
-    }
-
-    public void setBtAtualizar(JButton btAtualizar) {
-        this.btAtualizar = btAtualizar;
-    }
-
-    public JButton getBtVoltar() {
-        return btVoltar;
-    }
-
-    public void setBtVoltar(JButton btVoltar) {
-        this.btVoltar = btVoltar;
-    }
-
-    public JTable getTabela() {
-        return tabela;
-    }
-
-    public void setTabela(JTable tabela) {
-        this.tabela = tabela;
-    }
-
-    public JTextField getTxtBusca() {
-        return txtBusca;
-    }
-
-    public void setTxtBusca(JTextField txtBusca) {
-        this.txtBusca = txtBusca;
-    }
-
-    public JTextField getTxtNome() {
-        return txtNome;
-    }
-
-    public void setTxtNome(JTextField txtNome) {
-        this.txtNome = txtNome;
-    }
-
-    public JTextField getTxtQtd() {
-        return txtQtd;
-    }
-
-    public void setTxtQtd(JTextField txtQtd) {
-        this.txtQtd = txtQtd;
-    }
-
-    public JTextField getTxtValor() {
-        return txtValor;
-    }
-
-    public void setTxtValor(JTextField txtValor) {
-        this.txtValor = txtValor;
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
