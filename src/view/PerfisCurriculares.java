@@ -5,7 +5,7 @@
  */
 package view;
 
-import control.DisciplinasControl;
+import control.PerfisControl;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -14,15 +14,15 @@ import javax.swing.JTextField;
  *
  * @author Vinícius
  */
-public class Disciplinas extends javax.swing.JInternalFrame {
+public class PerfisCurriculares extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Disciplinas
+     * Creates new form PerfisCurriculares
      */
-    public Disciplinas(TelaPrincipal tlP) {
+    public PerfisCurriculares(TelaPrincipal tlP) {
         initComponents();
         
-        DisciplinasControl c = new DisciplinasControl(this,tlP);
+        PerfisControl c = new PerfisControl(this, tlP);
         
         btBusca.addActionListener(c);
         btVer.addActionListener(c);
@@ -90,7 +90,7 @@ public class Disciplinas extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -146,21 +146,21 @@ public class Disciplinas extends javax.swing.JInternalFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Disciplinas"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Perfis Curriculares"));
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Disciplina", "Perfil Curricular", "Carga Horária", "Pedagogo"
+                "ID", "Nome"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, true
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -184,7 +184,7 @@ public class Disciplinas extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -260,6 +260,7 @@ public class Disciplinas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tabelaMouseClicked
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBusca;

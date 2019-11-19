@@ -37,8 +37,7 @@ public class PerfilControler implements ActionListener {
 
         if (e.getSource() == tlPerf.getBtSalvar()) {
 
-            System.out.println(tlPerf.getTxtNome().getText().toString());
-            //telaSucesso();
+            
             cv = new Curriculo();
             cv.setNome(tlPerf.getTxtNome().getText());
 

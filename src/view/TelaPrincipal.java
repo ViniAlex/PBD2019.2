@@ -20,6 +20,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
 
         setLocationRelativeTo(null);
+        
+        Solicitacoes soli = new Solicitacoes();
+        internoFrame.add(soli);
+        soli.show();
+        soli.locate(20, 20);
     }
 
     /**
@@ -192,6 +197,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCaixa.add(imCdTurma);
 
         imListarTurmas.setText("Listar Turmas");
+        imListarTurmas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imListarTurmasActionPerformed(evt);
+            }
+        });
         menuCaixa.add(imListarTurmas);
 
         jMenuBar1.add(menuCaixa);
@@ -235,9 +245,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_imListarAlunosActionPerformed
 
     private void imLIstarDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imLIstarDisciplinasActionPerformed
-        Disciplinas tlDisci = new Disciplinas();
+        Disciplinas tlDisci = new Disciplinas(this);
         internoFrame.add(tlDisci);        
         tlDisci.show();
+        
+        
     }//GEN-LAST:event_imLIstarDisciplinasActionPerformed
 
     private void alterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarSenhaActionPerformed
@@ -288,6 +300,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         internoFrame.add(p);
         p.show();
     }//GEN-LAST:event_imListarPessoasActionPerformed
+
+    private void imListarTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarTurmasActionPerformed
+        PerfisCurriculares pC = new PerfisCurriculares(this);
+        internoFrame.add(pC);
+        pC.show();
+    }//GEN-LAST:event_imListarTurmasActionPerformed
 
     /**
      * @param args the command line arguments
