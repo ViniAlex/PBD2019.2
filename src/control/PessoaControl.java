@@ -119,8 +119,9 @@ public class PessoaControl implements ActionListener {
                 pessoa.setEnd(end);
 
                 try {
-                    telaSucesso();
+                    
                     pessoaDAO.create(pessoa);
+                    telaSucesso();
                     limpar();
                 } catch (DaoException ex) {
                     telaErro();

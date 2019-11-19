@@ -73,29 +73,6 @@ public class Pessoa extends Entidade {
         this.end = end;
     }
 
-    /*
-    @OneToMany(mappedBy = "pessoa", targetEntity = Disciplina.class, cascade = CascadeType.ALL)
-    private Collection disciplinas;
-
-    public Collection getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(Collection disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-   
-    @OneToMany(mappedBy = "pessoa", targetEntity = AcPedagogico.class, cascade = CascadeType.ALL)
-    private Collection acPedagogicos;
-
-    public Collection getAcPedagogicos() {
-        return acPedagogicos;
-    }
-
-    public void setAcPedagogicos(Collection acPedagogicos) {
-        this.acPedagogicos = acPedagogicos;
-    }  
-     */
     public String getNome() {
         return nome;
     }

@@ -15,7 +15,6 @@ import util.DaoException;
  *
  * @author Vinícius
  */
-
 //classe genérica 
 public class DAO<T extends Entidade> {
 
@@ -28,8 +27,8 @@ public class DAO<T extends Entidade> {
 
     //iniciando a conexão 
     protected static EntityManager getEntityManager() {
-         
-        if (entityManager == null) { 
+
+        if (entityManager == null) {
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("ARGUS-UP");
             entityManager = factory.createEntityManager();
             entityManager.clear();
@@ -51,7 +50,6 @@ public class DAO<T extends Entidade> {
         }
     }
 
-    
     public T search(int id) throws DaoException {
         try {
             return entityManager.find(classe, id);
@@ -63,21 +61,59 @@ public class DAO<T extends Entidade> {
             throw new DaoException("Erro Ao Procurar Por " + classe.getSimpleName());
         }
     }
+
+    public List<T> buscaPorNome(String nome) throws DaoException {
+
+        try {
+            return entityManager.createQuery("SELECT a FROM " + classe.getName() + " a WHERE nome like'%" + nome + "%'").getResultList();
+        } catch (NoResultException n) {
+            n.printStackTrace();
+            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+    }
     
+    public List<T> buscaPorNome2(String nome) throws DaoException {
+
+        try {
+            return entityManager.createQuery("SELECT nome FROM " + classe.getName() + " a WHERE nome like'%" + nome + "%'").getResultList();
+        } catch (NoResultException n) {
+            n.printStackTrace();
+            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+    }
+    
+    public List<T> buscaPorCargo() throws DaoException {
+
+        try {
+            return entityManager.createQuery("SELECT nome FROM " + classe.getName() + " a WHERE tipo like 'Pedagogo'").getResultList();
+        } catch (NoResultException n) {
+            n.printStackTrace();
+            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+    }
+
     @SuppressWarnings("unchecked")
-	public List<T> searchAll() throws DaoException {
-		try {
-			return entityManager.createQuery("FROM " + classe.getName()).getResultList();
-		} catch (NoResultException n) {
-			n.printStackTrace();
-			throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
-		}
-	}
-    
-    
+    public List<T> searchAll() throws DaoException {
+        try {
+            return entityManager.createQuery("FROM " + classe.getName()).getResultList();
+        } catch (NoResultException n) {
+            n.printStackTrace();
+            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+    }
+
     public void remove(int id) throws DaoException {
 
         try {
@@ -93,7 +129,6 @@ public class DAO<T extends Entidade> {
 
     }
 
-    
     public void update(T entidade) throws DaoException {
 
         try {
@@ -107,11 +142,9 @@ public class DAO<T extends Entidade> {
         }
     }
 
-
     public static void closeConnection() {
         entityManager.flush();
         entityManager.close();
     }
-    
-    
+
 }

@@ -13,9 +13,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static java.util.logging.Logger.getLogger;
 import javax.swing.table.DefaultTableModel;
+import model.beans.Aluno;
 import model.beans.Pessoa;
+import model.daos.AlunoDAO;
 import model.daos.PessoaDAO;
 import util.DaoException;
+import view.Alunos;
 import view.CadastroSucesso;
 import view.Erro;
 import view.NovaPessoa;
@@ -26,16 +29,16 @@ import view.TelaPrincipal;
  *
  * @author Vinícius
  */
-public class PessoasControler implements ActionListener {
+public class AlunosControl implements ActionListener {
 
-    private Pessoas tlPessoas;
-    private PessoaDAO pessoaDAO = new PessoaDAO();
-    private Pessoa p;
+    private Alunos tl;
+    private AlunoDAO alunoDAO = new AlunoDAO();
+    private Aluno al;
     private TelaPrincipal telaP;
     SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
 
-    public PessoasControler(Pessoas tlPessoas, TelaPrincipal tlP) {
-        this.tlPessoas = tlPessoas;
+    public AlunosControl(Alunos tlAlunos, TelaPrincipal tlP) {
+        this.tl = tlAlunos;
         this.telaP = tlP;
 
         popularTabela();
@@ -45,15 +48,15 @@ public class PessoasControler implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == tlPessoas.getBtVer()){
+        if (e.getSource() == tl.getBtVer()) {
 
-            int row = tlPessoas.getTabela().getSelectedRow();
-            int id = Integer.parseInt(tlPessoas.getTabela().getValueAt(row, 0) + "");
-//            Pessoa p = null;
+            int row = tl.getTabela().getSelectedRow();
+            int id = Integer.parseInt(tl.getTabela().getValueAt(row, 0) + "");
+
             try {
-                p = pessoaDAO.search(id);
+                al = alunoDAO.search(id);
             } catch (DaoException ex) {
-                Logger.getLogger(PessoasControler.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AlunosControl.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             NovaPessoa nP = new NovaPessoa();
@@ -62,46 +65,57 @@ public class PessoasControler implements ActionListener {
             nP.show();
             nP.getBtCadastrar().setText("Alterar");
             nP.getCbTipo().setEnabled(false);
-            nP.getCbTipo().setSelectedItem(p.getTipo());
-            nP.getTxtAluno().setText(p.getNome());
-            nP.getTxtNatu().setText(p.getNaturalidade());
 
+            nP.getCbTipo().setSelectedItem(al.getTipo());
+            nP.getTxtAluno().setText(al.getNome());
+            nP.getTxtNatu().setText(al.getNaturalidade());
             //nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
 
-            nP.getTxtEnd().setText(p.getEnd().getRua());
-            nP.getTxtNum().setText(p.getEnd().getNumero());
-            nP.getTxtBairro().setText(p.getEnd().getBairro());
-            nP.getTxtCep().setText(p.getEnd().getCep());
-            nP.getTxtCidade().setText(p.getEnd().getCidade());
-            nP.getCbUf().setSelectedItem(p.getEnd().getEstado());
-            nP.getTxtLogin().setText(p.getLogin());
-            nP.getTxtSenha().setText(p.getSenha());
+            nP.getTxtMae().setText(al.getMae());
+            nP.getTxtPai().setText(al.getPai());
+            nP.getCbRespFinanc().setSelectedItem(al.getCpfRespFinan());
+            nP.getTxtCpf().setText(al.getCpfRespFinan());
+
+            nP.getTxtEnd().setText(al.getEnd().getRua());
+            nP.getTxtNum().setText(al.getEnd().getNumero());
+            nP.getTxtBairro().setText(al.getEnd().getBairro());
+            nP.getTxtCep().setText(al.getEnd().getCep());
+            nP.getTxtCidade().setText(al.getEnd().getCidade());
+            nP.getCbUf().setSelectedItem(al.getEnd().getEstado());
+            nP.getTxtLogin().setText(al.getLogin());
+            nP.getTxtSenha().setText(al.getSenha());
             nP.getBtCadastrar().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
                     try {
-                        p.setNome(nP.getTxtAluno().getText());
-                        p.setNaturalidade(nP.getTxtNatu().getText());
-/*
+                        al.setNome(nP.getTxtAluno().getText());
+                        al.setNaturalidade(nP.getTxtNatu().getText());
+                        /*
                         try {
 
                             p.setDtaNascimento(format.parse(nP.getTxtDtaNasc().getText()));
                         } catch (ParseException ex) {
                             Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
                         }
-*/
-                        p.getEnd().setRua(nP.getTxtEnd().getText());
-                        p.getEnd().setNumero(nP.getTxtNum().getText());
-                        p.getEnd().setBairro(nP.getTxtBairro().getText());
-                        p.getEnd().setCep(nP.getTxtCep().getText());
-                        p.getEnd().setCidade(nP.getTxtCidade().getText());
-                        p.getEnd().setEstado(nP.getCbUf().getSelectedItem().toString());
-                        
-                        p.setLogin(nP.getTxtLogin().getText());
-                        p.setSenha(nP.getTxtSenha().getText());                        
-                     
-                        pessoaDAO.update(p);
+                         */
+
+                        al.setMae(nP.getTxtMae().getText());
+                        al.setPai(nP.getTxtPai().getText());
+                        al.setRespFinan(nP.getCbRespFinanc().getSelectedItem().toString());
+                        al.setCpfRespFinan(nP.getTxtCpf().getText());
+
+                        al.getEnd().setRua(nP.getTxtEnd().getText());
+                        al.getEnd().setNumero(nP.getTxtNum().getText());
+                        al.getEnd().setBairro(nP.getTxtBairro().getText());
+                        al.getEnd().setCep(nP.getTxtCep().getText());
+                        al.getEnd().setCidade(nP.getTxtCidade().getText());
+                        al.getEnd().setEstado(nP.getCbUf().getSelectedItem().toString());
+
+                        al.setLogin(nP.getTxtLogin().getText());
+                        al.setSenha(nP.getTxtSenha().getText());
+
+                        alunoDAO.update(al);
                         telaSucesso();
                         nP.dispose();
                     } catch (DaoException ex) {
@@ -111,15 +125,13 @@ public class PessoasControler implements ActionListener {
                 }
             });
 
-            //1 fazer um busca por id
-            //2 carregar os dado na tela
         }
-        if(e.getSource() == tlPessoas.getBtBusca()){
-            
-            popularTabelaBusca(tlPessoas.getTxtBusca().getText());
+        if (e.getSource() == tl.getBtBusca()) {
+
+            popularTabelaBusca(tl.getTxtBusca().getText());
         }
-        if (e.getSource() == tlPessoas.getBtVoltar()) {
-            tlPessoas.dispose();
+        if (e.getSource() == tl.getBtVoltar()) {
+            tl.dispose();
         }
 
     }
@@ -128,18 +140,17 @@ public class PessoasControler implements ActionListener {
 
         DefaultTableModel model = new DefaultTableModel();
 
-        this.tlPessoas.getTabela().setModel(model);
+        this.tl.getTabela().setModel(model);
 
         model.addColumn("ID");
         model.addColumn("Nome");
-        model.addColumn("Cargo");
 
         try {
-            for (Pessoa pe : pessoaDAO.searchAll()) {
+            for (Pessoa pe : alunoDAO.searchAll()) {
                 model.addRow(new Object[]{
                     pe.getId(),
-                    pe.getNome(),
-                    pe.getTipo()
+                    pe.getNome()
+
                 });
 
             }
@@ -148,23 +159,22 @@ public class PessoasControler implements ActionListener {
         }
 
     }
-    
+
     public void popularTabelaBusca(String nome) {
 
         DefaultTableModel model = new DefaultTableModel();
 
-        this.tlPessoas.getTabela().setModel(model);
+        this.tl.getTabela().setModel(model);
 
         model.addColumn("ID");
         model.addColumn("Nome");
-        model.addColumn("Cargo");
 
         try {
-            for (Pessoa pe : pessoaDAO.buscaPorNome(nome)) {
+            for (Pessoa pe : alunoDAO.buscaPorNome(nome)) {
                 model.addRow(new Object[]{
                     pe.getId(),
-                    pe.getNome(),
-                    pe.getTipo()
+                    pe.getNome()
+
                 });
 
             }

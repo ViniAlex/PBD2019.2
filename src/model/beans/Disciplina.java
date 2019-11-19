@@ -41,6 +41,22 @@ public class Disciplina extends Entidade {
     @JoinColumn(name = "PESSOA_ID")
     private Pessoa pessoa;
 
+    public Curriculo getCurriculo() {
+        return curriculo;
+    }
+
+    public void setCurriculo(Curriculo curriculo) {
+        this.curriculo = curriculo;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
     
     public String getNome() {
         return nome;

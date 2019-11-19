@@ -228,12 +228,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void imListarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarAlunosActionPerformed
-        // TODO add your handling code here:
+        Alunos tlAlunos = new Alunos(this);
+        internoFrame.add(tlAlunos);
+        tlAlunos.show();
+        
     }//GEN-LAST:event_imListarAlunosActionPerformed
 
     private void imLIstarDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imLIstarDisciplinasActionPerformed
         Disciplinas tlDisci = new Disciplinas();
-        internoFrame.add(tlDisci);
+        internoFrame.add(tlDisci);        
         tlDisci.show();
     }//GEN-LAST:event_imLIstarDisciplinasActionPerformed
 
