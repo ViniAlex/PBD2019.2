@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -30,6 +32,7 @@ public class AcPedagogico extends Entidade {
     private static final long serialVersionUID = 1L;
 
     @Column(length = 100)
+    @Temporal(TemporalType.DATE)
     private Date data;
 
     @Column(length = 1000)
@@ -45,6 +48,24 @@ public class AcPedagogico extends Entidade {
     @OneToOne(optional = false)
     @JoinColumn(name = "PESSOA_ID")
     private Pessoa pessoa;
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+    
+    
 
     public Date getData() {
         return data;

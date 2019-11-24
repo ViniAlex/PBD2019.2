@@ -8,7 +8,7 @@ package view;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
-import view.AcPedagogico;
+import view.AcPedagogicoTela;
 
 /**
  *
@@ -20,11 +20,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
 
         setLocationRelativeTo(null);
-        
+
         Solicitacoes soli = new Solicitacoes();
         internoFrame.add(soli);
         soli.show();
-        soli.locate(20, 20);
+        soli.locate(70, 70);
     }
 
     /**
@@ -39,6 +39,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         internoFrame = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         nomeUsuarioLabel = new javax.swing.JLabel();
+        lbUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         imAlterarSenha = new javax.swing.JMenu();
         alterarSenha = new javax.swing.JMenuItem();
@@ -67,6 +68,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         nomeUsuarioLabel.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         nomeUsuarioLabel.setText("Usuário:");
 
+        lbUsuario.setText("LUIZ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,13 +77,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(nomeUsuarioLabel)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbUsuario)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nomeUsuarioLabel)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomeUsuarioLabel)
+                    .addComponent(lbUsuario))
                 .addContainerGap())
         );
 
@@ -91,7 +98,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         internoFrameLayout.setHorizontalGroup(
             internoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, internoFrameLayout.createSequentialGroup()
-                .addContainerGap(773, Short.MAX_VALUE)
+                .addContainerGap(788, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -114,6 +121,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         imAlterarSenha.add(alterarSenha);
 
         imSair.setText("Sair");
+        imSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imSairActionPerformed(evt);
+            }
+        });
         imAlterarSenha.add(imSair);
 
         jMenuBar1.add(imAlterarSenha);
@@ -217,6 +229,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuFuncionario.add(imNovoAcPed);
 
         imListarAcPed.setText("Listar Acompanhamentos");
+        imListarAcPed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imListarAcPedActionPerformed(evt);
+            }
+        });
         menuFuncionario.add(imListarAcPed);
 
         jMenuBar1.add(menuFuncionario);
@@ -241,15 +258,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Alunos tlAlunos = new Alunos(this);
         internoFrame.add(tlAlunos);
         tlAlunos.show();
-        
+
     }//GEN-LAST:event_imListarAlunosActionPerformed
 
     private void imLIstarDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imLIstarDisciplinasActionPerformed
         Disciplinas tlDisci = new Disciplinas(this);
-        internoFrame.add(tlDisci);        
+        internoFrame.add(tlDisci);
         tlDisci.show();
-        
-        
+
+
     }//GEN-LAST:event_imLIstarDisciplinasActionPerformed
 
     private void alterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarSenhaActionPerformed
@@ -264,9 +281,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void imRealizarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imRealizarMatriculaActionPerformed
 
-        NovaMatricula tlMatricula = new NovaMatricula();
-        internoFrame.add(tlMatricula);
-        tlMatricula.show();
+
     }//GEN-LAST:event_imRealizarMatriculaActionPerformed
 
     private void imListarMatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarMatriculasActionPerformed
@@ -284,9 +299,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_imCadastrarDisciplinaActionPerformed
 
     private void imNovoAcPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imNovoAcPedActionPerformed
-        NovoAcPedagogico tlNovoAcPed = new NovoAcPedagogico();
-        internoFrame.add(tlNovoAcPed);
-        tlNovoAcPed.show();
+
     }//GEN-LAST:event_imNovoAcPedActionPerformed
 
     private void imCdTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imCdTurmaActionPerformed
@@ -307,15 +320,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pC.show();
     }//GEN-LAST:event_imListarTurmasActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void imListarAcPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarAcPedActionPerformed
+        AcPedagogicoTela tela = new AcPedagogicoTela(this);
+        internoFrame.add(tela);
+        tela.show();
+    }//GEN-LAST:event_imListarAcPedActionPerformed
+
+    private void imSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imSairActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_imSairActionPerformed
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -334,7 +350,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
@@ -346,7 +361,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return internoFrame;
     }
 
-    
+    public JLabel getNomeUser() {
+        return lbUsuario;
+    }
+
+    public void setNomeUser(JLabel nomeUser) {
+        this.lbUsuario = nomeUser;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem alterarSenha;
     private javax.swing.JMenu imAlterarSenha;
@@ -367,6 +390,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu menuCaixa;
     private javax.swing.JMenu menuFuncionario;
     private javax.swing.JLabel nomeUsuarioLabel;

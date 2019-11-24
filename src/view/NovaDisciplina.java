@@ -152,7 +152,7 @@ public class NovaDisciplina extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Perfil curricular"));
 
-        cbEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ensino Fundamental", "Ensino Médio" }));
+        cbEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ensino Fundamental Inicial", "Ensino Fundamental Final", "Ensino Médio" }));
         cbEnsino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbEnsinoActionPerformed(evt);

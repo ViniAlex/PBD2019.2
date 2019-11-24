@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static java.util.logging.Logger.getLogger;
@@ -21,7 +22,9 @@ import util.DaoException;
 import view.Alunos;
 import view.CadastroSucesso;
 import view.Erro;
+import view.NovaMatricula;
 import view.NovaPessoa;
+import view.NovoAcPedagogico;
 import view.Pessoas;
 import view.TelaPrincipal;
 
@@ -34,6 +37,10 @@ public class AlunosControl implements ActionListener {
     private Alunos tl;
     private AlunoDAO alunoDAO = new AlunoDAO();
     private Aluno al;
+
+    private PessoaDAO pDAO = new PessoaDAO();
+    private Pessoa p;
+
     private TelaPrincipal telaP;
     SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
 
@@ -69,7 +76,7 @@ public class AlunosControl implements ActionListener {
             nP.getCbTipo().setSelectedItem(al.getTipo());
             nP.getTxtAluno().setText(al.getNome());
             nP.getTxtNatu().setText(al.getNaturalidade());
-            //nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
+            nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
 
             nP.getTxtMae().setText(al.getMae());
             nP.getTxtPai().setText(al.getPai());
@@ -91,14 +98,13 @@ public class AlunosControl implements ActionListener {
                     try {
                         al.setNome(nP.getTxtAluno().getText());
                         al.setNaturalidade(nP.getTxtNatu().getText());
-                        /*
+
                         try {
 
                             p.setDtaNascimento(format.parse(nP.getTxtDtaNasc().getText()));
                         } catch (ParseException ex) {
                             Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                         */
 
                         al.setMae(nP.getTxtMae().getText());
                         al.setPai(nP.getTxtPai().getText());
@@ -130,6 +136,43 @@ public class AlunosControl implements ActionListener {
 
             popularTabelaBusca(tl.getTxtBusca().getText());
         }
+        if (e.getSource() == tl.getBtAcPedg()) {
+            NovoAcPedagogico nvAc;
+            //nvAc.show();
+
+            int row = tl.getTabela().getSelectedRow();
+            int id = Integer.parseInt(tl.getTabela().getValueAt(row, 0) + "");
+
+            try {
+                al = alunoDAO.search(id);
+                nvAc = new NovoAcPedagogico(al, telaP);
+                telaP.getInternoFrame().add(nvAc);
+
+                nvAc.show();
+                //nvAc.getTxtAluno().setText(al.getNome());
+            } catch (DaoException ex) {
+                Logger.getLogger(AlunosControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //nvAc.getTxtPedag().setText(telaP.getNomeUser().toString());
+        }
+        if (e.getSource() == tl.getBtMatricula()) {
+            NovaMatricula nvM;
+            int row = tl.getTabela().getSelectedRow();
+            int id = Integer.parseInt(tl.getTabela().getValueAt(row, 0) + "");
+
+            try {
+                al = alunoDAO.search(id);
+                nvM = new NovaMatricula(al);
+                telaP.getInternoFrame().add(nvM);
+                nvM.show();
+            } catch (DaoException ex) {
+                Logger.getLogger(AlunosControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //nvM.getTxtAluno().setText(al.getNome());
+        }
+
         if (e.getSource() == tl.getBtVoltar()) {
             tl.dispose();
         }
@@ -155,7 +198,8 @@ public class AlunosControl implements ActionListener {
 
             }
         } catch (DaoException ex) {
-            Logger.getLogger(PerfilControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PerfilControler.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -179,7 +223,8 @@ public class AlunosControl implements ActionListener {
 
             }
         } catch (DaoException ex) {
-            Logger.getLogger(PerfilControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PerfilControler.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }

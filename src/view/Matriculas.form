@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -49,11 +48,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btVoltar" min="-2" pref="81" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btExcluir" min="-2" pref="81" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btAlterar" min="-2" pref="81" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btNovo" min="-2" pref="81" max="-2" attributes="0"/>
+                          <Component id="verDados" min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
@@ -72,8 +69,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btNovo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="verDados" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -151,18 +147,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btNovo">
+        <Component class="javax.swing.JButton" name="verDados">
           <Properties>
             <Property name="text" type="java.lang.String" value="Novo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verDadosActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btExcluir">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Excluir"/>
-          </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>

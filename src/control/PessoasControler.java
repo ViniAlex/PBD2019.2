@@ -49,7 +49,7 @@ public class PessoasControler implements ActionListener {
 
             int row = tlPessoas.getTabela().getSelectedRow();
             int id = Integer.parseInt(tlPessoas.getTabela().getValueAt(row, 0) + "");
-//            Pessoa p = null;
+
             try {
                 p = pessoaDAO.search(id);
             } catch (DaoException ex) {
@@ -66,7 +66,7 @@ public class PessoasControler implements ActionListener {
             nP.getTxtAluno().setText(p.getNome());
             nP.getTxtNatu().setText(p.getNaturalidade());
 
-            //nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
+            nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
 
             nP.getTxtEnd().setText(p.getEnd().getRua());
             nP.getTxtNum().setText(p.getEnd().getNumero());
@@ -83,14 +83,14 @@ public class PessoasControler implements ActionListener {
                     try {
                         p.setNome(nP.getTxtAluno().getText());
                         p.setNaturalidade(nP.getTxtNatu().getText());
-/*
+
                         try {
 
                             p.setDtaNascimento(format.parse(nP.getTxtDtaNasc().getText()));
                         } catch (ParseException ex) {
                             Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
                         }
-*/
+
                         p.getEnd().setRua(nP.getTxtEnd().getText());
                         p.getEnd().setNumero(nP.getTxtNum().getText());
                         p.getEnd().setBairro(nP.getTxtBairro().getText());
@@ -144,7 +144,7 @@ public class PessoasControler implements ActionListener {
 
             }
         } catch (DaoException ex) {
-            Logger.getLogger(PerfilControler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PessoasControler.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

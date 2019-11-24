@@ -6,6 +6,7 @@
 package model.beans;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,11 +34,11 @@ public class Matricula extends Entidade {
     @Column(length = 50)
     private double valorMensalidade;
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "ALUNO_ID")
     private Aluno aluno;
     
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "TURMA_ID")
     private Turma turma;
 

@@ -7,9 +7,6 @@ package model.daos;
 
 import java.util.List;
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import model.beans.Pessoa;
 import static model.daos.DAO.entityManager;
 import util.DaoException;
 
@@ -17,10 +14,12 @@ import util.DaoException;
  *
  * @author Vinícius
  */
-public class PessoaDAO extends DAO<Pessoa> {
-
-    public PessoaDAO() {
-        super(Pessoa.class);
+public class UsuarioDAO extends DAO{
+    
+    public UsuarioDAO(Class classe) {
+        super(classe);
     }
-
+    
+    
+    
 }

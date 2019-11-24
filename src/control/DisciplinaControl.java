@@ -91,12 +91,12 @@ public class DisciplinaControl implements ActionListener {
         }
 
             if (e.getSource() == tl.getCbEnsino()) {
-                if (tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Fundamental")) {
+                if (tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Fundamental Inicial")) {
 
                     List list2;
                     try {
                         tl.getCbTurmas().removeAllItems();
-                        list2 = cDAO.buscaPorNome2("Ensino Fundamental");
+                        list2 = cDAO.buscaPorNome2("Ensino Fundamental Inicial");
                         for (int i = 0; i < list2.size(); i++) {
                             tl.getCbTurmas().insertItemAt(list2.get(i).toString(), i);
                         }
@@ -105,7 +105,22 @@ public class DisciplinaControl implements ActionListener {
                         Logger.getLogger(DisciplinaControl.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                } else {
+                } if(tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Fundamental Final")){
+                    
+                    List list4;
+                    try {
+                        tl.getCbTurmas().removeAllItems();
+                        list4 = cDAO.buscaPorNome2("Ensino Fundamental Final");
+                        for (int i = 0; i < list4.size(); i++) {
+                            tl.getCbTurmas().insertItemAt(list4.get(i).toString(), i);
+                        }
+
+                    } catch (DaoException ex) {
+                        Logger.getLogger(DisciplinaControl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                
+                if(tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Médio")) {
 
                     List list3;
                     try {

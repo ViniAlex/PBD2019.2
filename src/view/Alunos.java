@@ -23,10 +23,12 @@ public class Alunos extends javax.swing.JInternalFrame {
     public Alunos(TelaPrincipal tlP) {
         initComponents();
 
-        AlunosControl c = new AlunosControl(this,tlP);
+        AlunosControl c = new AlunosControl(this, tlP);
         btBusca.addActionListener(c);
         btVer.addActionListener(c);
         btVoltar.addActionListener(c);
+        btAcPedg.addActionListener(c);
+        btMatricula.addActionListener(c);
 
     }
 
@@ -48,6 +50,8 @@ public class Alunos extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
+        btAcPedg = new javax.swing.JButton();
+        btMatricula = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -133,6 +137,10 @@ public class Alunos extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        btAcPedg.setText("Novo Ac. Pedagogico");
+
+        btMatricula.setText("Matricula");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -143,6 +151,10 @@ public class Alunos extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btMatricula)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btAcPedg, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btVer))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -158,7 +170,10 @@ public class Alunos extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btVoltar)
-                    .addComponent(btVer))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btVer)
+                        .addComponent(btAcPedg)
+                        .addComponent(btMatricula)))
                 .addContainerGap())
         );
 
@@ -175,6 +190,22 @@ public class Alunos extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtMatricula() {
+        return btMatricula;
+    }
+
+    public void setBtMatricula(JButton btMatricula) {
+        this.btMatricula = btMatricula;
+    }
+
+    public JButton getBtAcPedg() {
+        return btAcPedg;
+    }
+
+    public void setBtAcPedg(JButton btAcPedg) {
+        this.btAcPedg = btAcPedg;
+    }
 
     public JButton getBtBusca() {
         return btBusca;
@@ -238,7 +269,9 @@ public class Alunos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAcPedg;
     private javax.swing.JButton btBusca;
+    private javax.swing.JButton btMatricula;
     private javax.swing.JButton btVer;
     private javax.swing.JButton btVoltar;
     private javax.swing.JPanel jPanel2;

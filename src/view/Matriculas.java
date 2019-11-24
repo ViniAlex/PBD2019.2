@@ -33,13 +33,12 @@ public class Matriculas extends javax.swing.JInternalFrame {
         txtBusca = new javax.swing.JTextField();
         btBusca = new javax.swing.JButton();
         btAlterar = new javax.swing.JButton();
-        btNovo = new javax.swing.JButton();
-        btExcluir = new javax.swing.JButton();
+        verDados = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -94,14 +93,12 @@ public class Matriculas extends javax.swing.JInternalFrame {
             }
         });
 
-        btNovo.setText("Novo");
-        btNovo.addActionListener(new java.awt.event.ActionListener() {
+        verDados.setText("Novo");
+        verDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNovoActionPerformed(evt);
+                verDadosActionPerformed(evt);
             }
         });
-
-        btExcluir.setText("Excluir");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Pessoa"));
@@ -163,11 +160,9 @@ public class Matriculas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(verDados, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -182,8 +177,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAlterar)
-                    .addComponent(btNovo)
-                    .addComponent(btExcluir)
+                    .addComponent(verDados)
                     .addComponent(btVoltar))
                 .addContainerGap())
         );
@@ -218,9 +212,9 @@ public class Matriculas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btAlterarActionPerformed
 
-    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+    private void verDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verDadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btNovoActionPerformed
+    }//GEN-LAST:event_verDadosActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
         // TODO add your handling code here:
@@ -230,8 +224,6 @@ public class Matriculas extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btBusca;
-    private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btNovo;
     private javax.swing.JButton btVoltar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -239,5 +231,6 @@ public class Matriculas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabela;
     private javax.swing.JTextField txtBusca;
+    private javax.swing.JButton verDados;
     // End of variables declaration//GEN-END:variables
 }

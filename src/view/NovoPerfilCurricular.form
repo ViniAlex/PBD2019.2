@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -43,17 +42,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jPanel8" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Component id="btVoltar" min="-2" pref="121" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btSalvar" min="-2" pref="121" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -61,8 +63,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jPanel8" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -88,38 +90,46 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="txtNome" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btAtt" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <Component id="CBem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="cbSerieM" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cbTurmaM" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <Component id="CBefI" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="CBef" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CBem" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="cbSerieM" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbSerieF" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="cbSerieFI" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbTurmaF" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
-                                  <Component id="cbTurmaM" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="cbTurmaFI" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="CBefF" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="cbSerieFF" min="-2" pref="62" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="cbTurmaFF" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btAtt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -128,36 +138,49 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btAtt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="CBefI" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbSerieFI" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbTurmaFI" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                              <Component id="CBefF" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="CBef" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbSerieF" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="CBem" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbTurmaM" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbSerieM" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CBem" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="cbTurmaF" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cbTurmaM" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbSerieFF" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbTurmaFF" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -176,12 +199,12 @@
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="CBef">
+            <Component class="javax.swing.JCheckBox" name="CBefI">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ensino Fundamental"/>
+                <Property name="text" type="java.lang.String" value="Ensino Fundamental Inicial"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CBefActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CBefIActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CBem">
@@ -197,25 +220,21 @@
                 <Property name="text" type="java.lang.String" value="S&#xe9;rie"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbSerieF">
+            <Component class="javax.swing.JComboBox" name="cbSerieFI">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="10">
+                  <StringArray count="6">
                     <StringItem index="0" value="1&#xb0;"/>
                     <StringItem index="1" value="2&#xb0;"/>
                     <StringItem index="2" value="3&#xb0;"/>
                     <StringItem index="3" value="4&#xb0;"/>
-                    <StringItem index="4" value="5&#xb0;"/>
-                    <StringItem index="5" value="6&#xb0;"/>
-                    <StringItem index="6" value="7&#xb0;"/>
-                    <StringItem index="7" value="8&#xb0;"/>
-                    <StringItem index="8" value="9&#xb0;"/>
-                    <StringItem index="9" value=" "/>
+                    <StringItem index="4" value=" "/>
+                    <StringItem index="5" value=" "/>
                   </StringArray>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSerieFActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSerieFIActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -244,7 +263,7 @@
                 <Property name="text" type="java.lang.String" value="Turma"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbTurmaF">
+            <Component class="javax.swing.JComboBox" name="cbTurmaFI">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
@@ -257,7 +276,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTurmaFActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTurmaFIActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -290,6 +309,53 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAttActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="CBefF">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ensino Fundamental Final"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CBefFActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbTurmaFF">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="A"/>
+                    <StringItem index="1" value="B"/>
+                    <StringItem index="2" value="C"/>
+                    <StringItem index="3" value="D"/>
+                    <StringItem index="4" value="E"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTurmaFFActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbSerieFF">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="5&#xb0;"/>
+                    <StringItem index="1" value="6&#xb0;"/>
+                    <StringItem index="2" value="7&#xb0;"/>
+                    <StringItem index="3" value="8&#xb0;"/>
+                    <StringItem index="4" value=" "/>
+                    <StringItem index="5" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSerieFFActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

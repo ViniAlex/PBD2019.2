@@ -5,6 +5,14 @@
  */
 package view;
 
+import control.AcPedagogicoControl;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import model.beans.Aluno;
+
 /**
  *
  * @author Vinícius
@@ -14,10 +22,86 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
     /**
      * Creates new form NovoAcPedagogico
      */
-    public NovoAcPedagogico() {
+    public NovoAcPedagogico(Aluno aluno, TelaPrincipal telap) {
         initComponents();
+        
+        AcPedagogicoControl c = new AcPedagogicoControl(this, aluno, telap);
+        btReturn.addActionListener(c);
+        btSalvar.addActionListener(c);
+        
+        
     }
 
+    public JComboBox<String> getCbStatus() {
+        return cbStatus;
+    }
+
+    public void setCbStatus(JComboBox<String> cbStatus) {
+        this.cbStatus = cbStatus;
+    }
+
+    
+    
+    public JFormattedTextField getTxtData() {
+        return txtData;
+    }
+
+    public void setTxtData(JFormattedTextField txtData) {
+        this.txtData = txtData;
+    }
+    
+    
+
+    public JButton getBtReturn() {
+        return btReturn;
+    }
+
+    public void setBtReturn(JButton btReturn) {
+        this.btReturn = btReturn;
+    }
+
+    public JButton getBtSalvar() {
+        return btSalvar;
+    }
+
+    public void setBtSalvar(JButton btSalvar) {
+        this.btSalvar = btSalvar;
+    }
+
+    public JTextField getTxtAluno() {
+        return txtAluno;
+    }
+
+    public void setTxtAluno(JTextField txtAluno) {
+        this.txtAluno = txtAluno;
+    }
+
+    public JTextField getTxtPedag() {
+        return txtPedag;
+    }
+
+    public void setTxtPedag(JTextField txtPedag) {
+        this.txtPedag = txtPedag;
+    }
+
+    public JTextField getTxtPerfCu() {
+        return txtPerfCu;
+    }
+
+    public void setTxtPerfCu(JTextField txtPerfCu) {
+        this.txtPerfCu = txtPerfCu;
+    }
+
+    public JTextArea getTxtDesc() {
+        return txtDesc;
+    }
+
+    public void setTxtDesc(JTextArea txtDesc) {
+        this.txtDesc = txtDesc;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,21 +133,21 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
         btExcluir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        txtNome1 = new javax.swing.JTextField();
+        txtAluno = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtValor1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtValor2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtValor3 = new javax.swing.JTextField();
+        txtPedag = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        txtNome2 = new javax.swing.JTextField();
+        txtDesc = new javax.swing.JTextArea();
+        txtPerfCu = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        btAlterar1 = new javax.swing.JButton();
-        btExcluir1 = new javax.swing.JButton();
+        cbStatus = new javax.swing.JComboBox<>();
+        txtData = new javax.swing.JFormattedTextField();
+        btSalvar = new javax.swing.JButton();
+        btReturn = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -284,16 +368,17 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Acompanhamento Pedagogico"));
 
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtAluno.setEditable(false);
+        txtAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
+                txtAlunoActionPerformed(evt);
             }
         });
 
@@ -305,19 +390,35 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Status");
 
+        txtPedag.setEditable(false);
+
         jLabel6.setText("Pedagogo:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDesc.setColumns(20);
+        txtDesc.setRows(5);
+        jScrollPane1.setViewportView(txtDesc);
 
-        txtNome2.addActionListener(new java.awt.event.ActionListener() {
+        txtPerfCu.setEditable(false);
+        txtPerfCu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome2ActionPerformed(evt);
+                txtPerfCuActionPerformed(evt);
             }
         });
 
         jLabel18.setText("Perfil Curricular");
+
+        cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Iniciado", "Em andamento", "Encerrado" }));
+
+        try {
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -326,26 +427,28 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNome2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(txtValor3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPerfCu, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+                    .addComponent(txtPedag, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtValor2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                            .addComponent(cbStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtNome1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel18)
                             .addComponent(jLabel17))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtAluno))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -354,11 +457,11 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPerfCu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -367,26 +470,26 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtValor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPedag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        btAlterar1.setText("Salvar");
-        btAlterar1.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterar1ActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
 
-        btExcluir1.setText("Voltar");
+        btReturn.setText("Voltar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -397,10 +500,10 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
-                        .addComponent(btAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 14, Short.MAX_VALUE))
+                        .addComponent(btReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,8 +512,8 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAlterar1)
-                    .addComponent(btExcluir1))
+                    .addComponent(btSalvar)
+                    .addComponent(btReturn))
                 .addContainerGap())
         );
 
@@ -462,29 +565,34 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tabelaMouseClicked
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+    private void txtAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+    }//GEN-LAST:event_txtAlunoActionPerformed
 
-    private void btAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar1ActionPerformed
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-    }//GEN-LAST:event_btAlterar1ActionPerformed
+    }//GEN-LAST:event_btSalvarActionPerformed
 
-    private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
+    private void txtPerfCuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfCuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome2ActionPerformed
+    }//GEN-LAST:event_txtPerfCuActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar;
-    private javax.swing.JButton btAlterar1;
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btBusca;
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btExcluir1;
     private javax.swing.JButton btNovo;
+    private javax.swing.JButton btReturn;
+    private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JComboBox<String> cbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -502,16 +610,15 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTable tabela;
+    private javax.swing.JTextField txtAluno;
     private javax.swing.JTextField txtBusca;
+    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JTextArea txtDesc;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome1;
-    private javax.swing.JTextField txtNome2;
+    private javax.swing.JTextField txtPedag;
+    private javax.swing.JTextField txtPerfCu;
     private javax.swing.JTextField txtQtd;
     private javax.swing.JTextField txtValor;
-    private javax.swing.JTextField txtValor1;
-    private javax.swing.JTextField txtValor2;
-    private javax.swing.JTextField txtValor3;
     // End of variables declaration//GEN-END:variables
 }

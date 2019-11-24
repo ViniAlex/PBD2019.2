@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.AcPedagogicosControl;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -13,28 +14,58 @@ import javax.swing.JTextField;
  *
  * @author Vinícius
  */
-public class AcPedagogico extends javax.swing.JInternalFrame {
+public class AcPedagogicoTela extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaCadastroProduto
-     */
-    public AcPedagogico() {
+    public AcPedagogicoTela(TelaPrincipal telap) {
         initComponents();
-        /*
-        CadastroProdutoControl c = new CadastroProdutoControl(this);
 
-        btAtualizar.addActionListener(c);
+        AcPedagogicosControl c = new AcPedagogicosControl(this, telap);
         btBusca.addActionListener(c);
-        btAlterar.addActionListener(c);
-        btCadastrar.addActionListener(c);
-        btNovo.addActionListener(c);
+        btVer.addActionListener(c);
         btVoltar.addActionListener(c);
-        btExcluir.addActionListener(c);
-         */
 
     }
 
-    
+    public JButton getBtBusca() {
+        return btBusca;
+    }
+
+    public void setBtBusca(JButton btBusca) {
+        this.btBusca = btBusca;
+    }
+
+    public JButton getBtVer() {
+        return btVer;
+    }
+
+    public void setBtVer(JButton btVer) {
+        this.btVer = btVer;
+    }
+
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JTable getTabela() {
+        return tabela;
+    }
+
+    public void setTabela(JTable tabela) {
+        this.tabela = tabela;
+    }
+
+    public JTextField getTxtBusca() {
+        return txtBusca;
+    }
+
+    public void setTxtBusca(JTextField txtBusca) {
+        this.txtBusca = txtBusca;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,13 +81,11 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         txtBusca = new javax.swing.JTextField();
         btBusca = new javax.swing.JButton();
-        btNovo = new javax.swing.JButton();
+        btVer = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
-        btAlterar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btExcluir = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -103,10 +132,10 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btNovo.setText("Novo Acompanhamento");
-        btNovo.addActionListener(new java.awt.event.ActionListener() {
+        btVer.setText("Ver Dados");
+        btVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNovoActionPerformed(evt);
+                btVerActionPerformed(evt);
             }
         });
 
@@ -114,13 +143,6 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVoltarActionPerformed(evt);
-            }
-        });
-
-        btAlterar.setText("Alterar");
-        btAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterarActionPerformed(evt);
             }
         });
 
@@ -174,8 +196,6 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btExcluir.setText("Excluir");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -188,11 +208,7 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btNovo)))
+                        .addComponent(btVer)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -204,10 +220,8 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btNovo)
-                    .addComponent(btAlterar)
-                    .addComponent(btVoltar)
-                    .addComponent(btExcluir))
+                    .addComponent(btVer)
+                    .addComponent(btVoltar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -235,17 +249,13 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btBuscaActionPerformed
 
-    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+    private void btVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btNovoActionPerformed
+    }//GEN-LAST:event_btVerActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
 
     }//GEN-LAST:event_btVoltarActionPerformed
-
-    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-
-    }//GEN-LAST:event_btAlterarActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
         // TODO add your handling code here:
@@ -256,10 +266,8 @@ public class AcPedagogico extends javax.swing.JInternalFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAlterar;
     private javax.swing.JButton btBusca;
-    private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btNovo;
+    private javax.swing.JButton btVer;
     private javax.swing.JButton btVoltar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

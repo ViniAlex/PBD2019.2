@@ -21,6 +21,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imSairActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -141,6 +144,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar Acompanhamentos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imListarAcPedActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -186,7 +192,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="773" max="32767" attributes="0"/>
+                  <EmptySpace pref="788" max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -216,7 +222,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="nomeUsuarioLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="140" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbUsuario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="93" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -224,7 +232,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="nomeUsuarioLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nomeUsuarioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -237,6 +248,11 @@
                   <Font name="Times New Roman" size="18" style="2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lbUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LUIZ"/>
               </Properties>
             </Component>
           </SubComponents>

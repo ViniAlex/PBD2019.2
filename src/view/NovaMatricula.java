@@ -5,6 +5,12 @@
  */
 package view;
 
+import control.MatriculaControl;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import model.beans.Aluno;
+
 /**
  *
  * @author Vinícius
@@ -14,8 +20,14 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
     /**
      * Creates new form NovaMatricula
      */
-    public NovaMatricula() {
+    public NovaMatricula(Aluno aluno) {
         initComponents();
+
+        MatriculaControl c = new MatriculaControl(this, aluno);
+        btSalvar.addActionListener(c);
+        btVoltar.addActionListener(c);
+        cbEnsino.addActionListener(c);
+
     }
 
     /**
@@ -29,16 +41,15 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
-        btAlterar1 = new javax.swing.JButton();
-        btExcluir1 = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        txtNome1 = new javax.swing.JTextField();
+        txtAluno = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        btAlterar2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtValorT = new javax.swing.JTextField();
+        txtValorMensa = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cbEnsino = new javax.swing.JComboBox<>();
@@ -50,32 +61,25 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        btAlterar1.setText("Salvar");
-        btAlterar1.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterar1ActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
 
-        btExcluir1.setText("Voltar");
+        btVoltar.setText("Voltar");
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Matricula"));
 
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
+                txtAlunoActionPerformed(evt);
             }
         });
 
         jLabel17.setText("Aluno");
-
-        btAlterar2.setText("Buscar");
-        btAlterar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterar2ActionPerformed(evt);
-            }
-        });
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Pagamento"));
@@ -92,12 +96,12 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValorT, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtValorMensa))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,18 +111,18 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtValorMensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtValorT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Perfil curricular"));
 
-        cbEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ensino Fundamental", "Ensino Médio" }));
+        cbEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ensino Fundamental Inicial", "Ensino Fundamental Final", "Ensino Médio" }));
         cbEnsino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbEnsinoActionPerformed(evt);
@@ -171,12 +175,11 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btAlterar2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel17)
+                        .addGap(0, 441, Short.MAX_VALUE))
+                    .addComponent(txtAluno))
+                .addContainerGap())
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -186,9 +189,7 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAlterar2))
+                .addComponent(txtAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
@@ -203,9 +204,9 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -216,8 +217,8 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btExcluir1)
-                    .addComponent(btAlterar1))
+                    .addComponent(btVoltar)
+                    .addComponent(btSalvar))
                 .addContainerGap())
         );
 
@@ -235,17 +236,70 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+    public JButton getBtSalvar() {
+        return btSalvar;
+    }
+
+    public void setBtSalvar(JButton btSalvar) {
+        this.btSalvar = btSalvar;
+    }
+
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JComboBox<String> getCbEnsino() {
+        return cbEnsino;
+    }
+
+    public void setCbEnsino(JComboBox<String> cbEnsino) {
+        this.cbEnsino = cbEnsino;
+    }
+
+    public JComboBox<String> getCbTurmas() {
+        return cbTurmas;
+    }
+
+    public void setCbTurmas(JComboBox<String> cbTurmas) {
+        this.cbTurmas = cbTurmas;
+    }
+
+    public JTextField getTxtAluno() {
+        return txtAluno;
+    }
+
+    public void setTxtAluno(JTextField txtAluno) {
+        this.txtAluno = txtAluno;
+    }
+
+    public JTextField getTxtValorMensa() {
+        return txtValorMensa;
+    }
+
+    public void setTxtValorMensa(JTextField txtValorMensa) {
+        this.txtValorMensa = txtValorMensa;
+    }
+
+    public JTextField getTxtValorT() {
+        return txtValorT;
+    }
+
+    public void setTxtValorT(JTextField txtValorT) {
+        this.txtValorT = txtValorT;
+    }
+
+
+    private void txtAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlunoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+    }//GEN-LAST:event_txtAlunoActionPerformed
 
-    private void btAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar1ActionPerformed
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-    }//GEN-LAST:event_btAlterar1ActionPerformed
-
-    private void btAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btAlterar2ActionPerformed
+    }//GEN-LAST:event_btSalvarActionPerformed
 
     private void cbEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEnsinoActionPerformed
         // TODO add your handling code here:
@@ -257,9 +311,8 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAlterar1;
-    private javax.swing.JButton btAlterar2;
-    private javax.swing.JButton btExcluir1;
+    private javax.swing.JButton btSalvar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbEnsino;
     private javax.swing.JComboBox<String> cbTurmas;
@@ -272,8 +325,8 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField txtNome1;
+    private javax.swing.JTextField txtAluno;
+    private javax.swing.JTextField txtValorMensa;
+    private javax.swing.JTextField txtValorT;
     // End of variables declaration//GEN-END:variables
 }

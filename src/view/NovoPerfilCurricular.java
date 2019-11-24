@@ -31,20 +31,20 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
     }
 
-    public JButton getBtAtt() {
-        return btAtt;
+    public JCheckBox getCBefF() {
+        return CBefF;
     }
 
-    public void setBtAtt(JButton btAtt) {
-        this.btAtt = btAtt;
+    public void setCBefF(JCheckBox CBefF) {
+        this.CBefF = CBefF;
     }
 
-    public JCheckBox getCBef() {
-        return CBef;
+    public JCheckBox getCBefI() {
+        return CBefI;
     }
 
-    public void setCBef(JCheckBox CBef) {
-        this.CBef = CBef;
+    public void setCBefI(JCheckBox CBefI) {
+        this.CBefI = CBefI;
     }
 
     public JCheckBox getCBem() {
@@ -53,6 +53,14 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
     public void setCBem(JCheckBox CBem) {
         this.CBem = CBem;
+    }
+
+    public JButton getBtAtt() {
+        return btAtt;
+    }
+
+    public void setBtAtt(JButton btAtt) {
+        this.btAtt = btAtt;
     }
 
     public JButton getBtSalvar() {
@@ -71,12 +79,20 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
         this.btVoltar = btVoltar;
     }
 
-    public JComboBox<String> getCbSerieF() {
-        return cbSerieF;
+    public JComboBox<String> getCbSerieFF() {
+        return cbSerieFF;
     }
 
-    public void setCbSerieF(JComboBox<String> cbSerieF) {
-        this.cbSerieF = cbSerieF;
+    public void setCbSerieFF(JComboBox<String> cbSerieFF) {
+        this.cbSerieFF = cbSerieFF;
+    }
+
+    public JComboBox<String> getCbSerieFI() {
+        return cbSerieFI;
+    }
+
+    public void setCbSerieFI(JComboBox<String> cbSerieFI) {
+        this.cbSerieFI = cbSerieFI;
     }
 
     public JComboBox<String> getCbSerieM() {
@@ -87,12 +103,20 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
         this.cbSerieM = cbSerieM;
     }
 
-    public JComboBox<String> getCbTurmaF() {
-        return cbTurmaF;
+    public JComboBox<String> getCbTurmaFF() {
+        return cbTurmaFF;
     }
 
-    public void setCbTurmaF(JComboBox<String> cbTurmaF) {
-        this.cbTurmaF = cbTurmaF;
+    public void setCbTurmaFF(JComboBox<String> cbTurmaFF) {
+        this.cbTurmaFF = cbTurmaFF;
+    }
+
+    public JComboBox<String> getCbTurmaFI() {
+        return cbTurmaFI;
+    }
+
+    public void setCbTurmaFI(JComboBox<String> cbTurmaFI) {
+        this.cbTurmaFI = cbTurmaFI;
     }
 
     public JComboBox<String> getCbTurmaM() {
@@ -124,19 +148,22 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
         jPanel8 = new javax.swing.JPanel();
         txtNome = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        CBef = new javax.swing.JCheckBox();
+        CBefI = new javax.swing.JCheckBox();
         CBem = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        cbSerieF = new javax.swing.JComboBox<>();
+        cbSerieFI = new javax.swing.JComboBox<>();
         cbSerieM = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        cbTurmaF = new javax.swing.JComboBox<>();
+        cbTurmaFI = new javax.swing.JComboBox<>();
         cbTurmaM = new javax.swing.JComboBox<>();
         btAtt = new javax.swing.JButton();
+        CBefF = new javax.swing.JCheckBox();
+        cbTurmaFF = new javax.swing.JComboBox<>();
+        cbSerieFF = new javax.swing.JComboBox<>();
         btSalvar = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -152,10 +179,10 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Nome");
 
-        CBef.setText("Ensino Fundamental");
-        CBef.addActionListener(new java.awt.event.ActionListener() {
+        CBefI.setText("Ensino Fundamental Inicial");
+        CBefI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CBefActionPerformed(evt);
+                CBefIActionPerformed(evt);
             }
         });
 
@@ -168,10 +195,10 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Série");
 
-        cbSerieF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1°", "2°", "3°", "4°", "5°", "6°", "7°", "8°", "9°", " " }));
-        cbSerieF.addActionListener(new java.awt.event.ActionListener() {
+        cbSerieFI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1°", "2°", "3°", "4°", " ", " " }));
+        cbSerieFI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSerieFActionPerformed(evt);
+                cbSerieFIActionPerformed(evt);
             }
         });
 
@@ -184,10 +211,10 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Turma");
 
-        cbTurmaF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E" }));
-        cbTurmaF.addActionListener(new java.awt.event.ActionListener() {
+        cbTurmaFI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E" }));
+        cbTurmaFI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTurmaFActionPerformed(evt);
+                cbTurmaFIActionPerformed(evt);
             }
         });
 
@@ -205,64 +232,101 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
             }
         });
 
+        CBefF.setText("Ensino Fundamental Final");
+        CBefF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBefFActionPerformed(evt);
+            }
+        });
+
+        cbTurmaFF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E" }));
+        cbTurmaFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTurmaFFActionPerformed(evt);
+            }
+        });
+
+        cbSerieFF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5°", "6°", "7°", "8°", " ", " " }));
+        cbSerieFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSerieFFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(txtNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btAtt))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(CBem)
+                        .addGap(157, 157, 157)
+                        .addComponent(cbSerieM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbTurmaM, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(CBefI)
+                        .addGap(98, 98, 98)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CBef)
-                            .addComponent(CBem))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cbSerieM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cbSerieF, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbSerieFI, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(cbTurmaF, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbTurmaM, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btAtt)
-                .addContainerGap())
+                            .addComponent(cbTurmaFI, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(CBefF)
+                        .addGap(98, 98, 98)
+                        .addComponent(cbSerieFF, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbTurmaFF, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAtt))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btAtt))
+                        .addGap(44, 44, 44)
+                        .addComponent(CBefI))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbSerieFI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTurmaFI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 4, Short.MAX_VALUE)
+                        .addComponent(CBefF)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CBef)
-                            .addComponent(cbSerieF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CBem)
-                            .addComponent(cbSerieM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cbTurmaM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbSerieM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CBem)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(cbTurmaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbTurmaM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbSerieFF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTurmaFF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         btSalvar.setText("Salvar");
@@ -280,20 +344,22 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar)
                     .addComponent(btVoltar))
@@ -319,39 +385,69 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void cbSerieFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSerieFActionPerformed
+    private void cbSerieFIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSerieFIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbSerieFActionPerformed
+    }//GEN-LAST:event_cbSerieFIActionPerformed
 
     private void cbSerieMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSerieMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSerieMActionPerformed
 
-    private void CBefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBefActionPerformed
-        if (CBef.isSelected()) {
+    private void CBefIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBefIActionPerformed
+        if (CBefI.isSelected()) {
             txtNome.setText("");
+
+            CBefF.setEnabled(false);
+            cbSerieFF.setEnabled(false);
+            cbTurmaFF.setEnabled(false);
+
             CBem.setEnabled(false);
             cbSerieM.setEnabled(false);
             cbTurmaM.setEnabled(false);
         } else {
             txtNome.setText("");
+
             CBem.setEnabled(true);
             cbSerieM.setEnabled(true);
             cbTurmaM.setEnabled(true);
+            
+            CBefI.setEnabled(true);
+            cbSerieFI.setEnabled(true);
+            cbTurmaFI.setEnabled(true);
+
+            CBefF.setEnabled(true);
+            cbSerieFF.setEnabled(true);
+            cbTurmaFF.setEnabled(true);
+
         }
-    }//GEN-LAST:event_CBefActionPerformed
+    }//GEN-LAST:event_CBefIActionPerformed
 
     private void CBemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBemActionPerformed
         if (CBem.isSelected()) {
             txtNome.setText("");
-            CBef.setEnabled(false);
-            cbSerieF.setEnabled(false);
-            cbTurmaF.setEnabled(false);
+
+            CBefI.setEnabled(false);
+            cbSerieFI.setEnabled(false);
+            cbTurmaFI.setEnabled(false);
+
+            CBefF.setEnabled(false);
+            cbSerieFF.setEnabled(false);
+            cbTurmaFF.setEnabled(false);
+
         } else {
             txtNome.setText("");
-            CBef.setEnabled(true);
-            cbSerieF.setEnabled(true);
-            cbTurmaF.setEnabled(true);
+
+            CBem.setEnabled(true);
+            cbSerieM.setEnabled(true);
+            cbTurmaM.setEnabled(true);
+            
+            CBefI.setEnabled(true);
+            cbSerieFI.setEnabled(true);
+            cbTurmaFI.setEnabled(true);
+
+            CBefF.setEnabled(true);
+            cbSerieFF.setEnabled(true);
+            cbTurmaFF.setEnabled(true);
         }
     }//GEN-LAST:event_CBemActionPerformed
 
@@ -359,9 +455,10 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btSalvarActionPerformed
 
-    private void cbTurmaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurmaFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbTurmaFActionPerformed
+    private void cbTurmaFIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurmaFIActionPerformed
+
+
+    }//GEN-LAST:event_cbTurmaFIActionPerformed
 
     private void cbTurmaMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurmaMActionPerformed
         // TODO add your handling code here:
@@ -371,16 +468,58 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btAttActionPerformed
 
+    private void CBefFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBefFActionPerformed
+
+        if (CBefF.isSelected()) {
+            txtNome.setText("");
+
+            CBefI.setEnabled(false);
+            cbSerieFI.setEnabled(false);
+            cbTurmaFI.setEnabled(false);
+
+            CBem.setEnabled(false);
+            cbSerieM.setEnabled(false);
+            cbTurmaM.setEnabled(false);
+
+        } else {
+            txtNome.setText("");
+
+            CBem.setEnabled(true);
+            cbSerieM.setEnabled(true);
+            cbTurmaM.setEnabled(true);
+            
+            CBefI.setEnabled(true);
+            cbSerieFI.setEnabled(true);
+            cbTurmaFI.setEnabled(true);
+
+            CBefF.setEnabled(true);
+            cbSerieFF.setEnabled(true);
+            cbTurmaFF.setEnabled(true);
+        }
+    }//GEN-LAST:event_CBefFActionPerformed
+
+    private void cbTurmaFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurmaFFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTurmaFFActionPerformed
+
+    private void cbSerieFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSerieFFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSerieFFActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox CBef;
+    private javax.swing.JCheckBox CBefF;
+    private javax.swing.JCheckBox CBefI;
     private javax.swing.JCheckBox CBem;
     private javax.swing.JButton btAtt;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JComboBox<String> cbSerieF;
+    private javax.swing.JComboBox<String> cbSerieFF;
+    private javax.swing.JComboBox<String> cbSerieFI;
     private javax.swing.JComboBox<String> cbSerieM;
-    private javax.swing.JComboBox<String> cbTurmaF;
+    private javax.swing.JComboBox<String> cbTurmaFF;
+    private javax.swing.JComboBox<String> cbTurmaFI;
     private javax.swing.JComboBox<String> cbTurmaM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;

@@ -20,6 +20,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -43,6 +45,7 @@ public class Pessoa extends Entidade {
     private String nome;
 
     @Column(length = 20)
+    @Temporal(TemporalType.DATE)
     private Date dtaNascimento;
 
     @Column(length = 20)

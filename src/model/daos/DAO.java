@@ -100,6 +100,24 @@ public class DAO<T extends Entidade> {
             throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
         }
     }
+        
+    public List<T> realizarLogin(String login, String senha) throws DaoException {
+
+        try {
+            //return entityManager.createNamedQuery("SELECT a FROM Pessoa a where a.login= :'" + login + "' AND a.senha= :'" + senha+"'", Pessoa.class).getResultList();
+            return entityManager.createNativeQuery("SELECT * FROM " +classe.getName() + " where login like '"
+                + login + "'and senha like '" + senha + "'", classe).getResultList();
+            
+            //Query query = em.createNativeQuery("select * from funcionario where login like '"         + login + "' and senha like '" + senha + "'", Funcionario.class);
+
+        } catch (NoResultException n) {
+            n.printStackTrace();
+            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+    }
 
     @SuppressWarnings("unchecked")
     public List<T> searchAll() throws DaoException {
