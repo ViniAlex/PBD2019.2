@@ -28,9 +28,20 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
         AcPedagogicoControl c = new AcPedagogicoControl(this, aluno, telap);
         btReturn.addActionListener(c);
         btSalvar.addActionListener(c);
+        btRelatorio.addActionListener(c);
         
         
     }
+
+    public JButton getBtRelatorio() {
+        return btRelatorio;
+    }
+
+    public void setBtRelatorio(JButton btRelatorio) {
+        this.btRelatorio = btRelatorio;
+    }
+    
+    
 
     public JComboBox<String> getCbStatus() {
         return cbStatus;
@@ -148,6 +159,7 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
         txtData = new javax.swing.JFormattedTextField();
         btSalvar = new javax.swing.JButton();
         btReturn = new javax.swing.JButton();
+        btRelatorio = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -491,6 +503,8 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
 
         btReturn.setText("Voltar");
 
+        btRelatorio.setText("Relatório");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -501,7 +515,9 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                     .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btRelatorio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -513,7 +529,8 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar)
-                    .addComponent(btReturn))
+                    .addComponent(btReturn)
+                    .addComponent(btRelatorio))
                 .addContainerGap())
         );
 
@@ -589,6 +606,7 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btNovo;
+    private javax.swing.JButton btRelatorio;
     private javax.swing.JButton btReturn;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btVoltar;

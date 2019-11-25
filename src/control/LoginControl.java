@@ -15,6 +15,7 @@ import model.daos.PessoaDAO;
 import util.DaoException;
 import view.Login;
 import view.TelaPrincipal;
+import view.TelaSolicitar;
 
 /**
  *
@@ -43,11 +44,17 @@ public class LoginControl implements ActionListener {
 
                             if (pe.getTipo().equals("Pedagogo")) {
                                 tlP = new TelaPrincipal();
+                                new BackupControl();
                                 tlP.getNomeUser().setText(pe.getNome());
                                 tlP.show();
+                                tlP.setAdmON(false);
                                 
-                                
-                                      
+                                tlP.getItemCdPessoa().setEnabled(false);
+                                tlP.getItemListarPessoas().setEnabled(false);
+                                tlP.getMenuDisciplina().setEnabled(false);
+                                tlP.getMenuMatricula().setEnabled(false);
+                                tlP.getMenuTurma().setEnabled(false);
+
                                 tl.dispose();
 
                             }
@@ -61,6 +68,17 @@ public class LoginControl implements ActionListener {
 
                             }
                             if (pe.getTipo().equals("Direção")) {
+
+                            }
+                            if (pe.getTipo().equals("ADM")) {
+                                tlP = new TelaPrincipal();
+                                new BackupControl();
+                                tlP.getNomeUser().setText(pe.getNome());
+                                tlP.show();
+                                tlP.isAdmON();
+                                tlP.setAdmON(true);
+
+                                tl.dispose();
 
                             }
 
@@ -77,6 +95,11 @@ public class LoginControl implements ActionListener {
             //System.out.println(tl.getTxtSenha().getPassword());
         }
         if (e.getSource() == tl.getBtAlterSenha()) {
+            tl.dispose();
+            TelaSolicitar telaSoli = new TelaSolicitar();
+            telaSoli.show();
+            telaSoli.getCbStatus().setVisible(false);
+            telaSoli.getLbStatus().setVisible(false);
 
         }
         if (e.getSource() == tl.getBtSair()) {

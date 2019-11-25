@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Vinícius
@@ -32,7 +34,7 @@ public class CadastroSucesso extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        msg = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,10 +50,10 @@ public class CadastroSucesso extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastro Realizado com Sucesso!!!");
-        jLabel1.setToolTipText("Sucesso");
+        msg.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        msg.setForeground(new java.awt.Color(255, 255, 255));
+        msg.setText("Cadastro Realizado com Sucesso!!!");
+        msg.setToolTipText("Sucesso");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/sucesso.png"))); // NOI18N
 
@@ -70,7 +72,7 @@ public class CadastroSucesso extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 26, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(msg)
                 .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,7 +81,7 @@ public class CadastroSucesso extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(msg)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(15, 15, 15))
@@ -99,6 +101,15 @@ public class CadastroSucesso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getMsg() {
+        return msg;
+    }
+
+    public void setMsg(JLabel msg) {
+        this.msg = msg;
+    }
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -107,8 +118,8 @@ public class CadastroSucesso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel msg;
     // End of variables declaration//GEN-END:variables
 }

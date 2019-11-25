@@ -42,7 +42,7 @@ public class Aluno extends Pessoa {
     @Column(length = 20)
     private String cpfRespFinan;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     private Turma turma;
 
     public Turma getTurma() {

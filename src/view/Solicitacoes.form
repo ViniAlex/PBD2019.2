@@ -42,15 +42,21 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="btPendentes" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btVer" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -60,7 +66,10 @@
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btVer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btPendentes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -114,7 +123,7 @@
                         <Column editable="false" title="ID" type="java.lang.Integer"/>
                         <Column editable="false" title="Usu&#xe1;rio" type="java.lang.String"/>
                         <Column editable="false" title="Tipo de Solicita&#xe7;&#xe3;o" type="java.lang.String"/>
-                        <Column editable="true" title="Status" type="java.lang.String"/>
+                        <Column editable="false" title="Status" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -129,9 +138,14 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btVer">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btPendentes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pendentes"/>
           </Properties>
         </Component>
       </SubComponents>

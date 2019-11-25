@@ -5,6 +5,11 @@
  */
 package view;
 
+import control.TurmasControl;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
 /**
  *
  * @author Vinícius
@@ -14,8 +19,53 @@ public class Turmas extends javax.swing.JInternalFrame {
     /**
      * Creates new form Turmas
      */
-    public Turmas() {
+    public Turmas(TelaPrincipal telaP) {
         initComponents();
+
+        TurmasControl c = new TurmasControl(this, telaP);
+        btBuscar.addActionListener(c);
+        btVoltar.addActionListener(c);
+        cbEnsinos.addActionListener(c);
+    }
+
+    public JButton getBtBuscar() {
+        return btBuscar;
+    }
+
+    public void setBtBuscar(JButton btBuscar) {
+        this.btBuscar = btBuscar;
+    }
+
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JComboBox<String> getCbEnsinos() {
+        return cbEnsinos;
+    }
+
+    public void setCbEnsinos(JComboBox<String> cbEnsinos) {
+        this.cbEnsinos = cbEnsinos;
+    }
+
+    public JComboBox<String> getCbTurmas() {
+        return cbTurmas;
+    }
+
+    public void setCbTurmas(JComboBox<String> cbTurmas) {
+        this.cbTurmas = cbTurmas;
+    }
+
+    public JTable getTabelaAlunos() {
+        return tabelaAlunos;
+    }
+
+    public void setTabelaAlunos(JTable tabelaAlunos) {
+        this.tabelaAlunos = tabelaAlunos;
     }
 
     /**
@@ -36,17 +86,15 @@ public class Turmas extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         btVoltar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        btBusca1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        btBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        cbEnsino1 = new javax.swing.JComboBox<>();
+        cbEnsinos = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         cbTurmas = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabela1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tabelaAlunos = new javax.swing.JTable();
+        btCdNotas = new javax.swing.JButton();
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca"));
@@ -149,21 +197,19 @@ public class Turmas extends javax.swing.JInternalFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca"));
 
-        btBusca1.setText("Buscar");
-        btBusca1.addActionListener(new java.awt.event.ActionListener() {
+        btBuscar.setText("Buscar");
+        btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBusca1ActionPerformed(evt);
+                btBuscarActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Turma Selecionada");
-
         jLabel1.setText("Ensino");
 
-        cbEnsino1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ensino Fundamental", "Ensino Médio" }));
-        cbEnsino1.addActionListener(new java.awt.event.ActionListener() {
+        cbEnsinos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ensino Fundamental Inicial", "Ensino Fundamental Final", "Ensino Médio" }));
+        cbEnsinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbEnsino1ActionPerformed(evt);
+                cbEnsinosActionPerformed(evt);
             }
         });
 
@@ -182,25 +228,17 @@ public class Turmas extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbEnsinos, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(338, 338, 338)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btBusca1)
-                        .addGap(6, 6, 6))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbEnsino1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbTurmas, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addComponent(cbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,24 +246,20 @@ public class Turmas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(5, 5, 5)
-                .addComponent(cbEnsino1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbEnsinos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(5, 5, 5)
-                .addComponent(cbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBusca1))
-                .addGap(0, 14, Short.MAX_VALUE))
+                    .addComponent(cbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btBuscar))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Turmas"));
 
-        tabela1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null}
@@ -249,12 +283,12 @@ public class Turmas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabela1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabela1MouseClicked(evt);
+                tabelaAlunosMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tabela1);
+        jScrollPane3.setViewportView(tabelaAlunos);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -269,10 +303,10 @@ public class Turmas extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Cadastrar Notas");
+        btCdNotas.setText("Cadastrar Notas");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -284,7 +318,7 @@ public class Turmas extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btCdNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -293,13 +327,13 @@ public class Turmas extends javax.swing.JInternalFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVoltar)
-                    .addComponent(jButton1))
+                    .addComponent(btCdNotas))
                 .addContainerGap())
         );
 
@@ -333,17 +367,17 @@ public class Turmas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btVoltarActionPerformed
 
-    private void btBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBusca1ActionPerformed
+    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
 
-    }//GEN-LAST:event_btBusca1ActionPerformed
+    }//GEN-LAST:event_btBuscarActionPerformed
 
-    private void tabela1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabela1MouseClicked
+    private void tabelaAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaAlunosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tabela1MouseClicked
+    }//GEN-LAST:event_tabelaAlunosMouseClicked
 
-    private void cbEnsino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEnsino1ActionPerformed
+    private void cbEnsinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEnsinosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbEnsino1ActionPerformed
+    }//GEN-LAST:event_cbEnsinosActionPerformed
 
     private void cbTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurmasActionPerformed
         // TODO add your handling code here:
@@ -352,26 +386,22 @@ public class Turmas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBusca;
-    private javax.swing.JButton btBusca1;
+    private javax.swing.JButton btBuscar;
+    private javax.swing.JButton btCdNotas;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JComboBox<String> cbEnsino;
-    private javax.swing.JComboBox<String> cbEnsino1;
+    private javax.swing.JComboBox<String> cbEnsinos;
     private javax.swing.JComboBox<String> cbTurmas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabela;
-    private javax.swing.JTable tabela1;
+    private javax.swing.JTable tabelaAlunos;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }

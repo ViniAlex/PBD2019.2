@@ -8,6 +8,7 @@ package view;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import view.AcPedagogicoTela;
 
 /**
@@ -16,15 +17,115 @@ import view.AcPedagogicoTela;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    private boolean admON = true;
+
     public TelaPrincipal() {
         initComponents();
 
         setLocationRelativeTo(null);
 
-        Solicitacoes soli = new Solicitacoes();
-        internoFrame.add(soli);
-        soli.show();
-        soli.locate(70, 70);
+        if (admON) {
+            Solicitacoes soli = new Solicitacoes(this);
+            internoFrame.add(soli);
+            soli.show();
+            soli.setResizable(false);
+        }
+    }
+
+    public boolean isAdmON() {
+        return admON;
+    }
+
+    public void setAdmON(boolean admON) {
+        this.admON = admON;
+    }
+
+    public JMenuItem getItemAlterarSenha() {
+        return itemAlterarSenha;
+    }
+
+    public void setItemAlterarSenha(JMenuItem itemAlterarSenha) {
+        this.itemAlterarSenha = itemAlterarSenha;
+    }
+
+    public JMenuItem getItemCdPessoa() {
+        return itemCdPessoa;
+    }
+
+    public void setItemCdPessoa(JMenuItem itemCdPessoa) {
+        this.itemCdPessoa = itemCdPessoa;
+    }
+
+    public JMenuItem getItemCdTurma() {
+        return itemCdTurma;
+    }
+
+    public void setItemCdTurma(JMenuItem itemCdTurma) {
+        this.itemCdTurma = itemCdTurma;
+    }
+
+    public JMenu getItemListarAcPedag() {
+        return itemListarAcPedag;
+    }
+
+    public void setItemListarAcPedag(JMenu itemListarAcPedag) {
+        this.itemListarAcPedag = itemListarAcPedag;
+    }
+
+    public JMenuItem getItemListarAlunos() {
+        return itemListarAlunos;
+    }
+
+    public void setItemListarAlunos(JMenuItem itemListarAlunos) {
+        this.itemListarAlunos = itemListarAlunos;
+    }
+
+    public JMenuItem getItemListarPessoas() {
+        return itemListarPessoas;
+    }
+
+    public void setItemListarPessoas(JMenuItem itemListarPessoas) {
+        this.itemListarPessoas = itemListarPessoas;
+    }
+
+    public JMenuItem getItemListarTurmas() {
+        return itemListarPerfCur;
+    }
+
+    public void setItemListarTurmas(JMenuItem itemListarTurmas) {
+        this.itemListarPerfCur = itemListarTurmas;
+    }
+
+    public JMenu getMenuDisciplina() {
+        return menuDisciplina;
+    }
+
+    public void setMenuDisciplina(JMenu menuDisciplina) {
+        this.menuDisciplina = menuDisciplina;
+    }
+
+    public JMenu getMenuMatricula() {
+        return menuMatricula;
+    }
+
+    public void setMenuMatricula(JMenu menuMatricula) {
+        this.menuMatricula = menuMatricula;
+    }
+
+    public JMenu getMenuPessoa() {
+        return menuPessoa;
+    }
+
+    public void setMenuPessoa(JMenu menuPessoa) {
+        this.menuPessoa = menuPessoa;
+    }
+
+    public JMenu getMenuTurma() {
+        return menuTurma;
+    }
+
+    public void setMenuTurma(JMenu menuTurma) {
+        this.menuTurma = menuTurma;
     }
 
     /**
@@ -42,23 +143,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lbUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         imAlterarSenha = new javax.swing.JMenu();
-        alterarSenha = new javax.swing.JMenuItem();
+        itemAlterarSenha = new javax.swing.JMenuItem();
         imSair = new javax.swing.JMenuItem();
-        imCadastrarPessoa = new javax.swing.JMenu();
-        novoCliente = new javax.swing.JMenuItem();
-        imListarPessoas = new javax.swing.JMenuItem();
-        imListarAlunos = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        imRealizarMatricula = new javax.swing.JMenuItem();
+        menuPessoa = new javax.swing.JMenu();
+        itemCdPessoa = new javax.swing.JMenuItem();
+        itemListarPessoas = new javax.swing.JMenuItem();
+        itemListarAlunos = new javax.swing.JMenuItem();
+        menuMatricula = new javax.swing.JMenu();
         imListarMatriculas = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        menuDisciplina = new javax.swing.JMenu();
         imCadastrarDisciplina = new javax.swing.JMenuItem();
         imLIstarDisciplinas = new javax.swing.JMenuItem();
-        menuCaixa = new javax.swing.JMenu();
-        imCdTurma = new javax.swing.JMenuItem();
-        imListarTurmas = new javax.swing.JMenuItem();
-        menuFuncionario = new javax.swing.JMenu();
-        imNovoAcPed = new javax.swing.JMenuItem();
+        menuTurma = new javax.swing.JMenu();
+        itemCdTurma = new javax.swing.JMenuItem();
+        itemTurmas = new javax.swing.JMenuItem();
+        itemListarPerfCur = new javax.swing.JMenuItem();
+        itemListarAcPedag = new javax.swing.JMenu();
         imListarAcPed = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,13 +212,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         imAlterarSenha.setText("Perfil");
 
-        alterarSenha.setText("Alterar Senha");
-        alterarSenha.addActionListener(new java.awt.event.ActionListener() {
+        itemAlterarSenha.setText("Alterar Senha");
+        itemAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alterarSenhaActionPerformed(evt);
+                itemAlterarSenhaActionPerformed(evt);
             }
         });
-        imAlterarSenha.add(alterarSenha);
+        imAlterarSenha.add(itemAlterarSenha);
 
         imSair.setText("Sair");
         imSair.addActionListener(new java.awt.event.ActionListener() {
@@ -130,43 +230,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(imAlterarSenha);
 
-        imCadastrarPessoa.setText("Pessoa");
+        menuPessoa.setText("Pessoa");
 
-        novoCliente.setText("Cadastrar Pessoa");
-        novoCliente.addActionListener(new java.awt.event.ActionListener() {
+        itemCdPessoa.setText("Cadastrar Pessoa");
+        itemCdPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoClienteActionPerformed(evt);
+                itemCdPessoaActionPerformed(evt);
             }
         });
-        imCadastrarPessoa.add(novoCliente);
+        menuPessoa.add(itemCdPessoa);
 
-        imListarPessoas.setText("Listar Pessoas");
-        imListarPessoas.addActionListener(new java.awt.event.ActionListener() {
+        itemListarPessoas.setText("Listar Pessoas");
+        itemListarPessoas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imListarPessoasActionPerformed(evt);
+                itemListarPessoasActionPerformed(evt);
             }
         });
-        imCadastrarPessoa.add(imListarPessoas);
+        menuPessoa.add(itemListarPessoas);
 
-        imListarAlunos.setText("Listar Alunos");
-        imListarAlunos.addActionListener(new java.awt.event.ActionListener() {
+        itemListarAlunos.setText("Listar Alunos");
+        itemListarAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imListarAlunosActionPerformed(evt);
+                itemListarAlunosActionPerformed(evt);
             }
         });
-        imCadastrarPessoa.add(imListarAlunos);
+        menuPessoa.add(itemListarAlunos);
 
-        jMenuBar1.add(imCadastrarPessoa);
+        jMenuBar1.add(menuPessoa);
 
-        jMenu3.setText("Matricula");
-
-        imRealizarMatricula.setText("Realizar Matricula");
-        imRealizarMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imRealizarMatriculaActionPerformed(evt);
-            }
-        });
-        jMenu3.add(imRealizarMatricula);
+        menuMatricula.setText("Matricula");
 
         imListarMatriculas.setText("Listar Matriculas");
         imListarMatriculas.addActionListener(new java.awt.event.ActionListener() {
@@ -174,11 +266,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 imListarMatriculasActionPerformed(evt);
             }
         });
-        jMenu3.add(imListarMatriculas);
+        menuMatricula.add(imListarMatriculas);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(menuMatricula);
 
-        jMenu4.setText("Disciplina");
+        menuDisciplina.setText("Disciplina");
 
         imCadastrarDisciplina.setText("Cadastrar Disciplina");
         imCadastrarDisciplina.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +278,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 imCadastrarDisciplinaActionPerformed(evt);
             }
         });
-        jMenu4.add(imCadastrarDisciplina);
+        menuDisciplina.add(imCadastrarDisciplina);
 
         imLIstarDisciplinas.setText("Listar Disciplinas");
         imLIstarDisciplinas.addActionListener(new java.awt.event.ActionListener() {
@@ -194,39 +286,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 imLIstarDisciplinasActionPerformed(evt);
             }
         });
-        jMenu4.add(imLIstarDisciplinas);
+        menuDisciplina.add(imLIstarDisciplinas);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(menuDisciplina);
 
-        menuCaixa.setText("Turma");
+        menuTurma.setText("Turma");
 
-        imCdTurma.setText("Cadastrar Turma");
-        imCdTurma.addActionListener(new java.awt.event.ActionListener() {
+        itemCdTurma.setText("Cadastrar Turma");
+        itemCdTurma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imCdTurmaActionPerformed(evt);
+                itemCdTurmaActionPerformed(evt);
             }
         });
-        menuCaixa.add(imCdTurma);
+        menuTurma.add(itemCdTurma);
 
-        imListarTurmas.setText("Listar Turmas");
-        imListarTurmas.addActionListener(new java.awt.event.ActionListener() {
+        itemTurmas.setText("Listar Turmas");
+        itemTurmas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imListarTurmasActionPerformed(evt);
+                itemTurmasActionPerformed(evt);
             }
         });
-        menuCaixa.add(imListarTurmas);
+        menuTurma.add(itemTurmas);
 
-        jMenuBar1.add(menuCaixa);
-
-        menuFuncionario.setText("Ac. Pedagogico");
-
-        imNovoAcPed.setText("Novo Acompanhamento Pedagogico");
-        imNovoAcPed.addActionListener(new java.awt.event.ActionListener() {
+        itemListarPerfCur.setText("Listar Perfs. Curriculares");
+        itemListarPerfCur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imNovoAcPedActionPerformed(evt);
+                itemListarPerfCurActionPerformed(evt);
             }
         });
-        menuFuncionario.add(imNovoAcPed);
+        menuTurma.add(itemListarPerfCur);
+
+        jMenuBar1.add(menuTurma);
+
+        itemListarAcPedag.setText("Ac. Pedagogico");
 
         imListarAcPed.setText("Listar Acompanhamentos");
         imListarAcPed.addActionListener(new java.awt.event.ActionListener() {
@@ -234,9 +326,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 imListarAcPedActionPerformed(evt);
             }
         });
-        menuFuncionario.add(imListarAcPed);
+        itemListarAcPedag.add(imListarAcPed);
 
-        jMenuBar1.add(menuFuncionario);
+        jMenuBar1.add(itemListarAcPedag);
 
         setJMenuBar(jMenuBar1);
 
@@ -254,12 +346,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void imListarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarAlunosActionPerformed
+
+    private void itemListarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListarAlunosActionPerformed
         Alunos tlAlunos = new Alunos(this);
         internoFrame.add(tlAlunos);
         tlAlunos.show();
 
-    }//GEN-LAST:event_imListarAlunosActionPerformed
+    }//GEN-LAST:event_itemListarAlunosActionPerformed
 
     private void imLIstarDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imLIstarDisciplinasActionPerformed
         Disciplinas tlDisci = new Disciplinas(this);
@@ -269,20 +362,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_imLIstarDisciplinasActionPerformed
 
-    private void alterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarSenhaActionPerformed
+    private void itemAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAlterarSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_alterarSenhaActionPerformed
+    }//GEN-LAST:event_itemAlterarSenhaActionPerformed
 
-    private void novoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoClienteActionPerformed
+    private void itemCdPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCdPessoaActionPerformed
         NovaPessoa tlCliente = new NovaPessoa();
         internoFrame.add(tlCliente);
         tlCliente.show();
-    }//GEN-LAST:event_novoClienteActionPerformed
-
-    private void imRealizarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imRealizarMatriculaActionPerformed
-
-
-    }//GEN-LAST:event_imRealizarMatriculaActionPerformed
+    }//GEN-LAST:event_itemCdPessoaActionPerformed
 
     private void imListarMatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarMatriculasActionPerformed
         Matriculas tlMatriculas = new Matriculas();
@@ -298,27 +386,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tlDisciplina.show();
     }//GEN-LAST:event_imCadastrarDisciplinaActionPerformed
 
-    private void imNovoAcPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imNovoAcPedActionPerformed
-
-    }//GEN-LAST:event_imNovoAcPedActionPerformed
-
-    private void imCdTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imCdTurmaActionPerformed
+    private void itemCdTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCdTurmaActionPerformed
         NovoPerfilCurricular tlPerf = new NovoPerfilCurricular();
         internoFrame.add(tlPerf);
         tlPerf.show();
-    }//GEN-LAST:event_imCdTurmaActionPerformed
+    }//GEN-LAST:event_itemCdTurmaActionPerformed
 
-    private void imListarPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarPessoasActionPerformed
+    private void itemListarPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListarPessoasActionPerformed
         Pessoas p = new Pessoas(this);
         internoFrame.add(p);
         p.show();
-    }//GEN-LAST:event_imListarPessoasActionPerformed
+    }//GEN-LAST:event_itemListarPessoasActionPerformed
 
-    private void imListarTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarTurmasActionPerformed
+    private void itemListarPerfCurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListarPerfCurActionPerformed
         PerfisCurriculares pC = new PerfisCurriculares(this);
         internoFrame.add(pC);
         pC.show();
-    }//GEN-LAST:event_imListarTurmasActionPerformed
+    }//GEN-LAST:event_itemListarPerfCurActionPerformed
 
     private void imListarAcPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarAcPedActionPerformed
         AcPedagogicoTela tela = new AcPedagogicoTela(this);
@@ -329,6 +413,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void imSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imSairActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_imSairActionPerformed
+
+    private void itemTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemTurmasActionPerformed
+        Turmas t = new Turmas(this);
+        internoFrame.add(t);
+        t.show();
+    }//GEN-LAST:event_itemTurmasActionPerformed
 
     public static void main(String args[]) {
 
@@ -371,30 +461,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem alterarSenha;
     private javax.swing.JMenu imAlterarSenha;
     private javax.swing.JMenuItem imCadastrarDisciplina;
-    private javax.swing.JMenu imCadastrarPessoa;
-    private javax.swing.JMenuItem imCdTurma;
     private javax.swing.JMenuItem imLIstarDisciplinas;
     private javax.swing.JMenuItem imListarAcPed;
-    private javax.swing.JMenuItem imListarAlunos;
     private javax.swing.JMenuItem imListarMatriculas;
-    private javax.swing.JMenuItem imListarPessoas;
-    private javax.swing.JMenuItem imListarTurmas;
-    private javax.swing.JMenuItem imNovoAcPed;
-    private javax.swing.JMenuItem imRealizarMatricula;
     private javax.swing.JMenuItem imSair;
     private javax.swing.JDesktopPane internoFrame;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem itemAlterarSenha;
+    private javax.swing.JMenuItem itemCdPessoa;
+    private javax.swing.JMenuItem itemCdTurma;
+    private javax.swing.JMenu itemListarAcPedag;
+    private javax.swing.JMenuItem itemListarAlunos;
+    private javax.swing.JMenuItem itemListarPerfCur;
+    private javax.swing.JMenuItem itemListarPessoas;
+    private javax.swing.JMenuItem itemTurmas;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbUsuario;
-    private javax.swing.JMenu menuCaixa;
-    private javax.swing.JMenu menuFuncionario;
+    private javax.swing.JMenu menuDisciplina;
+    private javax.swing.JMenu menuMatricula;
+    private javax.swing.JMenu menuPessoa;
+    private javax.swing.JMenu menuTurma;
     private javax.swing.JLabel nomeUsuarioLabel;
-    private javax.swing.JMenuItem novoCliente;
     // End of variables declaration//GEN-END:variables
 
 }

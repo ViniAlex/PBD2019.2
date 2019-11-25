@@ -76,7 +76,12 @@ public class AlunosControl implements ActionListener {
             nP.getCbTipo().setSelectedItem(al.getTipo());
             nP.getTxtAluno().setText(al.getNome());
             nP.getTxtNatu().setText(al.getNaturalidade());
-            nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
+
+            try {
+                System.out.println(format.format(p.getDtaNascimento()));
+                nP.getTxtDtaNasc().setText(format.format(p.getDtaNascimento()));
+            } catch (Exception edf) {
+            }
 
             nP.getTxtMae().setText(al.getMae());
             nP.getTxtPai().setText(al.getPai());
@@ -100,10 +105,9 @@ public class AlunosControl implements ActionListener {
                         al.setNaturalidade(nP.getTxtNatu().getText());
 
                         try {
-
-                            p.setDtaNascimento(format.parse(nP.getTxtDtaNasc().getText()));
+                            al.setDtaNascimento(format.parse(nP.getTxtDtaNasc().getText()));
                         } catch (ParseException ex) {
-                            Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(AlunosControl.class.getName()).log(Level.SEVERE, null, ex);
                         }
 
                         al.setMae(nP.getTxtMae().getText());

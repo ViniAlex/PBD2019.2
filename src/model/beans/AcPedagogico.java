@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -41,11 +42,12 @@ public class AcPedagogico extends Entidade {
     @Column(length = 100)
     private String status;
 
-    @OneToOne(optional = false)
+    @ManyToOne
     @JoinColumn(name = "ALUNO_ID")
     private Aluno aluno;
 
-    @OneToOne(optional = false)
+//    @OneToOne(optional = false)
+    @ManyToOne
     @JoinColumn(name = "PESSOA_ID")
     private Pessoa pessoa;
 
@@ -64,8 +66,6 @@ public class AcPedagogico extends Entidade {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
-    
-    
 
     public Date getData() {
         return data;

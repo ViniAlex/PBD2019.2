@@ -358,7 +358,9 @@
                       <Component id="jPanel8" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="btReturn" min="-2" pref="121" max="-2" attributes="0"/>
-                          <EmptySpace pref="289" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btRelatorio" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btSalvar" min="-2" pref="121" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -375,6 +377,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btReturn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btRelatorio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -575,6 +578,11 @@
         <Component class="javax.swing.JButton" name="btReturn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btRelatorio">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
           </Properties>
         </Component>
       </SubComponents>

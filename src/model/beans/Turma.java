@@ -28,7 +28,7 @@ public class Turma extends Entidade {
     
     private static final long serialVersionUID = 1L;
    
-    @Column(length = 20)
+    @Column(length = 100)
     private String nome;
     
     @Column(length = 100)

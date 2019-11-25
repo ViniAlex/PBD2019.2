@@ -5,6 +5,10 @@
  */
 package view;
 
+import control.SolicitacoesControl;
+import javax.swing.JButton;
+import javax.swing.JTable;
+
 /**
  *
  * @author Vinícius
@@ -14,8 +18,13 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
     /**
      * Creates new form Solicitacoes
      */
-    public Solicitacoes() {
+    public Solicitacoes(TelaPrincipal telaP) {
         initComponents();
+
+        SolicitacoesControl c = new SolicitacoesControl(this, telaP);
+
+        btVer.addActionListener(c);
+        btPendentes.addActionListener(c);
     }
 
     /**
@@ -31,7 +40,8 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabela1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btVer = new javax.swing.JButton();
+        btPendentes = new javax.swing.JButton();
 
         setIconifiable(true);
 
@@ -52,7 +62,7 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -87,20 +97,26 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Ver");
+        btVer.setText("Ver");
+
+        btPendentes.setText("Pendentes");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(14, 14, 14))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btPendentes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btVer)
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +124,9 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
                 .addGap(9, 9, 9)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btVer)
+                    .addComponent(btPendentes))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -126,20 +144,42 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtVer() {
+        return btVer;
+    }
+
+    public void setBtVer(JButton btVer) {
+        this.btVer = btVer;
+    }
+
+    public JTable getTabela1() {
+        return tabela1;
+    }
+
+    public void setTabela1(JTable tabela1) {
+        this.tabela1 = tabela1;
+    }
+
+    public JButton getBtPendentes() {
+        return btPendentes;
+    }
+
+    public void setBtPendentes(JButton btPendentes) {
+        this.btPendentes = btPendentes;
+    }
+
+
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tabelaMouseClicked
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton btPendentes;
+    private javax.swing.JButton btVer;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable tabela;
     private javax.swing.JTable tabela1;
     // End of variables declaration//GEN-END:variables
 }

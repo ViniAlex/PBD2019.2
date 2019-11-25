@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -34,11 +35,13 @@ public class Matricula extends Entidade {
     @Column(length = 50)
     private double valorMensalidade;
 
-    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
+//    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
+    @ManyToOne
     @JoinColumn(name = "ALUNO_ID")
     private Aluno aluno;
     
-    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
+    //@OneToOne(optional = false, cascade = CascadeType.REFRESH)
+    @ManyToOne
     @JoinColumn(name = "TURMA_ID")
     private Turma turma;
 

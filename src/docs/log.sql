@@ -4,21 +4,68 @@ AS'
 BEGIN
 
 IF TG_OP = ''INSERT'' THEN
- 	INSERT INTO log (data, autor, alteracao, tabela, anterior, atual) 
+ 	INSERT INTO log (data, autor, alter, tabela, anterior, atual) 
  	VALUES (now(), user, TG_OP, TG_RELNAME, ''Novo Registro'', NEW);
  ELSE
- 	INSERT INTO log (data, autor, alteracao, tabela, anterior, atual)
-	VALUES (now(), user, TG_OP, TG_RELNAME, OLD, NEW)
+ 	INSERT INTO log (data, autor, alter, tabela, anterior, atual)
+	VALUES (now(), user, TG_OP, TG_RELNAME, OLD, NEW);
 
- END IF;
+END IF;
 RETURN NEW;
 END '
 LANGUAGE plpgsql;
 
-CREATE OR UPDATE TRIGGER log_pessoa
+CREATE TRIGGER log_pessoa
 BEFORE INSERT OR UPDATE OR DELETE
 ON pessoa
 FOR EACH ROW
 EXECUTE PROCEDURE criar_log();
 
+CREATE TRIGGER log_aluno
+BEFORE INSERT OR UPDATE OR DELETE
+ON aluno
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_acpedagogico
+BEFORE INSERT OR UPDATE OR DELETE
+ON acpedagogico
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_curriculo
+BEFORE INSERT OR UPDATE OR DELETE
+ON curriculo
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_endereco
+BEFORE INSERT OR UPDATE OR DELETE
+ON endereco
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_matricula
+BEFORE INSERT OR UPDATE OR DELETE
+ON matricula
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_turma
+BEFORE INSERT OR UPDATE OR DELETE
+ON turma
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_disciplina
+BEFORE INSERT OR UPDATE OR DELETE
+ON disciplina
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
+
+CREATE TRIGGER log_solicitacao
+BEFORE INSERT OR UPDATE OR DELETE
+ON solicitacao
+FOR EACH ROW
+EXECUTE PROCEDURE criar_log();
 
