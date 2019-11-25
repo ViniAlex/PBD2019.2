@@ -102,6 +102,7 @@ public class AcPedagogicoControl implements ActionListener {
                 AcpDAO.create(acP);
                 telaSucesso();
                 tl.dispose();
+                
             } catch (DaoException ex) {
                 telaErro();
                 Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,8 +111,7 @@ public class AcPedagogicoControl implements ActionListener {
         }
         if (e.getSource() == tl.getBtRelatorio()) {
             gerarRelatorio();
-            telaSucesso();
-            tl.dispose();
+            telaSucessoRelatorio();
 
         }
         if (e.getSource() == tl.getBtReturn()) {
@@ -149,10 +149,19 @@ public class AcPedagogicoControl implements ActionListener {
         //
     }
 
+    public void telaSucessoRelatorio() {
+
+        CadastroSucesso sucesso = new CadastroSucesso();
+        sucesso.show();
+        sucesso.getMsg().setText("Relatório realizado com sucesso");
+
+    }
+
     public void telaSucesso() {
 
         CadastroSucesso sucesso = new CadastroSucesso();
         sucesso.show();
+
     }
 
     public void telaErro() {

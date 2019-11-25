@@ -9,10 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import model.beans.Curriculo;
 import model.beans.Pessoa;
 import model.daos.PessoaDAO;
 import util.DaoException;
+import view.Alunos;
+import view.CadastroSucesso;
+import view.Erro;
 import view.Login;
 import view.TelaPrincipal;
 import view.TelaSolicitar;
@@ -27,6 +31,7 @@ public class LoginControl implements ActionListener {
     private PessoaDAO pDAO = new PessoaDAO();
     private Pessoa p;
     private TelaPrincipal tlP;
+    private Alunos tla;
 
     public LoginControl(Login tlLogin) {
         this.tl = tlLogin;
@@ -47,8 +52,9 @@ public class LoginControl implements ActionListener {
                                 new BackupControl();
                                 tlP.getNomeUser().setText(pe.getNome());
                                 tlP.show();
+                                telaSucesso();
                                 tlP.setAdmON(false);
-                                
+
                                 tlP.getItemCdPessoa().setEnabled(false);
                                 tlP.getItemListarPessoas().setEnabled(false);
                                 tlP.getMenuDisciplina().setEnabled(false);
@@ -57,17 +63,52 @@ public class LoginControl implements ActionListener {
 
                                 tl.dispose();
 
-                            }
-                            if (pe.getTipo().equals("Aluno")) {
+                                if (pe.getTipo().equals("Aluno")) {
 
+                                    tlP = new TelaPrincipal();
+                                    new BackupControl();
+                                    tlP.getNomeUser().setText(pe.getNome());
+                                    tlP.show();
+                                    telaSucesso();
+                                    tlP.setAdmON(false);
+
+                                    tlP.getMenuDisciplina().setEnabled(false);
+                                    tlP.getMenuMatricula().setEnabled(false);
+                                    tlP.getMenuTurma().setEnabled(false);
+                                    tlP.getMenuPessoa().setEnabled(false);
+                                    tlP.getItemListarAcPedag().setEnabled(false);
+
+                                    tl.dispose();
+                                }
                             }
                             if (pe.getTipo().equals("Secretária")) {
 
+                                tlP = new TelaPrincipal();
+                                new BackupControl();
+                                tlP.getNomeUser().setText(pe.getNome());
+                                tlP.show();
+                                telaSucesso();
+                                telaSucesso();
+                                tlP.setAdmON(false);
+
+                                tlP.getItemCdPessoa().setEnabled(false);
+                                tlP.getItemListarPessoas().setEnabled(false);
+
+                                /*
+                                if (tlP.getInternoFrame().getAllFrames().equals(tla)) {
+                                    tla.getBtMatricula().setEnabled(false);
+                                    tla.getBtAcPedg().setEnabled(true);
+                                }
+                                 */
+                                tlP.getItemListarAcPedag().setEnabled(false);
+                                tl.dispose();
                             }
                             if (pe.getTipo().equals("Coordenador")) {
 
                             }
                             if (pe.getTipo().equals("Direção")) {
+                                
+                                
 
                             }
                             if (pe.getTipo().equals("ADM")) {
@@ -75,6 +116,7 @@ public class LoginControl implements ActionListener {
                                 new BackupControl();
                                 tlP.getNomeUser().setText(pe.getNome());
                                 tlP.show();
+                                telaSucesso();
                                 tlP.isAdmON();
                                 tlP.setAdmON(true);
 
@@ -88,6 +130,7 @@ public class LoginControl implements ActionListener {
 
                 }
             } catch (DaoException ex) {
+                telaErro();
                 Logger.getLogger(PerfilControler.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -104,7 +147,31 @@ public class LoginControl implements ActionListener {
         }
         if (e.getSource() == tl.getBtSair()) {
             tl.dispose();
+            System.exit(0);
+            
         }
+    }
+
+    public void telaSucesso() {
+
+        CadastroSucesso sucesso = new CadastroSucesso();
+        sucesso.show();
+        sucesso.getMsg().setText("Seja bem vindo ao ARGUS");
+
+    }
+
+    public void telaSucessoMSG() {
+
+        CadastroSucesso sucesso = new CadastroSucesso();
+        sucesso.show();
+        sucesso.getMsg().setText("Sua solicitação foi enviado ao ADM");
+    }
+
+    public void telaErro() {
+        Erro tlErro = new Erro();
+        tlErro.show();
+        tlErro.getMsg().setText("ERRO! - Login ou Senha errados");
+
     }
 
 }

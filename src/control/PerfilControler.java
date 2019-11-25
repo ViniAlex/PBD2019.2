@@ -5,8 +5,11 @@
  */
 package control;
 
+import com.sun.corba.se.impl.protocol.giopmsgheaders.KeyAddr;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.beans.Curriculo;
@@ -35,6 +38,10 @@ public class PerfilControler implements ActionListener {
 
         cvDAO = new CurriculoDAO();
         tDAO = new TurmaDAO();
+        System.out.println("control.PerfilControler.<init>()");
+
+        //att().start();
+
     }
 
     @Override
@@ -44,14 +51,13 @@ public class PerfilControler implements ActionListener {
 
             cv = new Curriculo();
             cv.setNome(tlPerf.getTxtNome().getText());
-            
+
             t = new Turma();
             t.setNome(tlPerf.getTxtNome().getText());
             t.setCurriculo(cv);
 
             try {
 
-                
                 cvDAO.create(cv);
                 tDAO.create(t);
                 telaSucesso();
@@ -76,8 +82,11 @@ public class PerfilControler implements ActionListener {
                 //txtNome.setText(CBem.getText() + " - " + cbSerieM.getSelectedItem().toString() + " " + cbTurmaM.getSelectedItem().toString());
             }
         }
+
         if (e.getSource() == tlPerf.getBtVoltar()) {
             tlPerf.dispose();
+            //att().stop();
+
         }
 
     }
@@ -91,6 +100,29 @@ public class PerfilControler implements ActionListener {
     public void telaErro() {
         Erro tlErro = new Erro();
         tlErro.show();
+
+    }
+
+    public Thread att() {
+        return new Thread() {
+
+            public void run() {
+                System.out.println(".run()");
+                if (tlPerf.getCBefF().isSelected()) {
+                    tlPerf.getTxtNome().setText(tlPerf.getCBefF().getText() + " - " + tlPerf.getCbSerieFF().getSelectedItem().toString() + " " + tlPerf.getCbTurmaFF().getSelectedItem().toString());
+                    System.out.println(tlPerf.getCBefF().getText() + " - " + tlPerf.getCbSerieFF().getSelectedItem().toString() + " " + tlPerf.getCbTurmaFF().getSelectedItem().toString());
+                }
+                if (tlPerf.getCBefI().isSelected()) {
+                    tlPerf.getTxtNome().setText(tlPerf.getCBefI().getText() + " - " + tlPerf.getCbSerieFI().getSelectedItem().toString() + " " + tlPerf.getCbTurmaFI().getSelectedItem().toString());
+
+                }
+                if (tlPerf.getCBem().isSelected()) {
+                    tlPerf.getTxtNome().setText(tlPerf.getCBem().getText() + " - " + tlPerf.getCbSerieM().getSelectedItem().toString() + " " + tlPerf.getCbTurmaM().getSelectedItem().toString());
+                    //txtNome.setText(CBem.getText() + " - " + cbSerieM.getSelectedItem().toString() + " " + cbTurmaM.getSelectedItem().toString());
+                }
+            }
+
+        };
 
     }
 

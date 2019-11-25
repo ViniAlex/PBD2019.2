@@ -28,6 +28,7 @@ public class NovoPerfilCurricular extends javax.swing.JInternalFrame {
         btSalvar.addActionListener(c);
         btVoltar.addActionListener(c);
         btAtt.addActionListener(c);
+        txtNome.addActionListener(c);
 
     }
 

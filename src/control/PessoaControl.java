@@ -37,7 +37,7 @@ public class PessoaControl implements ActionListener {
 
     public PessoaControl(NovaPessoa telaPessoa) {
         this.tlPessoa = telaPessoa;
-        
+
         alunoDAO = new AlunoDAO();
         pessoaDAO = new PessoaDAO();
     }
@@ -104,8 +104,8 @@ public class PessoaControl implements ActionListener {
                     Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                //pessoa.setTipo("ADM");
-                pessoa.setTipo(tlPessoa.getCbTipo().getSelectedItem().toString());
+                pessoa.setTipo("ADM");
+                //pessoa.setTipo(tlPessoa.getCbTipo().getSelectedItem().toString());
                 pessoa.setNaturalidade(tlPessoa.getTxtNatu().getText());
 
                 pessoa.setLogin(tlPessoa.getTxtLogin().getText());

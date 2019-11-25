@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import model.beans.AcPedagogico;
 import model.beans.Aluno;
 import model.beans.Pessoa;
+import model.beans.views.AcpedagogicoView;
 import model.daos.AcPedagogicoDAO;
 import model.daos.AlunoDAO;
 import model.daos.PessoaDAO;
@@ -181,13 +182,13 @@ public class AcPedagogicosControl implements ActionListener {
         model.addColumn("Status");
 
         try {
-            for (AcPedagogico acPeda : AcpDAO.buscaPorNome(nome)) {
+            for (AcpedagogicoView acPeda : AcpDAO.buscaPorNomeAluno(nome)) {
                 model.addRow(new Object[]{
-                    acPeda.getId(),
-                    acPeda.getAluno().getNome(),
-                    acPeda.getAluno().getTurma().getNome(),
-                    acPeda.getData(),
-                    acPeda.getStatus()
+                    acPeda.getAcp_id(),
+                    acPeda.getAluno_nome(),
+                    acPeda.getAcp_status(),
+                    acPeda.getAcp_data()
+                    
                 });
 
             }

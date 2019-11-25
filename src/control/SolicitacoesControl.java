@@ -117,6 +117,7 @@ public class SolicitacoesControl implements ActionListener {
                         pDAO.update(p);
                         soliDAO.update(soli);
                         telaSucesso();
+                        tela.dispose();
                     } catch (DaoException ex) {
                         Logger.getLogger(SolicitacoesControl.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -127,6 +128,22 @@ public class SolicitacoesControl implements ActionListener {
         }
         if (e.getSource() == tl.getBtPendentes()) {
             popularTabelaView();
+        }
+        if (e.getSource() == tl.getBtRemove()) {
+
+            int row = tl.getTabela1().getSelectedRow();
+            int id = Integer.parseInt(tl.getTabela1().getValueAt(row, 0) + "");
+
+            try {
+                soli = soliDAO.search(id);
+                soliDAO.remove(soli);
+            } catch (DaoException ex) {
+                Logger.getLogger(AlunosControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        if (e.getSource() == tl.getBtAtt()) {
+            popularTabela();
         }
 
     }

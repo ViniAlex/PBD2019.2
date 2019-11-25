@@ -6,7 +6,7 @@
 package view;
 
 import control.LoginControl;
-import control.LoginControler;
+
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -72,8 +72,6 @@ public class Login extends javax.swing.JFrame {
     public void setTxtLogin(JTextField txtLogin) {
         this.txtLogin = txtLogin;
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

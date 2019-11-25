@@ -74,7 +74,7 @@ public class DAO<T extends Entidade> {
             throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
         }
     }
-    
+
     public List<T> buscaPorNome2(String nome) throws DaoException {
 
         try {
@@ -87,7 +87,7 @@ public class DAO<T extends Entidade> {
             throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
         }
     }
-    
+
     public List<T> buscaPorCargo() throws DaoException {
 
         try {
@@ -100,16 +100,15 @@ public class DAO<T extends Entidade> {
             throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
         }
     }
-        
+
     public List<T> realizarLogin(String login, String senha) throws DaoException {
 
         try {
             //return entityManager.createNamedQuery("SELECT a FROM Pessoa a where a.login= :'" + login + "' AND a.senha= :'" + senha+"'", Pessoa.class).getResultList();
-            return entityManager.createNativeQuery("SELECT * FROM " +classe.getName() + " where login like '"
-                + login + "'and senha like '" + senha + "'", classe).getResultList();
-            
-            //Query query = em.createNativeQuery("select * from funcionario where login like '"         + login + "' and senha like '" + senha + "'", Funcionario.class);
+            return entityManager.createNativeQuery("SELECT * FROM " + classe.getName() + " where login like '"
+                    + login + "'and senha like '" + senha + "'", classe).getResultList();
 
+            //Query query = em.createNativeQuery("select * from funcionario where login like '"         + login + "' and senha like '" + senha + "'", Funcionario.class);
         } catch (NoResultException n) {
             n.printStackTrace();
             throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
@@ -132,6 +131,7 @@ public class DAO<T extends Entidade> {
         }
     }
 
+    /*
     public void remove(int id) throws DaoException {
 
         try {
@@ -147,6 +147,21 @@ public class DAO<T extends Entidade> {
 
     }
 
+     */
+    public void remove(T entidade) throws DaoException {
+
+        try {
+            entityManager.getTransaction().begin();            
+            entityManager.remove(entidade);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+            throw new DaoException("Erro ao Remover " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+
+    }
+    
     public void update(T entidade) throws DaoException {
 
         try {

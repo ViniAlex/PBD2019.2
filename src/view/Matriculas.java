@@ -5,6 +5,11 @@
  */
 package view;
 
+import control.MatriculasControl;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Vinícius
@@ -14,8 +19,62 @@ public class Matriculas extends javax.swing.JInternalFrame {
     /**
      * Creates new form Matriculas
      */
-    public Matriculas() {
+    public Matriculas(TelaPrincipal telaP) {
         initComponents();
+
+        MatriculasControl c = new MatriculasControl(this, telaP);
+        btBusca.addActionListener(c);
+        btVoltar.addActionListener(c);
+        verDados.addActionListener(c);
+        btAtt.addActionListener(c);
+    }
+
+    public JButton getBtAtt() {
+        return btAtt;
+    }
+
+    public void setBtAtt(JButton btAtt) {
+        this.btAtt = btAtt;
+    }
+
+    public JButton getBtBusca() {
+        return btBusca;
+    }
+
+    public void setBtBusca(JButton btBusca) {
+        this.btBusca = btBusca;
+    }
+
+    public JButton getBtVoltar() {
+        return btVoltar;
+    }
+
+    public void setBtVoltar(JButton btVoltar) {
+        this.btVoltar = btVoltar;
+    }
+
+    public JTable getTabela() {
+        return tabela;
+    }
+
+    public void setTabela(JTable tabela) {
+        this.tabela = tabela;
+    }
+
+    public JTextField getTxtBusca() {
+        return txtBusca;
+    }
+
+    public void setTxtBusca(JTextField txtBusca) {
+        this.txtBusca = txtBusca;
+    }
+
+    public JButton getVerDados() {
+        return verDados;
+    }
+
+    public void setVerDados(JButton verDados) {
+        this.verDados = verDados;
     }
 
     /**
@@ -32,11 +91,11 @@ public class Matriculas extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         txtBusca = new javax.swing.JTextField();
         btBusca = new javax.swing.JButton();
-        btAlterar = new javax.swing.JButton();
         verDados = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
+        btAtt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -86,14 +145,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btAlterar.setText("Alterar");
-        btAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAlterarActionPerformed(evt);
-            }
-        });
-
-        verDados.setText("Novo");
+        verDados.setText("ver Dados");
         verDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verDadosActionPerformed(evt);
@@ -150,6 +202,8 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
+        btAtt.setText("Att");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -159,10 +213,10 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(verDados, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btAtt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(verDados, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -176,9 +230,9 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAlterar)
                     .addComponent(verDados)
-                    .addComponent(btVoltar))
+                    .addComponent(btVoltar)
+                    .addComponent(btAtt))
                 .addContainerGap())
         );
 
@@ -208,10 +262,6 @@ public class Matriculas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btBuscaActionPerformed
 
-    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-
-    }//GEN-LAST:event_btAlterarActionPerformed
-
     private void verDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verDadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verDadosActionPerformed
@@ -222,7 +272,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAlterar;
+    private javax.swing.JButton btAtt;
     private javax.swing.JButton btBusca;
     private javax.swing.JButton btVoltar;
     private javax.swing.JPanel jPanel2;

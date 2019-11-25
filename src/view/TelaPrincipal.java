@@ -65,11 +65,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     public JMenu getItemListarAcPedag() {
-        return itemListarAcPedag;
+        return menuAcPedagogo;
     }
 
     public void setItemListarAcPedag(JMenu itemListarAcPedag) {
-        this.itemListarAcPedag = itemListarAcPedag;
+        this.menuAcPedagogo = itemListarAcPedag;
     }
 
     public JMenuItem getItemListarAlunos() {
@@ -158,7 +158,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         itemCdTurma = new javax.swing.JMenuItem();
         itemTurmas = new javax.swing.JMenuItem();
         itemListarPerfCur = new javax.swing.JMenuItem();
-        itemListarAcPedag = new javax.swing.JMenu();
+        menuAcPedagogo = new javax.swing.JMenu();
         imListarAcPed = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -318,7 +318,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuTurma);
 
-        itemListarAcPedag.setText("Ac. Pedagogico");
+        menuAcPedagogo.setText("Ac. Pedagogico");
 
         imListarAcPed.setText("Listar Acompanhamentos");
         imListarAcPed.addActionListener(new java.awt.event.ActionListener() {
@@ -326,9 +326,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 imListarAcPedActionPerformed(evt);
             }
         });
-        itemListarAcPedag.add(imListarAcPed);
+        menuAcPedagogo.add(imListarAcPed);
 
-        jMenuBar1.add(itemListarAcPedag);
+        jMenuBar1.add(menuAcPedagogo);
 
         setJMenuBar(jMenuBar1);
 
@@ -363,7 +363,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_imLIstarDisciplinasActionPerformed
 
     private void itemAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAlterarSenhaActionPerformed
-        // TODO add your handling code here:
+        AlterarSenha alterP = new AlterarSenha(this);
+        internoFrame.add(alterP);
+        alterP.show();
+
     }//GEN-LAST:event_itemAlterarSenhaActionPerformed
 
     private void itemCdPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCdPessoaActionPerformed
@@ -373,7 +376,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemCdPessoaActionPerformed
 
     private void imListarMatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imListarMatriculasActionPerformed
-        Matriculas tlMatriculas = new Matriculas();
+        Matriculas tlMatriculas = new Matriculas(this);
         internoFrame.add(tlMatriculas);
         tlMatriculas.show();
 
@@ -411,7 +414,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_imListarAcPedActionPerformed
 
     private void imSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imSairActionPerformed
-        this.dispose();        // TODO add your handling code here:
+        System.exit(0);      // TODO add your handling code here:
     }//GEN-LAST:event_imSairActionPerformed
 
     private void itemTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemTurmasActionPerformed
@@ -419,7 +422,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         internoFrame.add(t);
         t.show();
     }//GEN-LAST:event_itemTurmasActionPerformed
-
+    /*
     public static void main(String args[]) {
 
         try {
@@ -446,7 +449,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+     */
     public JDesktopPane getInternoFrame() {
         return internoFrame;
     }
@@ -471,7 +474,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemAlterarSenha;
     private javax.swing.JMenuItem itemCdPessoa;
     private javax.swing.JMenuItem itemCdTurma;
-    private javax.swing.JMenu itemListarAcPedag;
     private javax.swing.JMenuItem itemListarAlunos;
     private javax.swing.JMenuItem itemListarPerfCur;
     private javax.swing.JMenuItem itemListarPessoas;
@@ -479,6 +481,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbUsuario;
+    private javax.swing.JMenu menuAcPedagogo;
     private javax.swing.JMenu menuDisciplina;
     private javax.swing.JMenu menuMatricula;
     private javax.swing.JMenu menuPessoa;

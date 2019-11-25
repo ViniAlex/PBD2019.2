@@ -25,6 +25,8 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
 
         btVer.addActionListener(c);
         btPendentes.addActionListener(c);
+        btAtt.addActionListener(c);
+        btRemove.addActionListener(c);
     }
 
     /**
@@ -42,6 +44,8 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
         tabela1 = new javax.swing.JTable();
         btVer = new javax.swing.JButton();
         btPendentes = new javax.swing.JButton();
+        btAtt = new javax.swing.JButton();
+        btRemove = new javax.swing.JButton();
 
         setIconifiable(true);
 
@@ -101,6 +105,15 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
 
         btPendentes.setText("Pendentes");
 
+        btAtt.setText("Att");
+        btAtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAttActionPerformed(evt);
+            }
+        });
+
+        btRemove.setText("Remove");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -111,6 +124,10 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(btPendentes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btAtt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btRemove)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btVer)
                         .addGap(14, 14, 14))
@@ -126,7 +143,9 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVer)
-                    .addComponent(btPendentes))
+                    .addComponent(btPendentes)
+                    .addComponent(btAtt)
+                    .addComponent(btRemove))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -143,6 +162,22 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtAtt() {
+        return btAtt;
+    }
+
+    public void setBtAtt(JButton btAtt) {
+        this.btAtt = btAtt;
+    }
+
+    public JButton getBtRemove() {
+        return btRemove;
+    }
+
+    public void setBtRemove(JButton btRemove) {
+        this.btRemove = btRemove;
+    }
 
     public JButton getBtVer() {
         return btVer;
@@ -173,9 +208,15 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tabelaMouseClicked
 
+    private void btAttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAttActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAttActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAtt;
     private javax.swing.JButton btPendentes;
+    private javax.swing.JButton btRemove;
     private javax.swing.JButton btVer;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

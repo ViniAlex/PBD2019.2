@@ -14,6 +14,7 @@ import model.daos.SolicitacaoDAO;
 import util.DaoException;
 import view.CadastroSucesso;
 import view.Erro;
+import view.Login;
 import view.TelaSolicitar;
 
 /**
@@ -37,37 +38,41 @@ public class SolicitacaoControl implements ActionListener {
         if (e.getSource() == tl.getBtEnviar()) {
 
             soli = new Solicitacao();
-            
-            soli.setNome(tl.getTxtNome().getText()); 
+
+            soli.setNome(tl.getTxtNome().getText());
             soli.setStatus("Pendente");
             soli.setTipoSolicitacao(tl.getCbTSoli().getSelectedItem().toString());
-            
+
             try {
                 soliDAO.create(soli);
                 tl.dispose();
+                Login lg = new Login();
+                lg.show();
                 telaSucesso();
-                
+
             } catch (DaoException ex) {
                 Logger.getLogger(SolicitacaoControl.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
-        
+
         if (e.getSource() == tl.getBtVoltar()) {
             tl.dispose();
+            Login lg = new Login();
+            lg.show();
         }
     }
-    
+
     public void telaSucesso() {
 
         CadastroSucesso sucesso = new CadastroSucesso();
         sucesso.show();
-        sucesso.getMsg().setText("Sua solicitação de: "+tl.getCbTSoli().getSelectedItem().toString()+"\n foi enviada com sucesso para o ADM.");
+        sucesso.getMsg().setText("Sua solicitação foi enviada com sucesso para o ADM.");
     }
 
     public void telaErro() {
         Erro tlErro = new Erro();
         tlErro.show();
 
-    } 
+    }
 }
