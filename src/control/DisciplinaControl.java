@@ -149,6 +149,8 @@ public class DisciplinaControl implements ActionListener {
         try {
 
             List lista = pDAO.buscaPorCargo();
+            
+            
 
             for (int i = 0; i < lista.size(); i++) {
                 tl.getCbPedagogo().insertItemAt(lista.get(i).toString(), i);

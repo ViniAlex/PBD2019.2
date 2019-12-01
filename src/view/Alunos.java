@@ -57,6 +57,7 @@ public class Alunos extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +74,7 @@ public class Alunos extends javax.swing.JInternalFrame {
             }
         });
 
+        btBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/magnifying-glass.png"))); // NOI18N
         btBusca.setText("Buscar");
         btBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +103,8 @@ public class Alunos extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btVer.setText("Ver Dados");
+        btVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/binoculars.png"))); // NOI18N
+        btVer.setText("Dados");
         btVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVerActionPerformed(evt);
@@ -137,8 +140,10 @@ public class Alunos extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        btAcPedg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/plus-sign-in-a-black-circle.png"))); // NOI18N
         btAcPedg.setText("Novo Ac. Pedagogico");
 
+        btMatricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/plus-sign-in-a-black-circle.png"))); // NOI18N
         btMatricula.setText("Matricula");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

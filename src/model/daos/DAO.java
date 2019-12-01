@@ -101,6 +101,22 @@ public class DAO<T extends Entidade> {
         }
     }
 
+//    public List<T> buscaDisciplina(String nome) throws DaoException {
+//
+//        try {
+//            return entityManager.createQuery("SELECT d.nome FROM disciplina d, curriculo c where curriculo_id = c.id and c.nome ='"+nome+"'").getResultList();
+////        select d.nome, c.nome from disciplina d, curriculo c where d.curriculo_id = c.id and c.nome = 'Ensino Médio - 1° A';
+////        return entityManager.createQuery("SELECT d FROM disciplina d where d.nome ='"+nome+"'").getResultList();
+//        } catch (NoResultException n) {
+//            n.printStackTrace();
+//            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+//        }
+//
+//    }
+
     public List<T> realizarLogin(String login, String senha) throws DaoException {
 
         try {
@@ -151,7 +167,7 @@ public class DAO<T extends Entidade> {
     public void remove(T entidade) throws DaoException {
 
         try {
-            entityManager.getTransaction().begin();            
+            entityManager.getTransaction().begin();
             entityManager.remove(entidade);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
@@ -161,7 +177,7 @@ public class DAO<T extends Entidade> {
         }
 
     }
-    
+
     public void update(T entidade) throws DaoException {
 
         try {

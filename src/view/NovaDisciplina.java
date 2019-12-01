@@ -246,6 +246,7 @@ public class NovaDisciplina extends javax.swing.JInternalFrame {
                 .addGap(352, 352, 352))
         );
 
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/save-icon-silhouette.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +254,7 @@ public class NovaDisciplina extends javax.swing.JInternalFrame {
             }
         });
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

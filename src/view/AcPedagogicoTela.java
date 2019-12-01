@@ -104,6 +104,7 @@ public class AcPedagogicoTela extends javax.swing.JInternalFrame {
             }
         });
 
+        btBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/magnifying-glass.png"))); // NOI18N
         btBusca.setText("Buscar");
         btBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,13 +133,15 @@ public class AcPedagogicoTela extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btVer.setText("Ver Dados");
+        btVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/binoculars.png"))); // NOI18N
+        btVer.setText("Dados");
         btVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVerActionPerformed(evt);
             }
         });
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

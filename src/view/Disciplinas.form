@@ -123,6 +123,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btBusca">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/view/imagens/magnifying-glass.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
@@ -133,7 +136,10 @@
         </Container>
         <Component class="javax.swing.JButton" name="btVer">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ver dados"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/view/imagens/binoculars.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Dados"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVerActionPerformed"/>
@@ -141,6 +147,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btVoltar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/view/imagens/back-arrow.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -27,19 +28,21 @@ public class Disciplina extends Entidade {
 
     public static final String SEQUENCE_NAME = "SEQUENCE_DISCIPLINA";
     private static final long serialVersionUID = 1L;
-    
+
     @Column(length = 100)
     private String nome;
 
     @Column(length = 20)
-    private int ch;
-    
+    private int ch;    
+
     @ManyToOne(cascade = {CascadeType.ALL})
     private Curriculo curriculo;
-    
+
     @OneToOne
     @JoinColumn(name = "PESSOA_ID")
     private Pessoa pessoa;
+
+    
 
     public Curriculo getCurriculo() {
         return curriculo;
@@ -57,7 +60,6 @@ public class Disciplina extends Entidade {
         this.pessoa = pessoa;
     }
 
-    
     public String getNome() {
         return nome;
     }
@@ -79,6 +81,11 @@ public class Disciplina extends Entidade {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public String toString() {
+        return "Disciplina{" + "nome=" + nome + ", ch=" + ch + ", curriculo=" + curriculo + ", pessoa=" + pessoa + '}';
+    }
     
     
+
 }

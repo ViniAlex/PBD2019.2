@@ -494,6 +494,7 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/save-icon-silhouette.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -501,8 +502,10 @@ public class NovoAcPedagogico extends javax.swing.JInternalFrame {
             }
         });
 
+        btReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btReturn.setText("Voltar");
 
+        btRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/report.png"))); // NOI18N
         btRelatorio.setText("Relatório");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

@@ -101,6 +101,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +118,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
             }
         });
 
+        btBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/magnifying-glass.png"))); // NOI18N
         btBusca.setText("Buscar");
         btBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +147,8 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        verDados.setText("ver Dados");
+        verDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/binoculars.png"))); // NOI18N
+        verDados.setText("Dados");
         verDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verDadosActionPerformed(evt);
@@ -202,7 +205,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
-        btAtt.setText("Att");
+        btAtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/refresh-button.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

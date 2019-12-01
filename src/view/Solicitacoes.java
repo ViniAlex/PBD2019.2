@@ -101,18 +101,20 @@ public class Solicitacoes extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btVer.setText("Ver");
+        btVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/magnifying-glass.png"))); // NOI18N
+        btVer.setText("Dados");
 
         btPendentes.setText("Pendentes");
 
-        btAtt.setText("Att");
+        btAtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/refresh-button.png"))); // NOI18N
         btAtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAttActionPerformed(evt);
             }
         });
 
-        btRemove.setText("Remove");
+        btRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/rubbish-bin.png"))); // NOI18N
+        btRemove.setText("Remover");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

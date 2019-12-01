@@ -224,12 +224,12 @@ public class NovaPessoa extends javax.swing.JInternalFrame {
         txtDtaNasc = new javax.swing.JFormattedTextField();
         cbUf = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Pessoa");
-        setResizable(false);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,6 +237,7 @@ public class NovaPessoa extends javax.swing.JInternalFrame {
             }
         });
 
+        btCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/save-icon-silhouette.png"))); // NOI18N
         btCadastrar.setText("Cadastrar");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

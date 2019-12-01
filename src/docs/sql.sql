@@ -1,0 +1,2 @@
+﻿--select d.nome from disciplina d, curriculo c where d.curriculo_id = c.id and c.nome = 'Ensino Médio - 1° A';
+select d.nome from disciplina d, curriculo c where d.curriculo_id = c.id and d.nome = 'GEOGRAFIA' and c.nome = 'Ensino Médio - 1° A';

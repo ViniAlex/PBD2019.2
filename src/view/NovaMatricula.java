@@ -61,6 +61,7 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/save-icon-silhouette.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +69,7 @@ public class NovaMatricula extends javax.swing.JInternalFrame {
             }
         });
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));

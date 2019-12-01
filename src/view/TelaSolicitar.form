@@ -205,11 +205,17 @@
         </Container>
         <Component class="javax.swing.JButton" name="btVoltar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/view/imagens/back-arrow.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btEnviar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/view/imagens/mail-send.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Enviar"/>
           </Properties>
         </Component>

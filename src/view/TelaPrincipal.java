@@ -137,10 +137,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         internoFrame = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         nomeUsuarioLabel = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         imAlterarSenha = new javax.swing.JMenu();
         itemAlterarSenha = new javax.swing.JMenuItem();
@@ -149,6 +152,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         itemCdPessoa = new javax.swing.JMenuItem();
         itemListarPessoas = new javax.swing.JMenuItem();
         itemListarAlunos = new javax.swing.JMenuItem();
+        menuAluno = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         menuMatricula = new javax.swing.JMenu();
         imListarMatriculas = new javax.swing.JMenuItem();
         menuDisciplina = new javax.swing.JMenu();
@@ -160,12 +165,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         itemListarPerfCur = new javax.swing.JMenuItem();
         menuAcPedagogo = new javax.swing.JMenu();
         imListarAcPed = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        internoFrame.setRequestFocusEnabled(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
         nomeUsuarioLabel.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        nomeUsuarioLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/man-user.png"))); // NOI18N
         nomeUsuarioLabel.setText("Usuário:");
 
         lbUsuario.setText("LUIZ");
@@ -191,27 +208,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/fundo.png"))); // NOI18N
+
         internoFrame.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        internoFrame.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout internoFrameLayout = new javax.swing.GroupLayout(internoFrame);
         internoFrame.setLayout(internoFrameLayout);
         internoFrameLayout.setHorizontalGroup(
             internoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, internoFrameLayout.createSequentialGroup()
-                .addContainerGap(788, Short.MAX_VALUE)
+            .addGroup(internoFrameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(internoFrameLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jLabel1)
+                .addContainerGap(2077, Short.MAX_VALUE))
         );
         internoFrameLayout.setVerticalGroup(
             internoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(internoFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(567, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 931, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
 
+        imAlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/man-user.png"))); // NOI18N
         imAlterarSenha.setText("Perfil");
 
+        itemAlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/forgot.png"))); // NOI18N
         itemAlterarSenha.setText("Alterar Senha");
         itemAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         imAlterarSenha.add(itemAlterarSenha);
 
+        imSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/icon.png"))); // NOI18N
         imSair.setText("Sair");
         imSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,8 +258,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(imAlterarSenha);
 
+        menuPessoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/multiple-users-silhouette.png"))); // NOI18N
         menuPessoa.setText("Pessoa");
 
+        itemCdPessoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/add-group.png"))); // NOI18N
         itemCdPessoa.setText("Cadastrar Pessoa");
         itemCdPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +270,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuPessoa.add(itemCdPessoa);
 
+        itemListarPessoas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         itemListarPessoas.setText("Listar Pessoas");
         itemListarPessoas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,6 +279,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuPessoa.add(itemListarPessoas);
 
+        itemListarAlunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         itemListarAlunos.setText("Listar Alunos");
         itemListarAlunos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,8 +290,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuPessoa);
 
+        menuAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/students-cap.png"))); // NOI18N
+        menuAluno.setText("Aluno");
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/test.png"))); // NOI18N
+        jMenuItem5.setText("Notas");
+        menuAluno.add(jMenuItem5);
+
+        jMenuBar1.add(menuAluno);
+
+        menuMatricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/plus-sign-in-a-black-circle.png"))); // NOI18N
         menuMatricula.setText("Matricula");
 
+        imListarMatriculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         imListarMatriculas.setText("Listar Matriculas");
         imListarMatriculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,8 +313,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuMatricula);
 
+        menuDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/book-and-bookmark.png"))); // NOI18N
         menuDisciplina.setText("Disciplina");
 
+        imCadastrarDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/plus-sign-in-a-black-circle.png"))); // NOI18N
         imCadastrarDisciplina.setText("Cadastrar Disciplina");
         imCadastrarDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,6 +325,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuDisciplina.add(imCadastrarDisciplina);
 
+        imLIstarDisciplinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         imLIstarDisciplinas.setText("Listar Disciplinas");
         imLIstarDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,8 +336,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuDisciplina);
 
+        menuTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/classroomrd.png"))); // NOI18N
         menuTurma.setText("Turma");
 
+        itemCdTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/plus-sign-in-a-black-circle.png"))); // NOI18N
         itemCdTurma.setText("Cadastrar Turma");
         itemCdTurma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +348,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuTurma.add(itemCdTurma);
 
+        itemTurmas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         itemTurmas.setText("Listar Turmas");
         itemTurmas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,6 +357,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuTurma.add(itemTurmas);
 
+        itemListarPerfCur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         itemListarPerfCur.setText("Listar Perfs. Curriculares");
         itemListarPerfCur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,8 +368,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuTurma);
 
+        menuAcPedagogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/notebook.png"))); // NOI18N
         menuAcPedagogo.setText("Ac. Pedagogico");
 
+        imListarAcPed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/list.png"))); // NOI18N
         imListarAcPed.setText("Listar Acompanhamentos");
         imListarAcPed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,6 +381,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuAcPedagogo.add(imListarAcPed);
 
         jMenuBar1.add(menuAcPedagogo);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/report.png"))); // NOI18N
+        jMenu2.setText("Relatorios");
+        jMenuBar1.add(jMenu2);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/settings-gears.png"))); // NOI18N
+        jMenu1.setText("Configurações");
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/backup.png"))); // NOI18N
+        jMenuItem2.setText("Backup");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/files.png"))); // NOI18N
+        jMenuItem4.setText("Log");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/hand-with-money-gear.png"))); // NOI18N
+        jMenuItem3.setText("Valores da Matricula");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -478,10 +551,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemListarPerfCur;
     private javax.swing.JMenuItem itemListarPessoas;
     private javax.swing.JMenuItem itemTurmas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu menuAcPedagogo;
+    private javax.swing.JMenu menuAluno;
     private javax.swing.JMenu menuDisciplina;
     private javax.swing.JMenu menuMatricula;
     private javax.swing.JMenu menuPessoa;

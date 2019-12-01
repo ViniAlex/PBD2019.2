@@ -90,7 +90,7 @@ public class PerfisCurriculares extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -103,6 +103,7 @@ public class PerfisCurriculares extends javax.swing.JInternalFrame {
             }
         });
 
+        btBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/magnifying-glass.png"))); // NOI18N
         btBusca.setText("Buscar");
         btBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,13 +132,15 @@ public class PerfisCurriculares extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btVer.setText("Ver dados");
+        btVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/binoculars.png"))); // NOI18N
+        btVer.setText("Dados");
         btVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVerActionPerformed(evt);
             }
         });
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

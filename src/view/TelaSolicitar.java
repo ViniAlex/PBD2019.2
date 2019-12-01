@@ -175,8 +175,10 @@ public class TelaSolicitar extends javax.swing.JFrame {
                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
         btVoltar.setText("Voltar");
 
+        btEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/mail-send.png"))); // NOI18N
         btEnviar.setText("Enviar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

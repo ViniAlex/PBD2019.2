@@ -43,6 +43,7 @@ public class CadastroSucesso extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 204, 153));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/correct-symbol.png"))); // NOI18N
         jButton1.setText("Ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
