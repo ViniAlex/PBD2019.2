@@ -7,6 +7,8 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,6 +69,14 @@ public class MatriculaControl implements ActionListener {
                 Logger.getLogger(MatriculaControl.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+            try {
+                SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+                m.setDtaVencimento((format.parse(tl.getTxtDtaVencimento().getText())));
+                //aluno.setDtaNascimento(format.parse(tlPessoa.getTxtDtaNasc().getText()));
+            } catch (ParseException ex) {
+                Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             m.setAluno(al);
 
             m.setValorTotal(Double.parseDouble(tl.getTxtValorT().getText()));
@@ -88,7 +98,7 @@ public class MatriculaControl implements ActionListener {
 
             if (tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Fundamental Inicial")) {
                 tl.getTxtValorMensa().setText("400");
-                tl.getTxtValorT().setText(String.valueOf(400 * 8));
+                tl.getTxtValorT().setText(String.valueOf(400 * 12));
                 tl.getTxtValorT().setEditable(false);
                 tl.getTxtValorMensa().setEditable(false);
                 List list2;
@@ -107,7 +117,7 @@ public class MatriculaControl implements ActionListener {
             if (tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Fundamental Final")) {
 
                 tl.getTxtValorMensa().setText("600");
-                tl.getTxtValorT().setText(String.valueOf(600 * 8));
+                tl.getTxtValorT().setText(String.valueOf(600 * 12));
                 tl.getTxtValorT().setEditable(false);
                 tl.getTxtValorMensa().setEditable(false);
 
@@ -127,7 +137,7 @@ public class MatriculaControl implements ActionListener {
             if (tl.getCbEnsino().getSelectedItem().toString().equals("Ensino Médio")) {
 
                 tl.getTxtValorMensa().setText("800");
-                tl.getTxtValorT().setText(String.valueOf(800 * 8));
+                tl.getTxtValorT().setText(String.valueOf(800 * 12));
                 tl.getTxtValorT().setEditable(false);
                 tl.getTxtValorMensa().setEditable(false);
 

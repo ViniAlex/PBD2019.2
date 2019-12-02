@@ -95,11 +95,14 @@ public class MediaControl implements ActionListener {
             }
 
             m.setMediaP(Double.parseDouble(tl.getTxtMediaP().getText()));
+            m.setIsRec(false);
 
-            m.setSituacao(tl.getTxtSiatuacao().getText());
+            //m.setSituacao(tl.getTxtSiatuacao().getText());
 
             try {
                 mDAO.create(m);
+                mDAO.calcularMedia();
+                mDAO.calcularAttSituacao();
                 telaSucesso();
                 limpar();
 
@@ -118,11 +121,11 @@ public class MediaControl implements ActionListener {
             if (mediaP >= 7) {
                 tl.getTxtSiatuacao().setText("AM - APROVADO POR MÉDIA");
                 tl.getTxtSiatuacao().setEditable(false);
-                m.setSituacao("AM - APROVADO POR MÉDIA");
+                //m.setSituacao("AM - APROVADO POR MÉDIA");
             } else {
                 tl.getTxtSiatuacao().setText("NÃO DEFINIDO");
                 tl.getTxtSiatuacao().setEditable(false);
-                m.setSituacao("NÃO DEFINIDO");
+                //m.setSituacao("NÃO DEFINIDO");
             }
 //            if (mediaF >= 5) {
 //                tl.getTxtSiatuacao().setText("AP - APROVADO");

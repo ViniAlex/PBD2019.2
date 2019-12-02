@@ -5,17 +5,11 @@
  */
 package model.beans;
 
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
@@ -26,10 +20,10 @@ import javax.persistence.TemporalType;
  * @author Vinícius
  */
 @Entity
-@SequenceGenerator(name = Entidade.sequence, sequenceName = Matricula.sequence, initialValue = 1, allocationSize = 1)
-public class Matricula extends Entidade {
+@SequenceGenerator(name = Entidade.sequence, sequenceName = Financeiro.sequence, initialValue = 1, allocationSize = 1)
+public class Financeiro extends Entidade {
 
-    public static final String SEQUENCE_NAME = "SEQUENCE_MATRICULA";
+    public static final String SEQUENCE_NAME = "SEQUENCE_ALUNO";
     private static final long serialVersionUID = 1L;
 
     @Column(length = 50)
@@ -38,30 +32,22 @@ public class Matricula extends Entidade {
     @Column(length = 50)
     private double valorMensalidade;
 
-    @Column(length = 100)
+    @Column(length = 50)
+    private double valorPago;
+
+    @Column(length = 50)
     private String status;
+
+    @Column(length = 50)
+    private int qtdParcela;
 
     @Column(length = 20)
     @Temporal(TemporalType.DATE)
     private Date dtaVencimento;
 
-//    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
-    @ManyToOne
-    @JoinColumn(name = "ALUNO_ID")
-    private Aluno aluno;
-
-    //@OneToOne(optional = false, cascade = CascadeType.REFRESH)
-    @ManyToOne
-    @JoinColumn(name = "TURMA_ID")
-    private Turma turma;
-
-    public Date getDtaVencimento() {
-        return dtaVencimento;
-    }
-
-    public void setDtaVencimento(Date dtaVencimento) {
-        this.dtaVencimento = dtaVencimento;
-    }
+    @OneToOne
+    @JoinColumn(name = "MATRICULA_ID")
+    private Matricula matricula;
 
     public String getStatus() {
         return status;
@@ -71,20 +57,20 @@ public class Matricula extends Entidade {
         this.status = status;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public int getQtdParcela() {
+        return qtdParcela;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setQtdParcela(int qtdParcela) {
+        this.qtdParcela = qtdParcela;
     }
 
-    public Turma getTurma() {
-        return turma;
+    public Date getDtaVencimento() {
+        return dtaVencimento;
     }
 
-    public void setTurma(Turma turma) {
-        this.turma = turma;
+    public void setDtaVencimento(Date dtaVencimento) {
+        this.dtaVencimento = dtaVencimento;
     }
 
     public double getValorTotal() {
@@ -101,6 +87,22 @@ public class Matricula extends Entidade {
 
     public void setValorMensalidade(double valorMensalidade) {
         this.valorMensalidade = valorMensalidade;
+    }
+
+    public double getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(double valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public Matricula getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
     }
 
     @Override

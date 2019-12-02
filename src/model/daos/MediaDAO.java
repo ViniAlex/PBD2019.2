@@ -5,8 +5,10 @@
  */
 package model.daos;
 
+import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import model.beans.Disciplina;
 import model.beans.Matricula;
 import model.beans.Media;
@@ -37,7 +39,7 @@ public class MediaDAO extends DAO<Media> {
         }
 
     }
-    
+
     public List<String> buscaMediaSituacao(String nome, String nome2) throws DaoException {
 
         try {
@@ -52,7 +54,7 @@ public class MediaDAO extends DAO<Media> {
         }
 
     }
-    
+
     public List<Media> buscaMediaAluno(String nome) throws DaoException {
 
         try {
@@ -67,7 +69,7 @@ public class MediaDAO extends DAO<Media> {
         }
 
     }
-    
+
     public List<Media> buscaMediaPorAluno(String nome) throws DaoException {
 
         try {
@@ -79,6 +81,34 @@ public class MediaDAO extends DAO<Media> {
         } catch (Exception e) {
             e.printStackTrace();
             throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+
+    }
+
+    public BigInteger calcularMedia() throws DaoException {
+        try {
+            Query query = entityManager.createNativeQuery("select count(*) from calcular_media()");
+            BigInteger result = (BigInteger) query.getSingleResult();
+
+            return result;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro Ao Veirifcar Veículos na Manutenção");
+        }
+
+    }
+
+    public BigInteger calcularAttSituacao() throws DaoException {
+        try {
+            Query query = entityManager.createNativeQuery("select count(*) from atualizar_situacao_media()");
+            BigInteger result = (BigInteger) query.getSingleResult();
+
+            return result;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro Ao Veirifcar Veículos na Manutenção");
         }
 
     }

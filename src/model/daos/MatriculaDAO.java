@@ -1,7 +1,9 @@
 package model.daos;
 
+import java.math.BigInteger;
 import java.util.List;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import model.beans.Matricula;
 import model.beans.views.Alunosturma;
 import model.beans.views.MatriculasView;
@@ -47,5 +49,7 @@ public class MatriculaDAO extends DAO<Matricula> {
         }
 
     }
+    
+  
 
 }

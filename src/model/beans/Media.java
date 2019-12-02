@@ -27,9 +27,12 @@ public class Media extends Entidade {
 
     @Column(length = 100)
     private double mediaP;
-    
+
     @Column(length = 100)
     private double rec;
+
+    @Column
+    private boolean isRec;
 
     @Column(length = 100)
     private double mediaF;
@@ -42,6 +45,14 @@ public class Media extends Entidade {
     @JoinColumn(name = "DISCIPLINA_ID")
     private Disciplina disci;
 
+    public boolean isIsRec() {
+        return isRec;
+    }
+
+    public void setIsRec(boolean isRec) {
+        this.isRec = isRec;
+    }
+
     public double getRec() {
         return rec;
     }
@@ -49,8 +60,6 @@ public class Media extends Entidade {
     public void setRec(double rec) {
         this.rec = rec;
     }
-    
-    
 
     public String getSituacao() {
         return situacao;
@@ -101,6 +110,5 @@ public class Media extends Entidade {
     public String toString() {
         return "Media{" + "situacao=" + situacao + ", mediaP=" + mediaP + ", mediaF=" + mediaF + ", aluno=" + aluno + ", disci=" + disci + '}';
     }
-    
-    
+
 }
