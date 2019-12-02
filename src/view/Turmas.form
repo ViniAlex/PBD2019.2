@@ -166,6 +166,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btAtt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btBoletim" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btDados" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btCdNotas" min="-2" pref="160" max="-2" attributes="0"/>
@@ -186,10 +188,11 @@
                   <Component id="jPanel3" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btCdNotas" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btCdNotas" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btDados" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btBoletim" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="btAtt" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -403,6 +406,11 @@
               <Image iconType="3" name="/view/imagens/binoculars.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Dados"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btBoletim">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Boletim"/>
           </Properties>
         </Component>
       </SubComponents>

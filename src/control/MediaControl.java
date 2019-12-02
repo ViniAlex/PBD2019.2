@@ -62,16 +62,16 @@ public class MediaControl implements ActionListener {
         tl.getTxtCurriculo().setText(al.getTurma().getNome());
         tl.getTxtCurriculo().setEditable(false);
 
-        if (tl.getTxtSiatuacao().getText() == null) {
-            tl.getTxtSiatuacao().setText("NÃO DEFINIDO");
-        }
+//        if (tl.getTxtSiatuacao().getText() == "") {
+//            tl.getTxtSiatuacao().setText("NÃO DEFINIDO");
+//        }
         tl.getTxtSiatuacao().setEditable(false);
 
         tl.getTxtMediaF().setEditable(false);
         tl.getTxtRecu().setEditable(false);
 
-        tl.getBtSalvar().enable(true);
-        m = new Media();
+        //tl.getBtSalvar().enable(true);
+        //m = new Media();
 
         popularDisciplinas();
 
@@ -81,7 +81,7 @@ public class MediaControl implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == tl.getBtSalvar()) {
-
+            m = new Media();
             m.setAluno(al);
 
             try {

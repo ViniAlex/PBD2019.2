@@ -19,7 +19,11 @@ import model.daos.CurriculoDAO;
 import model.daos.DAO;
 import model.daos.MediaDAO;
 import util.DaoException;
+import view.Atencao;
 import view.CadastrarMedia;
+import view.CadastroSucesso;
+import view.EmitirBoletim;
+import view.Erro;
 import view.TelaPrincipal;
 import view.Turmas;
 
@@ -34,6 +38,7 @@ public class TurmasControl implements ActionListener {
     private AlunoDAO aDAO;
     private TelaPrincipal tlP;
     private CurriculoDAO cDAO;
+    
 
     private Media m;
     private MediaDAO mDAO;
@@ -54,6 +59,21 @@ public class TurmasControl implements ActionListener {
         if (e.getSource() == tl.getBtBuscar()) {
 
             popularTabelaBusca(tl.getCbTurmas().getSelectedItem().toString());
+        }
+        
+        if (e.getSource() == tl.getBtBoletim()) {
+            
+            int row = tl.getTabelaAlunos().getSelectedRow();
+            String nome = (tl.getTabelaAlunos().getValueAt(row, 1) + "");
+
+            EmitirBoletim emB = new EmitirBoletim(tlP, nome);
+            tlP.getInternoFrame().add(emB);
+            emB.show();
+            
+            
+            
+            tl.dispose();
+            
         }
 
         if (e.getSource() == tl.getCbEnsinos()) {
@@ -122,28 +142,42 @@ public class TurmasControl implements ActionListener {
 
             CadastrarMedia cdM = new CadastrarMedia(tlP, id);
             cdM.getBtSalvar().removeActionListener(cdM.getBtSalvar().getActionListeners()[0]);
+            cdM.getBtAtt().removeActionListener(cdM.getBtAtt().getActionListeners()[0]);
             tlP.getInternoFrame().add(cdM);
             cdM.show();
-            tl.dispose();
+            //tl.dispose();
+            cdM.getBtSalvar().enable(false);
+
+            popularDisciplinas(cdM);
 
             cdM.getCbDisciplinas().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    //popularDisciplinas(cdM);
 
-                    try {
-                        for (Media med : mDAO.buscaMedia(cdM.getTxtAluno().getText(), cdM.getCbDisciplinas().getSelectedItem().toString())) {
-                            System.out.println(med);
-                            cdM.getTxtMediaP().setText(String.valueOf(med.getMediaP()));
-                            cdM.getTxtSiatuacao().setText(med.getSituacao());
-                        }
-                    } catch (DaoException ex) {
-                        Logger.getLogger(TurmasControl.class.getName()).log(Level.SEVERE, null, ex);
+                   
+
+                       System.out.println("OLHA EU AKIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+                        cdM.getTxtRecu().setEditable(true);
+                        cdM.getTxtMediaP().setText(String.valueOf(buscaMedia(cdM).getMediaP()));
+                        cdM.getTxtSiatuacao().setText(buscaMedia(cdM).getSituacao());
+                        cdM.getTxtMediaF().setText("");
+                        cdM.getTxtRecu().setText("");
+
+                        if (buscaMedia(cdM).getSituacao().equals("AM - APROVADO POR MÉDIA")||buscaMedia(cdM).getSituacao().equals("AP - APROVADO")) {
+                            cdM.getTxtRecu().setEditable(false);
+
+                            Atencao tlAt = new Atencao();
+                            tlAt.show();
+                            tlAt.getMsg().setText("ATENÇÃO! - ALUNO APROVADO");
+                            cdM.getCbDisciplinas().setSelectedItem(null);
+                        
                     }
-
                 }
             });
 
             cdM.getTxtRecu().setEditable(true);
+            cdM.getTxtMediaP().setEditable(false);
 
             cdM.getBtVoltar().addActionListener(new ActionListener() {
                 @Override
@@ -157,6 +191,26 @@ public class TurmasControl implements ActionListener {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
+                    m = buscaMedia(cdM);
+
+                    m.setMediaF(Double.parseDouble(cdM.getTxtMediaF().getText()));
+                    m.setRec(Double.parseDouble(cdM.getTxtRecu().getText()));
+                    m.setSituacao(cdM.getTxtSiatuacao().getText());
+
+                    try {
+                        mDAO.update(m);
+                        //popularDisciplinas(cdM);
+                        telaSucesso();
+                        //cdM.getCbDisciplinas().setSelectedItem(null);
+                        cdM.getTxtMediaF().setText("");
+                        cdM.getTxtRecu().setText("");
+                        cdM.getTxtSiatuacao().setText("");
+
+                    } catch (DaoException ex) {
+                        telaErro();
+                        Logger.getLogger(TurmasControl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
             });
 
@@ -164,34 +218,30 @@ public class TurmasControl implements ActionListener {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                    m = new Media();
-
-                    cdM.getBtSalvar().enable(false);
+                    cdM.getBtSalvar().enable(true);
+                    cdM.getBtAtt().enable(false);
+                    cdM.getTxtRecu().setEditable(false);
                     double mediaP = Double.parseDouble(cdM.getTxtMediaP().getText());
 
                     double recupe = Double.parseDouble(cdM.getTxtRecu().getText());
                     double mediaF = (recupe + mediaP) / 2;
-                    if (mediaP >= 7) {
-                        cdM.getTxtSiatuacao().setText("AM - APROVADO POR MÉDIA");
-                        cdM.getTxtSiatuacao().setEditable(false);
-                        m.setSituacao("AM - APROVADO POR MÉDIA");
-                    } else {
-                        cdM.getTxtSiatuacao().setText("NÃO DEFINIDO");
-                        cdM.getTxtSiatuacao().setEditable(false);
-                        m.setSituacao("NÃO DEFINIDO");
-                    }
+//                    
                     if (mediaF >= 5) {
                         cdM.getTxtSiatuacao().setText("AP - APROVADO");
                         cdM.getTxtSiatuacao().setEditable(false);
-                        m.setSituacao("AP - APROVADO");
 
-                    }
+                        cdM.getTxtMediaF().setText(String.valueOf(mediaF));
+                        System.out.println("entrei");
+                        System.out.println(cdM.getTxtSiatuacao().getText());
 
-                    if (mediaF <= 5) {
+                    } else {
 
                         cdM.getTxtSiatuacao().setText("RP - REPROVADO");
                         cdM.getTxtSiatuacao().setEditable(false);
-                        m.setSituacao("RP - REPROVADO");
+                        cdM.getTxtMediaF().setText(String.valueOf(mediaF));
+                        System.out.println("tbm entrei");
+                        System.out.println(cdM.getTxtSiatuacao().getText());
+
                     }
 
                 }
@@ -227,6 +277,53 @@ public class TurmasControl implements ActionListener {
             Logger.getLogger(PerfilControler.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public void telaSucesso() {
+
+        CadastroSucesso sucesso = new CadastroSucesso();
+        sucesso.show();
+    }
+
+    public void telaErro() {
+        Erro tlErro = new Erro();
+        tlErro.show();
+
+    }
+
+    public void popularDisciplinas(CadastrarMedia cdM) {
+
+        try {
+
+            List lista = mDAO.buscaMediaSituacao(cdM.getTxtAluno().getText(), "NÃO DEFINIDO");
+            cdM.getCbDisciplinas().removeAllItems();
+
+            System.out.println(lista);
+            for (int i = 0; i < lista.size(); i++) {
+                System.out.println(lista.get(i).toString());
+                cdM.getCbDisciplinas().insertItemAt(lista.get(i).toString(), i);
+
+            }
+        } catch (DaoException ex) {
+            Logger.getLogger(MediaControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Media buscaMedia(CadastrarMedia cdM) {
+
+        try {
+            for (Media media : mDAO.buscaMedia(cdM.getTxtAluno().getText(), cdM.getCbDisciplinas().getSelectedItem().toString())) {
+                //System.out.println(m);
+                return media;
+
+                //cdM.getTxtMediaP().setText(String.valueOf(m.getMediaP()));
+                //cdM.getTxtSiatuacao().setText(m.getSituacao());
+            }
+        } catch (DaoException ex) {
+            Logger.getLogger(TurmasControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
     }
 
 }

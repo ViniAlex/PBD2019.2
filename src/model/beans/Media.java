@@ -27,6 +27,9 @@ public class Media extends Entidade {
 
     @Column(length = 100)
     private double mediaP;
+    
+    @Column(length = 100)
+    private double rec;
 
     @Column(length = 100)
     private double mediaF;
@@ -38,6 +41,16 @@ public class Media extends Entidade {
     @OneToOne
     @JoinColumn(name = "DISCIPLINA_ID")
     private Disciplina disci;
+
+    public double getRec() {
+        return rec;
+    }
+
+    public void setRec(double rec) {
+        this.rec = rec;
+    }
+    
+    
 
     public String getSituacao() {
         return situacao;

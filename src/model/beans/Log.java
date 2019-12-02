@@ -18,38 +18,36 @@ import javax.persistence.Id;
  * @author Vinícius
  */
 @Entity
-public class Log implements Serializable {
-    
+public class Log {
+
     @Id
     @Column(length = 100, columnDefinition = "serial")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    
+
     @Column(length = 100)
     private String autor;
-    
+
     @Column(length = 20)
     private Date data;
-    
+
     @Column(length = 100)
     private String alter;
-    
+
     @Column(length = 100)
     private String tabela;
-    
+
     @Column(length = 255)
     private String atual;
-    
+
     @Column(length = 255)
     private String anterior;
-    
-    
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -100,9 +98,9 @@ public class Log implements Serializable {
     public void setAnterior(String anterior) {
         this.anterior = anterior;
     }
-    
-    
-    
-    
-    
+
+    public String detalhesEntidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

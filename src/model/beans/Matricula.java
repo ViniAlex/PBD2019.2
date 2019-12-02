@@ -34,6 +34,9 @@ public class Matricula extends Entidade {
 
     @Column(length = 50)
     private double valorMensalidade;
+    
+    @Column(length = 100)
+    private String status;
 
 //    @OneToOne(optional = false, cascade = CascadeType.REFRESH)
     @ManyToOne
@@ -44,6 +47,16 @@ public class Matricula extends Entidade {
     @ManyToOne
     @JoinColumn(name = "TURMA_ID")
     private Turma turma;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    
 
     public Aluno getAluno() {
         return aluno;

@@ -9,6 +9,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import org.omg.CORBA.BAD_CONTEXT;
 import view.AcPedagogicoTela;
 
 /**
@@ -165,8 +166,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         itemListarPerfCur = new javax.swing.JMenuItem();
         menuAcPedagogo = new javax.swing.JMenu();
         imListarAcPed = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        menuReport = new javax.swing.JMenu();
+        menuSetings = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -218,21 +219,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         internoFrameLayout.setHorizontalGroup(
             internoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(internoFrameLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(3249, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(internoFrameLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(94, 94, 94)
                 .addComponent(jLabel1)
-                .addContainerGap(2077, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         internoFrameLayout.setVerticalGroup(
             internoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(internoFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 931, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 925, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         imAlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/man-user.png"))); // NOI18N
@@ -295,6 +297,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/test.png"))); // NOI18N
         jMenuItem5.setText("Notas");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         menuAluno.add(jMenuItem5);
 
         jMenuBar1.add(menuAluno);
@@ -382,26 +389,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAcPedagogo);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/report.png"))); // NOI18N
-        jMenu2.setText("Relatorios");
-        jMenuBar1.add(jMenu2);
+        menuReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/report.png"))); // NOI18N
+        menuReport.setText("Relatorios");
+        jMenuBar1.add(menuReport);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/settings-gears.png"))); // NOI18N
-        jMenu1.setText("Configurações");
+        menuSetings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/settings-gears.png"))); // NOI18N
+        menuSetings.setText("Configurações");
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/backup.png"))); // NOI18N
         jMenuItem2.setText("Backup");
-        jMenu1.add(jMenuItem2);
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuSetings.add(jMenuItem2);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/files.png"))); // NOI18N
         jMenuItem4.setText("Log");
-        jMenu1.add(jMenuItem4);
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuSetings.add(jMenuItem4);
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/hand-with-money-gear.png"))); // NOI18N
         jMenuItem3.setText("Valores da Matricula");
-        jMenu1.add(jMenuItem3);
+        menuSetings.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuSetings);
 
         setJMenuBar(jMenuBar1);
 
@@ -495,6 +512,58 @@ public class TelaPrincipal extends javax.swing.JFrame {
         internoFrame.add(t);
         t.show();
     }//GEN-LAST:event_itemTurmasActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+
+        AlunoNotas alN = new AlunoNotas(this);
+        internoFrame.add(alN);
+        alN.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        TelaLog log = new TelaLog(this);
+        internoFrame.add(log);
+        log.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        BackupTela bck = new BackupTela(this);
+        internoFrame.add(bck);
+        bck.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    public JMenu getMenuAcPedagogo() {
+        return menuAcPedagogo;
+    }
+
+    public void setMenuAcPedagogo(JMenu menuAcPedagogo) {
+        this.menuAcPedagogo = menuAcPedagogo;
+    }
+
+    public JMenu getMenuAluno() {
+        return menuAluno;
+    }
+
+    public void setMenuAluno(JMenu menuAluno) {
+        this.menuAluno = menuAluno;
+    }
+
+    public JMenu getMenuReport() {
+        return menuReport;
+    }
+
+    public void setMenuReport(JMenu menuReport) {
+        this.menuReport = menuReport;
+    }
+
+    public JMenu getMenuSetings() {
+        return menuSetings;
+    }
+
+    public void setMenuSetings(JMenu menuSetings) {
+        this.menuSetings = menuSetings;
+    }
+
     /*
     public static void main(String args[]) {
 
@@ -523,6 +592,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
      */
+
     public JDesktopPane getInternoFrame() {
         return internoFrame;
     }
@@ -552,8 +622,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemListarPessoas;
     private javax.swing.JMenuItem itemTurmas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -568,6 +636,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuDisciplina;
     private javax.swing.JMenu menuMatricula;
     private javax.swing.JMenu menuPessoa;
+    private javax.swing.JMenu menuReport;
+    private javax.swing.JMenu menuSetings;
     private javax.swing.JMenu menuTurma;
     private javax.swing.JLabel nomeUsuarioLabel;
     // End of variables declaration//GEN-END:variables

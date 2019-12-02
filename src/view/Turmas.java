@@ -28,8 +28,20 @@ public class Turmas extends javax.swing.JInternalFrame {
         cbEnsinos.addActionListener(c);
         btCdNotas.addActionListener(c);
         btDados.addActionListener(c);
+        btBoletim.addActionListener(c);
     }
 
+    public JButton getBtBoletim() {
+        return btBoletim;
+    }
+
+    public void setBtBoletim(JButton btBoletim) {
+        this.btBoletim = btBoletim;
+    }
+
+    
+    
+    
     public JButton getBtDados() {
         return btDados;
     }
@@ -115,6 +127,7 @@ public class Turmas extends javax.swing.JInternalFrame {
         btCdNotas = new javax.swing.JButton();
         btAtt = new javax.swing.JButton();
         btDados = new javax.swing.JButton();
+        btBoletim = new javax.swing.JButton();
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca"));
@@ -341,6 +354,8 @@ public class Turmas extends javax.swing.JInternalFrame {
         btDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/binoculars.png"))); // NOI18N
         btDados.setText("Dados");
 
+        btBoletim.setText("Boletim");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -353,6 +368,8 @@ public class Turmas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btAtt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btBoletim)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btDados)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btCdNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -369,10 +386,11 @@ public class Turmas extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btCdNotas)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btVoltar)
-                        .addComponent(btCdNotas)
-                        .addComponent(btDados))
+                        .addComponent(btDados)
+                        .addComponent(btBoletim))
                     .addComponent(btAtt))
                 .addContainerGap())
         );
@@ -430,6 +448,7 @@ public class Turmas extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAtt;
+    private javax.swing.JButton btBoletim;
     private javax.swing.JButton btBusca;
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btCdNotas;

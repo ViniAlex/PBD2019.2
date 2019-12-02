@@ -10,8 +10,10 @@ import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import model.beans.Aluno;
 import model.beans.Curriculo;
 import model.beans.Pessoa;
+import model.daos.AlunoDAO;
 import model.daos.PessoaDAO;
 import util.DaoException;
 import view.Alunos;
@@ -32,6 +34,8 @@ public class LoginControl implements ActionListener {
     private Pessoa p;
     private TelaPrincipal tlP;
     private Alunos tla;
+    private Aluno al;
+    private AlunoDAO aDAO = new AlunoDAO();
 
     public LoginControl(Login tlLogin) {
         this.tl = tlLogin;
@@ -49,7 +53,7 @@ public class LoginControl implements ActionListener {
 
                             if (pe.getTipo().equals("Pedagogo")) {
                                 tlP = new TelaPrincipal();
-                                new BackupControl();
+                                //new BackupControl();
                                 tlP.getNomeUser().setText(pe.getNome());
                                 tlP.show();
                                 telaSucesso();
@@ -63,28 +67,11 @@ public class LoginControl implements ActionListener {
 
                                 tl.dispose();
 
-                                if (pe.getTipo().equals("Aluno")) {
-
-                                    tlP = new TelaPrincipal();
-                                    new BackupControl();
-                                    tlP.getNomeUser().setText(pe.getNome());
-                                    tlP.show();
-                                    telaSucesso();
-                                    tlP.setAdmON(false);
-
-                                    tlP.getMenuDisciplina().setEnabled(false);
-                                    tlP.getMenuMatricula().setEnabled(false);
-                                    tlP.getMenuTurma().setEnabled(false);
-                                    tlP.getMenuPessoa().setEnabled(false);
-                                    tlP.getItemListarAcPedag().setEnabled(false);
-
-                                    tl.dispose();
-                                }
                             }
                             if (pe.getTipo().equals("Secretária")) {
 
                                 tlP = new TelaPrincipal();
-                                new BackupControl();
+                                //new BackupControl();
                                 tlP.getNomeUser().setText(pe.getNome());
                                 tlP.show();
                                 telaSucesso();
@@ -103,17 +90,13 @@ public class LoginControl implements ActionListener {
                                 tlP.getItemListarAcPedag().setEnabled(false);
                                 tl.dispose();
                             }
-                            if (pe.getTipo().equals("Coordenador")) {
 
-                            }
                             if (pe.getTipo().equals("Direção")) {
-                                
-                                
 
                             }
                             if (pe.getTipo().equals("ADM")) {
                                 tlP = new TelaPrincipal();
-                                new BackupControl();
+                                //new BackupControl();
                                 tlP.getNomeUser().setText(pe.getNome());
                                 tlP.show();
                                 telaSucesso();
@@ -134,8 +117,37 @@ public class LoginControl implements ActionListener {
                 Logger.getLogger(PerfilControler.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            //System.out.println(tl.getTxtLogin().getText());
-            //System.out.println(tl.getTxtSenha().getPassword());
+            try {
+                for (Aluno al : aDAO.searchAll()) {
+                    if (al.getLogin().equals(tl.getTxtLogin().getText())) {
+                        if (al.getSenha().equals(tl.getTxtSenha().getText())) {
+
+                            tlP = new TelaPrincipal();
+                            //new BackupControl();
+                            tlP.getNomeUser().setText(al.getNome());
+                            tlP.show();
+                            telaSucesso();
+                            //tlP.setAdmON(false);
+
+                            tlP.getMenuDisciplina().setVisible(false);
+                            tlP.getMenuMatricula().setVisible(false);
+                            tlP.getMenuTurma().setVisible(false);
+                            tlP.getMenuPessoa().setVisible(false);
+                            tlP.getMenuReport().setVisible(false);
+                            tlP.getMenuSetings().setVisible(false);
+                            tlP.getMenuAcPedagogo().setVisible(false);
+
+                            tl.dispose();
+
+                        }
+
+                    }
+
+                }
+            } catch (DaoException ex) {
+                Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
         if (e.getSource() == tl.getBtAlterSenha()) {
             tl.dispose();
@@ -148,7 +160,7 @@ public class LoginControl implements ActionListener {
         if (e.getSource() == tl.getBtSair()) {
             tl.dispose();
             System.exit(0);
-            
+
         }
     }
 

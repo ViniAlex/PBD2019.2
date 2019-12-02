@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -24,11 +25,11 @@ public class Backup {
         //ta para salvar em linux e windows, mas se quiser pode deixar só para Windows
         //aqui vc só muda o nome do banco e esse caminho até o pg_dump
         if (System.getProperty("os.name").contains("Linux")) {
-            pb = new ProcessBuilder("/usr/bin/pg_dump", "--file", diretorio+"\\backup.backup", "--host", "localhost", "--port", "5432",
+            pb = new ProcessBuilder("/usr/bin/pg_dump", "--file", diretorio + "\\backup.backup", "--host", "localhost", "--port", "5432",
                     "--username", "postgres", "--no-password", "--verbose", "--format=t", "--blobs", "argus");
         } else if (System.getProperty("os.name").contains("Windows")) {
             pb = new ProcessBuilder("C:\\Program Files\\PostgreSQL\\9.6\\bin\\pg_dump.exe", "-h", "localhost",
-                    "-p", "5432", "-U", "postgres", "-F", "c", "-b", "-v", "-f", diretorio+"\\backup.backup", "argus");
+                    "-p", "5432", "-U", "postgres", "-F", "c", "-b", "-v", "-f", diretorio + "\\backup.backup", "argus");
         }
 
         System.out.println(System.getProperty("os.name"));
@@ -53,7 +54,13 @@ public class Backup {
     public static void main(String[] args) {
 
         try {
-            backup(new File("..").getCanonicalPath());
+            
+            JFileChooser f = new JFileChooser();
+            f.show();
+
+            File diretorio = f.getSelectedFile();
+
+            backup(diretorio.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
