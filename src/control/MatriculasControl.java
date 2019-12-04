@@ -21,6 +21,7 @@ import util.DaoException;
 import view.CadastroSucesso;
 import view.Erro;
 import view.Matriculas;
+import view.MensalidadeTela;
 import view.NovaMatricula;
 import view.TelaPrincipal;
 
@@ -106,6 +107,23 @@ public class MatriculasControl implements ActionListener {
             });
 
         }
+        if (e.getSource() == tl.getBtMensalidade()) {
+
+            int row = tl.getTabela().getSelectedRow();
+            int id = Integer.parseInt(tl.getTabela().getValueAt(row, 0) + "");
+
+            MensalidadeTela nTl = new MensalidadeTela(tlp, id);
+            tlp.getInternoFrame().add(nTl);
+            nTl.show();
+
+            tl.dispose();
+
+//            try {
+//                m = mDAO.search(id);
+//            } catch (DaoException ex) {
+//                Logger.getLogger(AlunosControl.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+        }
         if (e.getSource() == tl.getBtAtt()) {
             popularTabelaView();
         }
@@ -126,13 +144,15 @@ public class MatriculasControl implements ActionListener {
         model.addColumn("ID");
         model.addColumn("Aluno");
         model.addColumn("Turma");
+        model.addColumn("Status");
 
         try {
             for (MatriculasView m : mDAO.getMatriculas()) {
                 model.addRow(new Object[]{
                     m.getMatri_id(),
                     m.getAluno_nome(),
-                    m.getTurma_nome()
+                    m.getTurma_nome(),
+                    m.getStatus()
 
                 });
 

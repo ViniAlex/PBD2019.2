@@ -1,5 +1,6 @@
 ﻿CREATE OR REPLACE VIEW matriculas AS
-SELECT m.id AS matri_id,	
+SELECT m.id AS matri_id,
+m.status AS status_matricula,	
 	a.nome AS aluno_nome,
 	t.nome AS turma_nome	
 FROM matricula m, aluno a, turma t

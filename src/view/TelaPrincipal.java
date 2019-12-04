@@ -5,7 +5,12 @@
  */
 package view;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -167,6 +172,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuAcPedagogo = new javax.swing.JMenu();
         imListarAcPed = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         menuSetings = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -391,7 +398,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         menuReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/report.png"))); // NOI18N
         menuReport.setText("Relatorios");
+        menuReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReportActionPerformed(evt);
+            }
+        });
+
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/jornal.png"))); // NOI18N
+        jMenuItem7.setText("Abrir Relatório");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        menuReport.add(jMenuItem7);
+
         jMenuBar1.add(menuReport);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/saco-de-dinheiro-com-o-simbolo-do-dolar.png"))); // NOI18N
+        jMenu1.setText("Financeiro");
+        jMenuBar1.add(jMenu1);
 
         menuSetings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/settings-gears.png"))); // NOI18N
         menuSetings.setText("Configurações");
@@ -532,6 +558,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         bck.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void menuReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReportActionPerformed
+
+
+    }//GEN-LAST:event_menuReportActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        AbrirReport slF = new AbrirReport(this);
+        internoFrame.add(slF);
+        //slF.show();
+
+        int valor = slF.getjFileChooser1().showOpenDialog(this);
+
+        if (valor == JFileChooser.APPROVE_OPTION) {
+            System.out.println("view.TelaPrincipal.jMenuItem7ActionPerformed()");
+
+            File diretorio = slF.getjFileChooser1().getSelectedFile();
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();           
+            
+            
+            try {
+                desktop.open(diretorio);
+            } catch (IOException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+
+                Process p = Runtime.getRuntime().exec("cmd.exe /C " + diretorio);
+                System.out.println("cmd.exe /C " + diretorio);
+            } catch (IOException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     public JMenu getMenuAcPedagogo() {
         return menuAcPedagogo;
     }
@@ -592,7 +654,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
     }
      */
-
     public JDesktopPane getInternoFrame() {
         return internoFrame;
     }
@@ -622,6 +683,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemListarPessoas;
     private javax.swing.JMenuItem itemTurmas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -629,6 +691,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu menuAcPedagogo;

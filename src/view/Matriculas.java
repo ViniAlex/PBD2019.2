@@ -27,6 +27,16 @@ public class Matriculas extends javax.swing.JInternalFrame {
         btVoltar.addActionListener(c);
         verDados.addActionListener(c);
         btAtt.addActionListener(c);
+        btMensalidade.addActionListener(c);
+    }
+
+    public JButton getBtMensalidade() {
+        return btMensalidade;
+    }
+    
+
+    public void setBtMensalidade(JButton btMensalidade) {
+        this.btMensalidade = btMensalidade;
     }
 
     public JButton getBtAtt() {
@@ -96,6 +106,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         btAtt = new javax.swing.JButton();
+        btMensalidade = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -207,6 +218,9 @@ public class Matriculas extends javax.swing.JInternalFrame {
 
         btAtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/refresh-button.png"))); // NOI18N
 
+        btMensalidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/saco-de-dinheiro-com-o-simbolo-do-dolar.png"))); // NOI18N
+        btMensalidade.setText("Pagar Mensalidade");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -219,6 +233,8 @@ public class Matriculas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btAtt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btMensalidade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(verDados, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -235,7 +251,8 @@ public class Matriculas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verDados)
                     .addComponent(btVoltar)
-                    .addComponent(btAtt))
+                    .addComponent(btAtt)
+                    .addComponent(btMensalidade))
                 .addContainerGap())
         );
 
@@ -277,6 +294,7 @@ public class Matriculas extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAtt;
     private javax.swing.JButton btBusca;
+    private javax.swing.JButton btMensalidade;
     private javax.swing.JButton btVoltar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

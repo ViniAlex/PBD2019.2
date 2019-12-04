@@ -50,6 +50,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btAtt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btMensalidade" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="verDados" min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
@@ -71,6 +73,7 @@
                       <Component id="verDados" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btAtt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btMensalidade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -222,6 +225,14 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/view/imagens/refresh-button.png"/>
             </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btMensalidade">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/view/imagens/saco-de-dinheiro-com-o-simbolo-do-dolar.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Pagar Mensalidade"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -17,15 +17,19 @@ import com.lowagie.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import model.beans.Media;
 import model.daos.MediaDAO;
 import util.DaoException;
+import view.CadastroSucesso;
 import view.EmitirBoletim;
+import view.SalvarForm;
 import view.TelaPrincipal;
 
 /**
@@ -58,7 +62,20 @@ public class EmitirBoletimControle implements ActionListener {
 
         if (e.getSource() == tl.getBtBoletim()) {
 
-            gerarRelatorio(nomeAluno);
+            SalvarForm slF = new SalvarForm();
+            tlP.getInternoFrame().add(slF);
+
+            int valor = slF.getjFileChooser1().showOpenDialog(tlP);
+
+            if (valor == JFileChooser.APPROVE_OPTION) {
+
+                File diretorio = slF.getjFileChooser1().getSelectedFile();
+                System.out.println(diretorio);
+                gerarRelatorio(nomeAluno, diretorio);
+                telaSucessoRelatorio();
+                //tl.getTxtDir().setText(diretorio.toString());
+            }
+
         }
         if (e.getSource() == tl.getBtVoltar()) {
             tl.dispose();
@@ -110,14 +127,23 @@ public class EmitirBoletimControle implements ActionListener {
 
     }
 
-    public void gerarRelatorio(String nome) {
+    public void telaSucessoRelatorio() {
+
+        CadastroSucesso sucesso = new CadastroSucesso();
+        sucesso.show();
+        sucesso.getMsg().setText("Relatório realizado com sucesso");
+
+    }
+
+    public void gerarRelatorio(String nome, File diretorio) {
 
         Document doc = new Document();
 
         m = buscaMediaNome(nome);
 
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Vinícius\\Desktop\\2019.2\\PBD 2019.2\\ARGUS\\src\\relatorios\\boletim " + nomeAluno + ".pdf"));
+            //PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Vinícius\\Desktop\\2019.2\\PBD 2019.2\\ARGUS\\src\\relatorios\\boletim " + nomeAluno + ".pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream(diretorio + nomeAluno + ".pdf"));
 
             doc.open();
             doc.setPageSize(PageSize.A4);
@@ -125,7 +151,7 @@ public class EmitirBoletimControle implements ActionListener {
             doc.addTitle("Boletim");
             //doc.add(new Paragraph("Aluno: " + m.getAluno().getNome()));
             //doc.add(new Paragraph("Turma: " + m.getAluno().getTurma().getNome()));
-           
+
             PdfPTable tabela = new PdfPTable(5);
 
             PdfPCell cabecalho1 = new PdfPCell(new Paragraph("Aluno: " + m.getAluno().getNome()));
@@ -135,11 +161,11 @@ public class EmitirBoletimControle implements ActionListener {
             cabecalho2.setHorizontalAlignment(Element.ALIGN_LEFT);
             cabecalho1.setHorizontalAlignment(Element.ALIGN_LEFT);
             cabecalho.setHorizontalAlignment(Element.ALIGN_CENTER);
-            
+
             cabecalho1.setColspan(5);
             cabecalho2.setColspan(5);
             cabecalho.setColspan(5);
-            
+
             tabela.addCell(cabecalho1);
             tabela.addCell(cabecalho2);
             tabela.addCell(cabecalho);

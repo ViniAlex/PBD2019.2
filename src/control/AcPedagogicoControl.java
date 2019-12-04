@@ -12,6 +12,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.IIOException;
+import javax.swing.JFileChooser;
 import model.beans.Aluno;
 import model.beans.Pessoa;
 import model.daos.AcPedagogicoDAO;
@@ -30,6 +32,7 @@ import model.beans.AcPedagogico;
 import view.CadastroSucesso;
 import view.Erro;
 import view.NovoAcPedagogico;
+import view.SalvarForm;
 import view.TelaPrincipal;
 
 /**
@@ -102,7 +105,7 @@ public class AcPedagogicoControl implements ActionListener {
                 AcpDAO.create(acP);
                 telaSucesso();
                 tl.dispose();
-                
+
             } catch (DaoException ex) {
                 telaErro();
                 Logger.getLogger(PessoaControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,8 +113,20 @@ public class AcPedagogicoControl implements ActionListener {
 
         }
         if (e.getSource() == tl.getBtRelatorio()) {
-            gerarRelatorio();
-            telaSucessoRelatorio();
+
+            SalvarForm slF = new SalvarForm();
+            tlP.getInternoFrame().add(slF);
+
+            int valor = slF.getjFileChooser1().showOpenDialog(tlP);
+
+            if (valor == JFileChooser.APPROVE_OPTION) {
+
+                File diretorio = slF.getjFileChooser1().getSelectedFile();
+                System.out.println(diretorio);
+                gerarRelatorio(diretorio);
+                telaSucessoRelatorio();
+                //tl.getTxtDir().setText(diretorio.toString());
+            }
 
         }
         if (e.getSource() == tl.getBtReturn()) {
@@ -120,12 +135,13 @@ public class AcPedagogicoControl implements ActionListener {
 
     }
 
-    public void gerarRelatorio() {
+    public void gerarRelatorio(File diretorio) {
 
         Document doc = new Document();
 
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Vinícius\\Desktop\\2019.2\\PBD 2019.2\\ARGUS\\src\\relatorios\\r" + tl.getTxtAluno().getText() + ".pdf"));
+            //PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\Vinícius\\Desktop\\2019.2\\PBD 2019.2\\ARGUS\\src\\relatorios\\r" + tl.getTxtAluno().getText() + ".pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream(diretorio + tl.getTxtAluno().getText() + ".pdf"));
 
             doc.open();
 

@@ -19,12 +19,7 @@ import org.hibernate.annotations.Subselect;
  */
 @Entity
 @Immutable
-@Subselect("SELECT m.id AS matri_id,	\n"
-        + "	a.nome AS aluno_nome,\n"
-        + "	t.nome AS turma_nome	\n"
-        + "FROM matricula m, aluno a, turma t\n"
-        + "WHERE a.id = m.aluno_id\n"
-        + "AND t.id = m.turma_id")
+@Subselect("SELECT m.id AS matri_id,    m.status AS status_matricula,    a.nome AS aluno_nome,    t.nome AS turma_nome    FROM matricula m,    aluno a,    turma t  WHERE a.id = m.aluno_id AND t.id = m.turma_id")
 public class MatriculasView implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,6 +34,17 @@ public class MatriculasView implements Serializable {
 
     @Column(length = 100)
     private String turma_nome;
+
+    @Column(length = 100)
+    private String status_matricula;
+
+    public String getStatus() {
+        return status_matricula;
+    }
+
+    public void setStatus(String status) {
+        this.status_matricula = status;
+    }
 
     public int getMatri_id() {
         return matri_id;
