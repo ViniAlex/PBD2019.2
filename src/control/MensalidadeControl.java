@@ -97,6 +97,7 @@ public class MensalidadeControl implements ActionListener {
 
             try {
                 fDAO.update(fin);
+                fDAO.atualizarStatusFinanceiro();
                 telaSucesso();
                 tl.dispose();
             } catch (DaoException ex) {
@@ -149,7 +150,7 @@ public class MensalidadeControl implements ActionListener {
 
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(diretorio + tl.getTxtAluno().getText() + ".pdf"));
-           
+
             doc.open();
             doc.setPageSize(PageSize.A4);
 
@@ -167,7 +168,6 @@ public class MensalidadeControl implements ActionListener {
 
             doc.add(new Paragraph("Valor recebido: " + tl.getTxtVaPg().getText()));
 
-            
         } catch (FileNotFoundException | DocumentException ex) {
             Logger.getLogger(AcPedagogicoControl.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

@@ -251,14 +251,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/view/imagens/saco-de-dinheiro-com-o-simbolo-do-dolar.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Financeiro"/>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="menuSetings">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

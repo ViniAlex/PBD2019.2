@@ -20,6 +20,21 @@ public class MatriculaDAO extends DAO<Matricula> {
         super(Matricula.class);
     }
 
+    public List<Matricula> getMatriculaAlunoTurma(String aluno, String turma) throws DaoException {
+
+        try {
+
+            return entityManager.createQuery("SELECT m FROM Matricula m WHERE m.aluno.nome like'" + aluno + "' and m.turma.nome like '"+turma+"'").getResultList();
+        } catch (NoResultException n) {
+            n.printStackTrace();
+            throw new DaoException("Nenhum " + classe.getSimpleName() + " Encontrado");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new DaoException("Erro ao Procurar " + classe.getSimpleName() + " - " + e.getMessage());
+        }
+
+    }
+
     public List<MatriculasView> getMatriculasNome(String nome) throws DaoException {
 
         try {
@@ -49,7 +64,5 @@ public class MatriculaDAO extends DAO<Matricula> {
         }
 
     }
-    
-  
 
 }

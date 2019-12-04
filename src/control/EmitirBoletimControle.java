@@ -24,7 +24,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
+import model.beans.Matricula;
 import model.beans.Media;
+import model.daos.MatriculaDAO;
 import model.daos.MediaDAO;
 import util.DaoException;
 import view.CadastroSucesso;
@@ -47,13 +49,21 @@ public class EmitirBoletimControle implements ActionListener {
     private String nomeAluno;
     private int id;
 
+    private MatriculaDAO matDAO;
+    private Matricula mat;
+
     public EmitirBoletimControle(EmitirBoletim tl, TelaPrincipal tlP, String nome) {
         this.tl = tl;
         this.tlP = tlP;
         this.nomeAluno = nome;
 
         mDAO = new MediaDAO();
+        matDAO = new MatriculaDAO();
         popularTabelaBusca(this.nomeAluno);
+
+        mat = buscaMatricula(buscaMediaNome(nome).getAluno().getNome(), buscaMediaNome(nome).getAluno().getTurma().getNome());
+        tl.getTxtSituaG().setText(mat.getStatus());
+
         //buscaMediaNome(nomeAluno);
     }
 
@@ -135,6 +145,18 @@ public class EmitirBoletimControle implements ActionListener {
 
     }
 
+    public Matricula buscaMatricula(String nomeAluno, String turma) {
+
+        try {
+            for (Matricula mat : matDAO.getMatriculaAlunoTurma(nomeAluno, turma)) {
+                return mat;
+            }
+        } catch (DaoException ex) {
+            Logger.getLogger(EmitirBoletimControle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public void gerarRelatorio(String nome, File diretorio) {
 
         Document doc = new Document();
@@ -157,14 +179,17 @@ public class EmitirBoletimControle implements ActionListener {
             PdfPCell cabecalho1 = new PdfPCell(new Paragraph("Aluno: " + m.getAluno().getNome()));
             PdfPCell cabecalho2 = new PdfPCell(new Paragraph("Turma: " + m.getAluno().getTurma().getNome()));
             PdfPCell cabecalho = new PdfPCell(new Paragraph("BOLETIM"));
+            PdfPCell cabecalho3 = new PdfPCell(new Paragraph("Situação Geral: " + tl.getTxtSituaG().getText()));
 
             cabecalho2.setHorizontalAlignment(Element.ALIGN_LEFT);
             cabecalho1.setHorizontalAlignment(Element.ALIGN_LEFT);
             cabecalho.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cabecalho3.setHorizontalAlignment(Element.ALIGN_LEFT);
 
             cabecalho1.setColspan(5);
             cabecalho2.setColspan(5);
             cabecalho.setColspan(5);
+            cabecalho3.setColspan(5);
 
             tabela.addCell(cabecalho1);
             tabela.addCell(cabecalho2);
@@ -185,15 +210,21 @@ public class EmitirBoletimControle implements ActionListener {
 
                 }
             } catch (DaoException ex) {
-                Logger.getLogger(EmitirBoletimControle.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EmitirBoletimControle.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
-
+            tabela.addCell(cabecalho3);
             doc.add(tabela);
 
+            //doc.add(cabecalho3);
+
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(AcPedagogicoControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AcPedagogicoControl.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
         } catch (DocumentException ex) {
-            Logger.getLogger(AcPedagogicoControl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AcPedagogicoControl.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } finally {
             doc.close();
         }

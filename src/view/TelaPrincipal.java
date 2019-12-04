@@ -173,7 +173,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         imListarAcPed = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
         menuSetings = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -414,10 +413,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuReport.add(jMenuItem7);
 
         jMenuBar1.add(menuReport);
-
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/saco-de-dinheiro-com-o-simbolo-do-dolar.png"))); // NOI18N
-        jMenu1.setText("Financeiro");
-        jMenuBar1.add(jMenu1);
 
         menuSetings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/settings-gears.png"))); // NOI18N
         menuSetings.setText("Configurações");
@@ -683,7 +678,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemListarPessoas;
     private javax.swing.JMenuItem itemTurmas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

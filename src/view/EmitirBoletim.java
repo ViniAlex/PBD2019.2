@@ -8,6 +8,7 @@ package view;
 import control.EmitirBoletimControle;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -27,6 +28,16 @@ public class EmitirBoletim extends javax.swing.JInternalFrame {
         btVoltar.addActionListener(c);
         
     }
+
+    public JTextField getTxtSituaG() {
+        return txtSituaG;
+    }
+
+    public void setTxtSituaG(JTextField txtSituaG) {
+        this.txtSituaG = txtSituaG;
+    }
+    
+    
 
     public JButton getBtBoletim() {
         return btBoletim;
@@ -67,10 +78,12 @@ public class EmitirBoletim extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaNotas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtSituaG = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
         btBoletim = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -98,20 +111,32 @@ public class EmitirBoletim extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tabelaNotas);
 
+        jLabel1.setText("Situação Geral:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSituaG)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtSituaG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/back-arrow.png"))); // NOI18N
@@ -174,9 +199,11 @@ public class EmitirBoletim extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBoletim;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaNotas;
+    private javax.swing.JTextField txtSituaG;
     // End of variables declaration//GEN-END:variables
 }

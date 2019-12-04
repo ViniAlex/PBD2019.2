@@ -64,10 +64,13 @@ public class TurmasControl implements ActionListener {
 
             int row = tl.getTabelaAlunos().getSelectedRow();
             String nome = (tl.getTabelaAlunos().getValueAt(row, 1) + "");
+            //String status = (tl.getTabelaAlunos().getValueAt(row, 1) + "");
 
             EmitirBoletim emB = new EmitirBoletim(tlP, nome);
             tlP.getInternoFrame().add(emB);
             emB.show();
+            //emB.getTxtSituaG().setText(status);
+            emB.getTxtSituaG().setEditable(false);
 
             tl.dispose();
 
